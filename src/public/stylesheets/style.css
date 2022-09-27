@@ -1,10 +1,13 @@
 :root {
-  --main-bg-color: #FFE3B3;
-
+  --main-bg-color: #fff2da;
+  --color-1: #FFE3B3;
+  --color-2: #FFC172;
+  --color-3: #63CCA7;
+  --color-4: #26769E;
 }
 
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 body {
@@ -12,7 +15,7 @@ body {
 }
 
 main {
-  padding: 50px;
+  padding: 6px;
 }
 
 a {
@@ -32,7 +35,20 @@ p {
 }
 
 nav {
-  background-color: #FFC172;
+  background-color: var(--main-bg-color);
+}
+
+.w-logo {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  color: #26798E;
+  font-size: 32px;
+  text-decoration: none;
+}
+
+.logo-register-group {
+  margin-top: 24px;
+  text-align: center;
 }
 
 .form-group {
@@ -44,15 +60,26 @@ nav {
 .window {
   width: 300px;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 7px;
   padding: 0 24px;
-  padding-bottom: 24px;
-  padding-top: 12px;
+  padding-bottom: 32px;
+  padding-top: 24px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 }
 
 .window .w-element {
-  margin: 5px;
+  margin: 5px 0;
+}
+
+.window input {
+  border: 1px solid var(--color-4);
+  border-radius: 3px;
+}
+
+.continue-btn {
+  border: 1px solid var(--color-2);
+  border-radius: 3px;
+  background-color: var(--color-1);
 }
