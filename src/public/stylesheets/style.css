@@ -1,8 +1,36 @@
+:root {
+  --main-bg-color: #FFE3B3;
+
+}
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: var(--main-bg-color);
 }
 
 a {
   color: #00B7FF;
+}
+
+h1 {
+  font-size: 21px;
+}
+
+.window {
+  background-color: white;
+  border-radius: 5px;
+  padding: 0 24px;
+  padding-bottom: 24px;
+  padding-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.window .w-element {
+  margin: 5px;
 }
