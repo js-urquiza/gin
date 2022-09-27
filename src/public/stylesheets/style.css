@@ -8,8 +8,11 @@
 }
 
 body {
-  padding: 50px;
   background-color: var(--main-bg-color);
+}
+
+main {
+  padding: 50px;
 }
 
 a {
@@ -20,7 +23,26 @@ h1 {
   font-size: 21px;
 }
 
+h2 {
+  font-size: 18px;
+}
+
+p {
+  font-size: 16px;
+}
+
+nav {
+  background-color: #FFC172;
+}
+
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .window {
+  width: 300px;
   background-color: white;
   border-radius: 5px;
   padding: 0 24px;
