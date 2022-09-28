@@ -38,6 +38,52 @@ nav {
   background-color: var(--main-bg-color);
 }
 
+/* ---Navbar--- */
+
+.navbar-group {
+  margin: 0 16px;
+}
+
+.nav-toggler-btn {
+  border: none;
+  padding: 0;
+}
+
+/* Fin de Navbar */
+
+/* --- Landing page --- */
+
+.catch-phrase {
+  margin: 16px 32px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.hero-p {
+  margin: 16px 64px;
+  text-align: center;
+}
+
+.lp-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.getStarted-btn {
+  background-color: var(--color-2);
+  color: black;
+  border: none;
+  border-radius: 3px;
+  padding: 6px 12px;
+  font-weight: bold;
+}
+
+/* Fin de landing page --- */
+
+/* Register */
+
 .w-logo {
   font-family: 'Open Sans', sans-serif;
   font-weight: bold;
@@ -48,6 +94,7 @@ nav {
 
 .logo-register-group {
   margin-top: 24px;
+  margin-bottom: 32px;
   text-align: center;
 }
 
@@ -83,3 +130,5 @@ nav {
   border-radius: 3px;
   background-color: var(--color-1);
 }
+
+/* Fin del Register */
