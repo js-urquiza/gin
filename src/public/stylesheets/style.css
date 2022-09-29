@@ -49,6 +49,25 @@ nav {
   padding: 0;
 }
 
+.nav-login-btn {
+  color: black;
+  border: 1px solid var(--color-4);
+  border-radius: 3px;
+  font-weight: bold;
+  text-align: center;
+  margin: 3px 0;
+}
+
+.nav-register-btn {
+  background-color: var(--color-2);
+  color: black;
+  border: none;
+  border-radius: 3px;
+  font-weight: bold;
+  text-align: center;
+  margin: 3px 0;
+}
+
 /* Fin de Navbar */
 
 /* --- Landing page --- */
