@@ -1,5 +1,9 @@
 module.exports = {
-    showRegister: function (req, res) {
+    showRegister: function(req, res) {
         res.render('register', {title: 'Registro'});
+    },
+
+    showLogin: function(req, res) {
+        res.render('login', {title: 'Iniciar sesión'})
     }
 }
