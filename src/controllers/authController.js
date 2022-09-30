@@ -5,5 +5,9 @@ module.exports = {
 
     showLogin: function(req, res) {
         res.render('login', {title: 'Iniciar sesión'})
+    },
+
+    emailVerification: function(req, res) {
+        res.send('Funciona');
     }
 }
