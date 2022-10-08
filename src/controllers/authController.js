@@ -1,3 +1,6 @@
+const db = require('../database/models');
+const bcrypt = require('bcryptjs');
+
 module.exports = {
     showRegister: function(req, res) {
         res.render('register', {title: 'Registro'});
@@ -7,8 +10,32 @@ module.exports = {
         res.render('login', {title: 'Iniciar sesión'})
     },
 
-    register: function (req, res) {
+    register: async function (req, res) {
         
+        let userInDb = await db.Users.findOne({
+            where: {
+                email: req.body.email
+            }
+        })
+
+        if (userInDb) {
+            return res.render('register', {
+                errors: {
+                    email: {
+                        msg: 'Este email ya se encuentra registrado.'
+                    }
+                },
+                oldData: req.body
+            });
+        } else {
+            await db.Users.create({
+                ...req.body,
+                category: 'normalUser',
+                password: bcrypt.hashSync(req.body.password, 10),
+                profilePhoto: req.file ? req.file.fileName : 'defaultUser.png'
+            })
+            res.send('Registrado con éxito');
+        }
     },
 
     emailVerification: function(req, res) {

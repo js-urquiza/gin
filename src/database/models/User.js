@@ -27,7 +27,7 @@ module.exports = function (sequelize, dataTypes) {
         birthDate: {
             type: dataTypes.DATE
         },
-        profilPhoto: {
+        profilePhoto: {
             type: dataTypes.STRING
         },
         adress: {
