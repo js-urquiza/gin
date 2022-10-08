@@ -49,7 +49,7 @@ module.exports = {
                 password: bcrypt.hashSync(req.body.password, 10),
                 profilePhoto: req.file ? req.file.fileName : 'defaultUser.png'
             })
-            res.send('Registrado con éxito');
+            res.redirect('/login');
         }
     },
 

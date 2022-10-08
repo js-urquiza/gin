@@ -10,6 +10,9 @@
           <% let nombre = locals.loggedUser.name %> 
           <% let mensaje = 'Bienvenido ' %> 
           <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/profile"><%= mensaje.concat(' ', nombre) %></a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/dashboard">Inicio</a>
           </li>
           <li class="nav-item">
