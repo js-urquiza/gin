@@ -8,6 +8,12 @@ const userRegisterValidation = require('../middlewares/validationRegister');
 
 router.get('/register', authController.showRegister);
 router.post('/register', fileUpload.single('profilePhoto'), userRegisterValidation, authController.register);
+
 router.get('/login', authController.showLogin);
+router.post('/login', authController.login);
+
+router.get('/dashboard', authController.showDashboard);
+
+router.get('/logout', authController.logout);
 
 module.exports = router;

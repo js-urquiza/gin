@@ -11,6 +11,10 @@ module.exports = {
         res.render('login', {title: 'Iniciar sesión'})
     },
 
+    showDashboard: function(req, res) {
+        res.render('dashboard', {title: 'Dashboard'});
+    },
+
     register: async function (req, res) {
         
         let resultValidation = validationResult(req);
@@ -47,6 +51,46 @@ module.exports = {
             })
             res.send('Registrado con éxito');
         }
+    },
+
+    login: async function(req, res) {
+        
+        let userToLogin = await db.Users.findOne({
+            where: {
+                email: req.body.email
+            }
+        })
+
+        console.log(userToLogin);
+
+        if (userToLogin) {
+            let passwordIsOk = bcrypt.compareSync(req.body.password, userToLogin.password);
+            if (passwordIsOk) {
+                req.session.loggedUser = userToLogin;
+                res.redirect('/dashboard');
+                return;
+            }
+            return res.render("login", {
+              errors: {
+                email: {
+                  msg: "Las credenciales son inválidas",
+                },
+              },
+            });
+        }
+        return res.render('login', {
+            errors: {
+                email: {
+                    msg: 'Las credenciales son inválidas'
+                }
+            }
+        })
+
+    },
+
+    logout: function(req, res) {
+        req.session.destroy();
+        return res.redirect('/');
     },
 
     emailVerification: function(req, res) {
