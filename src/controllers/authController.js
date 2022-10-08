@@ -7,6 +7,10 @@ module.exports = {
         res.render('login', {title: 'Iniciar sesión'})
     },
 
+    register: function (req, res) {
+        
+    },
+
     emailVerification: function(req, res) {
         res.send('Funciona');
     }
