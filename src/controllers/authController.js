@@ -1,3 +1,4 @@
+const { validationResult } = require('express-validator');
 const db = require('../database/models');
 const bcrypt = require('bcryptjs');
 
@@ -11,6 +12,16 @@ module.exports = {
     },
 
     register: async function (req, res) {
+        
+        let resultValidation = validationResult(req);
+
+        if (!resultValidation.isEmpty()) {
+            return res.render('register', {
+                title: 'Registro',
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            })
+        }
         
         let userInDb = await db.Users.findOne({
             where: {

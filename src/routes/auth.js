@@ -4,9 +4,10 @@ const router = express.Router();
 const authController = require('../controllers/authController');
 
 const fileUpload = require('../middlewares/multerUsersRegister');
+const userRegisterValidation = require('../middlewares/validationRegister');
 
 router.get('/register', authController.showRegister);
-router.post('/register', fileUpload.single('profilePhoto'), authController.register);
+router.post('/register', fileUpload.single('profilePhoto'), userRegisterValidation, authController.register);
 router.get('/login', authController.showLogin);
 
 module.exports = router;

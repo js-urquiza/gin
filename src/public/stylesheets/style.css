@@ -145,6 +145,7 @@ nav {
 }
 
 .continue-btn {
+  margin-top: 10px;
   border: 1px solid var(--color-2);
   border-radius: 3px;
   background-color: var(--color-1);
