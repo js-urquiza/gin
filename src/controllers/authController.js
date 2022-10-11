@@ -71,19 +71,13 @@ module.exports = {
                 return;
             }
             return res.render("login", {
-              errors: {
-                email: {
-                  msg: "Las credenciales son inválidas",
-                },
-              },
+              error: 'Credenciales inválidas',
+              title: 'Iniciar sesión'
             });
         }
         return res.render('login', {
-            errors: {
-                email: {
-                    msg: 'Las credenciales son inválidas'
-                }
-            }
+            error: 'Credenciales inválidas',
+            title: 'Iniciar sesión'
         })
 
     },
