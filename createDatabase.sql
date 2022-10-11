@@ -3,14 +3,14 @@ CREATE DATABASE  IF NOT EXISTS `rentalis_db`;
 USE `rentalis_db`;
 
 CREATE TABLE `users` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(64) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
-  `category` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  `category` VARCHAR(45) NULL,
   `name` VARCHAR(255) NULL,
   `lastName` VARCHAR(255) NULL,
   `birthDate` DATE NULL,
-  `profilPhoto` VARCHAR(500) NULL,
+  `profilePhoto` VARCHAR(500) NULL,
   `adress` VARCHAR(255) NULL,
   `city` VARCHAR(45) NULL,
   `province` VARCHAR(45) NULL,
@@ -24,7 +24,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`));
   
   CREATE TABLE `landlords` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `userId` INT NOT NULL,
   `alsoHandledByUser` INT NULL,
   `email` VARCHAR(64) NULL,
@@ -32,7 +32,7 @@ CREATE TABLE `users` (
   `name` VARCHAR(255) NOT NULL,
   `lastName` VARCHAR(255) NULL,
   `birthDate` DATE NULL,
-  `profilPhoto` VARCHAR(500) NULL,
+  `profilePhoto` VARCHAR(500) NULL,
   `adress` VARCHAR(500) NULL,
   `city` VARCHAR(45) NULL,
   `province` VARCHAR(45) NULL,
@@ -45,14 +45,14 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`));
   
   CREATE TABLE `tenants` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `landlordId` INT NOT NULL,
   `email` VARCHAR(64) NULL,
   `category` VARCHAR(45) NULL,
   `name` VARCHAR(255) NOT NULL,
   `lastName` VARCHAR(255) NULL,
   `birthDate` DATE NULL,
-  `profilPhoto` VARCHAR(500) NULL,
+  `profilePhoto` VARCHAR(500) NULL,
   `adress` VARCHAR(500) NULL,
   `city` VARCHAR(45) NULL,
   `province` VARCHAR(45) NULL,
@@ -65,7 +65,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`));
 
 CREATE TABLE `contracts` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `landlordId` INT NOT NULL,
   `tenantId` INT NOT NULL,
   `propertyId` INT NOT NULL,
@@ -84,7 +84,7 @@ CREATE TABLE `contracts` (
   PRIMARY KEY (`id`));
 
 CREATE TABLE `rents` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `contractId` INT NOT NULL,
   `dueDate` DATE NOT NULL,
   `amount` DECIMAL(10,2) NULL,
@@ -94,7 +94,7 @@ CREATE TABLE `rents` (
   PRIMARY KEY (`id`));
 
 CREATE TABLE `expenses` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `contractId` INT NOT NULL,
   `name` VARCHAR(64) NULL,
   `dueDate` DATE NULL,
@@ -106,7 +106,7 @@ CREATE TABLE `expenses` (
   PRIMARY KEY (`id`));
 
 CREATE TABLE `payments` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `contractId` INT NOT NULL,
   `paymentDate` DATE NULL,
   `paymentMethod` VARCHAR(64) NULL,
@@ -118,7 +118,7 @@ CREATE TABLE `payments` (
   PRIMARY KEY (`id`));
 
 CREATE TABLE `properties` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `landlordId` INT NOT NULL,
   `adress` VARCHAR(255) NOT NULL,
   `city` VARCHAR(45) NULL,
@@ -131,7 +131,7 @@ CREATE TABLE `properties` (
   PRIMARY KEY (`id`));
 
 CREATE TABLE `tasks` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `propertyId` INT NOT NULL,
   `handledBy` INT NULL,
   `title` VARCHAR(45) NOT NULL,
