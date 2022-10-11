@@ -6,11 +6,25 @@
   <body>
     <%- include('./partials/navbar') %>
     <main>
-      <h1 class="catch-phrase">Contratos</h1>
-      <p class="hero-p">Elije una acción</p>
-      <form class="lp-btn-group" action="/register" method="GET">
-        <button class="getStarted-btn" type="submit">Empecemos</button>
-      </form>
+      <h1>Hola, <%= locals.loggedUser.name %>!</h1>
+      <div class="dash-menu">
+        <a class="dash-menu-item" href="">
+          <i class="fa-solid fa-users"></i>
+          Propietarios
+        </a>
+        <a class="dash-menu-item" href="">
+          <i class="fa-solid fa-building"></i>
+          Propiedades
+        </a>
+        <a class="dash-menu-item" href="">
+          <i class="fa-solid fa-users-between-lines"></i>
+          Inquilinos
+        </a>
+        <a class="dash-menu-item" href="">
+          <i class="fa-regular fa-file-lines"></i>
+          Contratos
+        </a>
+      </div>
     </main>
     <footer>
 

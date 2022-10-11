@@ -4,6 +4,7 @@
   --color-2: #FFC172;
   --color-3: #63CCA7;
   --color-4: #26769E;
+  --color-5: black;
 }
 
 * {
@@ -177,3 +178,29 @@ nav {
 }
 
 /* Fin del Register */
+
+/* Dashboard */
+
+.dash-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.dash-menu-item {
+  width: 48%;
+  margin: 3px;
+  padding: 6px;
+  border: 1px solid var(--color-4);
+  border-radius: 3px;
+  color: var(--color-5);
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Fin del Dashboard */
