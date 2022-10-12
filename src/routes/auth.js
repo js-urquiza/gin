@@ -12,8 +12,8 @@ router.post('/register', fileUpload.single('profilePhoto'), userRegisterValidati
 router.get('/login', authController.showLogin);
 router.post('/login', authController.login);
 
-router.get('/dashboard', authController.showDashboard);
-
 router.get('/logout', authController.logout);
+
+router.get('/dashboard', authController.showDashboard);
 
 module.exports = router;

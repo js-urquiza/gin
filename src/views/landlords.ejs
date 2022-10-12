@@ -6,24 +6,14 @@
   <body>
     <%- include('./partials/navbar') %>
     <main>
-      <h1>Hola, <%= locals.loggedUser.name %>!</h1>
-      <div class="dash-menu">
-        <a class="dash-menu-item" href="/landlords">
-          <i class="fa-solid fa-users"></i>
-          Propietarios
-        </a>
-        <a class="dash-menu-item" href="">
-          <i class="fa-solid fa-building"></i>
-          Propiedades
-        </a>
-        <a class="dash-menu-item" href="">
-          <i class="fa-solid fa-users-between-lines"></i>
-          Inquilinos
-        </a>
-        <a class="dash-menu-item" href="">
-          <i class="fa-regular fa-file-lines"></i>
-          Contratos
-        </a>
+      <h1>Propietarios</h1>
+      <% if (propietarios == '') {%> 
+        <a href="/dashboard">Administrar propiedades propias</a>
+      <% } %> 
+      <a href="/landlords/create">Crear nuevo propietario</a>
+
+      <div class="landlords-menu">
+        
       </div>
     </main>
     <footer>
