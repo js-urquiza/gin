@@ -7,14 +7,13 @@
     <%- include('./partials/navbar') %>
     <main>
       <h1>Propietarios</h1>
-      <% if (propietarios == '') {%> 
-        <a href="/dashboard">Administrar propiedades propias</a>
-      <% } %> 
-      <a href="/landlords/create">Crear nuevo propietario</a>
-
-      <div class="landlords-menu">
-        
+      <div class="landlord-btn-group">
+        <% if (propietarios == '') {%> 
+          <a class="landlord-btn" href="/landlords/createSelf">Soy propietario</a>
+        <% } %> 
+        <a class="landlord-btn" href="/landlords/create">Crear nuevo propietario</a>
       </div>
+
     </main>
     <footer>
 
