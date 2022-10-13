@@ -21,9 +21,19 @@ module.exports = {
         id: req.session.loggedUser.id
       }
     })
-
-    console.log(propietario);
     
     res.render('landlordsCreateSelf', {title: 'Nuevo propietario', propietario});
+  },
+
+  create: async function(req, res) {
+    
+    await db.Landlords.create({
+      ...req.body,
+      userId: req.session.loggedUser.id,
+      category: 'normalUser',
+      adress: req.body.streetName + ' Nº' + req.body.streetNumber
+    })
+
+    res.redirect('/landlords');
   }
 };

@@ -13,7 +13,18 @@
         <% } %> 
         <a class="landlord-btn" href="/landlords/create">Crear nuevo propietario</a>
       </div>
-
+      <h2>Lista</h2>
+      <% propietarios.forEach(propietario => { %> 
+        <div class="landlord-card">
+          <figure>
+            <img src="" alt="Foto">
+          </figure>
+          <p class="ll-card-item"><%= propietario.name + ' ' + propietario.lastName %></p>
+          <p class="ll-card-item"><%= propietario.email %></p>
+          <p class="ll-card-item"><%= propietario.phone %></p>
+          <a href="">Ver</a>
+        </div>
+      <% }) %> 
     </main>
     <footer>
 
