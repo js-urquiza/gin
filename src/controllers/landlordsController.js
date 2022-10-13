@@ -35,5 +35,24 @@ module.exports = {
     })
 
     res.redirect('/landlords');
+  },
+
+  showContracts: async function(req, res) {
+    let propietario = await db.Users.findOne({
+      where: {
+        id: req.session.loggedUser.id
+      }
+    });
+    
+    let contratos = await db.Contracts.findAll({
+      where: {
+        landlordId: propietario.id
+      }
+    });
+
+    if(contratos == '') {
+      res.send('Re contra funca');
+    }
+
   }
 };

@@ -55,9 +55,15 @@ module.exports = function (sequelize, dataTypes) {
   const Landlord = sequelize.define(alias, cols, config);
 
   Landlord.associate = function(models) {
+    
     Landlord.belongsTo(models.Users, {
         foreignKey: 'userId',
         as: 'user'
+    });
+
+    Landlord.hasMany(models.Contracts, {
+      foreignKey: 'landlordId',
+      as: 'landlord'
     })
   }
 
