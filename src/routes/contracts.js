@@ -5,4 +5,6 @@ const contractsController = require("../controllers/contractsController");
 
 router.get("/contracts", contractsController.list);
 
+
+
 module.exports = router;

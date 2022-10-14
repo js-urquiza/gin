@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 });
 /* Routers */
 router.use(authRouter);
-router.use(landlordsRouter);
-router.use(contractsRouter);
+router.use('/landlords', landlordsRouter);
+router.use('/contracts',contractsRouter);
 
 module.exports = router;

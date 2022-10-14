@@ -3,11 +3,11 @@ const router = express.Router();
 
 const landlordsController = require('../controllers/landlordsController');
 
-router.get('/landlords', landlordsController.list);
-router.get('/landlords/create', landlordsController.showCreate);
-router.post('/landlords/create', landlordsController.create);
-router.get('/landlords/createSelf', landlordsController.showCreateSelf);
+router.get('/', landlordsController.list);
+router.get('/create', landlordsController.showCreate);
+router.post('/create', landlordsController.create);
+router.get('/createSelf', landlordsController.showCreateSelf);
 
-router.get('/landlords/:id', landlordsController.showContracts);
+router.get('/dashboard/:landlordId', landlordsController.dashboard);
 
 module.exports = router;

@@ -37,22 +37,17 @@ module.exports = {
     res.redirect('/landlords');
   },
 
-  showContracts: async function(req, res) {
-    let propietario = await db.Users.findOne({
-      where: {
-        id: req.session.loggedUser.id
-      }
-    });
-    
-    let contratos = await db.Contracts.findAll({
-      where: {
-        landlordId: propietario.id
-      }
-    });
+  dashboard: async function(req, res) {
 
-    if(contratos == '') {
-      res.send('Re contra funca');
-    }
+    let propietario = await db.Landlords.findOne({
+      where: {
+        id: req.params.landlordId
+      }
+    })
+
+    req.session.landlordInUse = propietario;
+    
+    res.render('landlordDashboard', {title: 'Dashboard', propietario});
 
   }
 };
