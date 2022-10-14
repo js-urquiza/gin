@@ -45,7 +45,7 @@ module.exports = {
       }
     })
 
-    req.session.landlordInUse = propietario;
+    req.session.landlordIdInUse = propietario.id;
     
     res.render('landlordDashboard', {title: 'Dashboard', propietario});
 

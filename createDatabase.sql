@@ -120,7 +120,9 @@ CREATE TABLE `payments` (
 CREATE TABLE `properties` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `landlordId` INT NOT NULL,
-  `adress` VARCHAR(255) NOT NULL,
+  `streetName` VARCHAR(255) NOT NULL,
+  `streetNumber` VARCHAR(45) NULL,
+  `apartment` VARCHAR(45) NULL,
   `city` VARCHAR(45) NULL,
   `province` VARCHAR(45) NULL,
   `postalCode` VARCHAR(45) NULL,
