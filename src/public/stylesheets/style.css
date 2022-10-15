@@ -18,8 +18,7 @@ body {
 }
 
 main {
-  padding: 6px;
-
+  padding: 6px 18px;
 }
 
 a {
@@ -246,3 +245,28 @@ nav {
 }
 
 /* Fin de Landlords */
+
+/* Properties */
+
+.properties-card-group {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.property-card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg-color-light);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 10px 0px;
+}
+
+.p-card-item {
+  
+}
+
+/* Fin de Properties */

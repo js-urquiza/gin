@@ -11,6 +11,21 @@
       <div class="landlord-btn-group">
         <a class="landlord-btn" href="/properties/create">Nueva propiedad</a>
       </div>
+      <section class="properties-cards-group">
+        <% propiedades.forEach(propiedad => { %> 
+          <div class="property-card">
+            <label for="">
+              <img src="" alt="Foto">
+            </label>
+            <p class="p-card-item"><%= propiedad.streetName + ' ' + propiedad.streetNumber %></p>
+            <% if(propiedad.postalCode) { %> 
+              <p class="p-card-item"><%= propiedad.city + ', ' + propiedad.province + ' (' + propiedad.postalCode + ')' %></p>
+            <% } else { %> 
+              <p class="p-card-item"><%= propiedad.city + ', ' + propiedad.province %></p>
+            <% } %> 
+          </div>
+        <% }) %> 
+      </section>
     </main>
     <footer>
 

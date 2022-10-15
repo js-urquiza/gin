@@ -63,8 +63,14 @@ module.exports = function (sequelize, dataTypes) {
 
     Landlord.hasMany(models.Contracts, {
       foreignKey: 'landlordId',
-      as: 'landlord'
+      as: 'contracts'
+    });
+
+    Landlord.hasMany(models.Properties, {
+      foreignKey: 'landlordId',
+      as: 'properties'
     })
+    
   }
 
   return Landlord;

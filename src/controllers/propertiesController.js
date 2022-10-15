@@ -7,12 +7,27 @@ module.exports = {
             where: {
                 id: req.session.landlordIdInUse
             }
+        });
+
+        let propiedades = await db.Properties.findAll({
+            where: {
+                landlordId: req.session.landlordIdInUse
+            }
         })
         
-        res.render('propertiesForLandlord', {title: 'Propiedades', propietario});
+        res.render('propertiesForLandlord', {title: 'Propiedades', propietario, propiedades});
     },
 
-    create: function(req, res) {
+    showCreate: function(req, res) {
         res.render('propertiesCreate', {title: 'Nueva propiedad'});
+    },
+
+    create: async function(req, res) {
+        await db.Properties.create({
+            ...req.body,
+            landlordId: req.session.landlordIdInUse
+        });
+
+        res.redirect('/properties');
     }
 }
