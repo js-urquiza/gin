@@ -14,15 +14,20 @@
       <section class="properties-cards-group">
         <% propiedades.forEach(propiedad => { %> 
           <div class="property-card">
-            <label for="">
-              <img src="" alt="Foto">
-            </label>
-            <p class="p-card-item"><%= propiedad.streetName + ' ' + propiedad.streetNumber %></p>
-            <% if(propiedad.postalCode) { %> 
-              <p class="p-card-item"><%= propiedad.city + ', ' + propiedad.province + ' (' + propiedad.postalCode + ')' %></p>
-            <% } else { %> 
-              <p class="p-card-item"><%= propiedad.city + ', ' + propiedad.province %></p>
-            <% } %> 
+            <figure class="property-photo">
+              <img src="/images/propertiesPhoto/<%= propiedad.propertyPhoto %>" alt="Foto">
+            </figure>
+            <div>
+              <p class="p-card-item property-adress"><%= propiedad.streetName + ' ' + propiedad.streetNumber %></p>
+              <% if(propiedad.postalCode) { %> 
+                <p class="p-card-item property-city"><%= propiedad.city + ', ' + propiedad.province + ' (' + propiedad.postalCode + ')' %></p>
+              <% } else { %> 
+                <p class="p-card-item property-city"><%= propiedad.city + ', ' + propiedad.province %></p>
+              <% } %>
+            </div>
+            <div>
+              <a href="/properties/edit/<%= propiedad.id %>">Editar</a>
+            </div>
           </div>
         <% }) %> 
       </section>
@@ -34,3 +39,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
   </body>
 </html>
+
+<!--
+  --- Atribuciones---
+
+  Home button icons created by Kiranshastry - Flaticon
+-->

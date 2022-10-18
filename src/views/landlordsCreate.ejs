@@ -6,7 +6,7 @@
 <body>
     <%- include('./partials/navbar') %>
     <main class="form-group">
-        <form class="window" action="/landlords/create" method="POST">
+        <form class="window" action="/landlords/create" method="POST" enctype="multipart/form-data">
             <h1 class="">Nuevo propietario</h1>
             <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                 <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
@@ -39,6 +39,13 @@
             <input class="w-element" type="text" name="postalCode" id="postalCode" placeholder="Código postal" value='<%= locals.oldData && oldData.postalCode ? oldData.postalCode : null %>'>
             <input class="w-element" type="text" name="phone" id="phone" placeholder="Número de teléfono" value='<%= locals.oldData && oldData.phone ? oldData.phone : null %>'>
             <input class="w-element" type="text" name="whatsapp" id="whatsapp" placeholder="Número de whatsApp" value='<%= locals.oldData && oldData.whatsapp ? oldData.whatsapp : null %>'>
+            <label class="upload-photo" for="profilePhoto">
+                <span class="material-symbols-outlined upload-photo-icon">
+                    add_a_photo
+                </span>
+                Subir foto de perfil
+                <input class="w-element input-file" type="file" name="profilePhoto" id="profilePhoto">
+            </label>
             <button class="continue-btn" type="submit">Crear</button>
         </form>
     </main>

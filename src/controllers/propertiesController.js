@@ -24,8 +24,9 @@ module.exports = {
 
     create: async function(req, res) {
         await db.Properties.create({
-            ...req.body,
-            landlordId: req.session.landlordIdInUse
+          ...req.body,
+          landlordId: req.session.landlordIdInUse,
+          propertyPhoto: req.file ? req.file.filename : "defaultProperty.png"
         });
 
         res.redirect('/properties');

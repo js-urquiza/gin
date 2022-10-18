@@ -127,6 +127,7 @@ CREATE TABLE `properties` (
   `province` VARCHAR(45) NULL,
   `postalCode` VARCHAR(45) NULL,
   `type` VARCHAR(45) NULL,
+  `propertyPhoto` VARCHAR(500) NULL,
   `createdAt` DATETIME NULL,
   `updatedAt` DATETIME NULL,
   `deletedAt` DATETIME NULL,

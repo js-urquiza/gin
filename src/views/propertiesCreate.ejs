@@ -6,7 +6,7 @@
 <body>
     <%- include('./partials/navbar') %>
     <main class="form-group">
-        <form class="window" action="/properties/create" method="POST">
+        <form class="window" action="/properties/create" method="POST" enctype="multipart/form-data">
             <h1 class="">Nueva propiedad</h1>
             <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                 <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
@@ -36,6 +36,13 @@
                 <option value="">Vivienda familiar</option>
                 <option value="">Local comercial</option>
             </select>
+            <label class="upload-photo" for="propertyPhoto">
+                <span class="material-symbols-outlined upload-photo-icon">
+                    add_a_photo
+                </span>
+                Subir foto
+                <input class="input-file" type="file" name="propertyPhoto" id="propertyPhoto">
+            </label>
             <button class="continue-btn" type="submit">Crear</button>
         </form>
     </main>

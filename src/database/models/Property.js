@@ -28,6 +28,9 @@ module.exports = function (sequelize, dataTypes) {
     },
     type: {
       type: dataTypes.STRING,
+    },
+    propertyPhoto: {
+      type: dataTypes.STRING,
     }
   };
   let config = {

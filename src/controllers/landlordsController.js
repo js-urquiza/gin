@@ -30,9 +30,10 @@ module.exports = {
     await db.Landlords.create({
       ...req.body,
       userId: req.session.loggedUser.id,
-      category: 'normalUser',
-      adress: req.body.streetName + ' Nº' + req.body.streetNumber
-    })
+      category: "normalUser",
+      adress: req.body.streetName + " Nº" + req.body.streetNumber,
+      profilePhoto: req.file ? req.file.filename : "defaultUser.png"
+    });
 
     res.redirect('/landlords');
   },
