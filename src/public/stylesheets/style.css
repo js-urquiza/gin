@@ -1,12 +1,19 @@
 :root {
   --main-bg-color: #fff2da;
   --bg-color-light: #F3F3F3;
+  --btn1-bg-color: #c5dbbb;
+  --btn1-border-color: #a3ac9f;
   --color-1: #FFE3B3;
   --color-2: #FFC172;
   --color-3: #63CCA7;
   --color-4: #26769E;
   --color-5: black;
   --color-6: #fff;
+  --orange: #FF8000;
+  --dark-beige: #c2955d;
+  --light-beige: #E9DAC4;
+  --aquamarine: #749EB2;
+  --cognac: #BD8E83;
 }
 
 * {
@@ -37,6 +44,7 @@ h2 {
 
 p {
   font-size: 16px;
+  margin: 0px;
 }
 
 nav {
@@ -213,18 +221,20 @@ nav {
 }
 
 .dash-menu-item {
-  width: 48%;
+  width: 30%;
   margin: 3px;
   padding: 6px;
-  border: 1px solid var(--color-4);
   border-radius: 3px;
-  color: var(--color-5);
+  color: black;
+  border: 1px solid var(--btn1-border-color);
+  background-color: var(--btn1-bg-color);
   text-align: center;
   text-decoration: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: column;
+  font-size: 14px;
 }
 
 /* Fin del Dashboard */
@@ -234,19 +244,51 @@ nav {
 .landlord-btn-group {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
-  margin: 5px;
+  flex-direction: row;
+  align-items: center;
 }
 
 .landlord-btn {
-  background-color: var(--color-6);
-  border-radius: 3px;
-  background-color: var(--color-2);
-  color: var(--color-5);
+  margin: 3px;
+  padding: 3px 10px;
   text-decoration: none;
-  text-align: center;
-  margin: 3px 24px;
-  padding: 3px;
+  color: black;
+  background-color: var(--btn1-bg-color);
+  border: 1px solid var(--btn1-border-color);
+  border-radius: 6px;
+}
+
+.ll-main-info {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: bisque;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.ll-main-photo {
+  width: 60px;
+  border-radius: 100%;
+  margin: 3px;
+}
+
+.ll-main-photo img {
+  width: 100%;
+  margin: 0px;
+}
+
+.ll-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0px;
+}
+
+.ll-phone {
+  font-size: 14px;
 }
 
 .landlord-card {
@@ -262,11 +304,11 @@ nav {
   background-color: var(--color-6);
 }
 
-.ll-photo {
+.llc-photo {
   max-width: 50px;
 }
 
-.ll-photo img {
+.llc-photo img {
   width: 100%;
 }
 
@@ -338,6 +380,12 @@ nav {
 
 .property-city {
   font-size: 10px;
+}
+
+.property-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 /* Fin de Properties */
