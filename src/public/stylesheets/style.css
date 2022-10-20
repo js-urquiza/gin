@@ -29,7 +29,8 @@ main {
 }
 
 a {
-  color: #00B7FF;
+  color: var(--color-4);
+  font-size: 14px;
 }
 
 h1 {
@@ -43,7 +44,7 @@ h2 {
 }
 
 p {
-  font-size: 16px;
+  font-size: 12px;
   margin: 0px;
 }
 
@@ -220,21 +221,26 @@ nav {
   align-items: center;
 }
 
-.dash-menu-item {
-  width: 30%;
-  margin: 3px;
-  padding: 6px;
-  border-radius: 3px;
-  color: black;
-  border: 1px solid var(--btn1-border-color);
-  background-color: var(--btn1-bg-color);
-  text-align: center;
+.dash-menu a {
   text-decoration: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: column;
   font-size: 14px;
+  text-align: center;
+  color: black;
+}
+
+.dash-menu-item {
+  width: 100px;
+  margin: 3px;
+  padding: 10px;
+  border-radius: 3px;
+  color: black;
+  border: 1px solid var(--btn1-border-color);
+  background-color: var(--btn1-bg-color);
+  text-align: center;
 }
 
 /* Fin del Dashboard */
@@ -341,6 +347,34 @@ nav {
 
 /* Properties */
 
+.pll-info {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  margin: 6px;
+}
+
+.pll-name {
+  font-size: 14px;
+  margin: 0px;
+}
+
+.pll-section {
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.pll-photo {
+  max-width: 36px;
+  margin: 0px 6px 0px 0px;
+}
+
+.pll-photo img {
+  width: 100%;
+}
+
 .properties-card-group {
   display: flex;
   flex-wrap: wrap;
@@ -365,7 +399,7 @@ nav {
 }
 
 .property-photo {
-  max-width: 50px;
+  max-width: 30px;
   margin: 6px;
 }
 

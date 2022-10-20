@@ -6,17 +6,17 @@
   <body>
     <%- include('./partials/navbar') %>
     <main>
-      <section class="ll-main-info">
-        <figure class="ll-main-photo">
+      <section class="pll-info">
+        <figure class="pll-photo">
           <img src="/images/landlordsProfile/<%= propietario.profilePhoto %>" alt="Foto">
         </figure>
-        <h1 class="ll-name"> <%= propietario.name + ' ' + propietario.lastName %>  </h1>
-        <p class="ll-phone"><%= propietario.phone %></p>
+        <h1 class="pll-name"> <%= propietario.name + ' ' + propietario.lastName %> </h1>
+        <p class="pll-section">/ Propiedades</p>
       </section>
-      <div class="landlord-btn-group">
+      <section class="landlord-btn-group">
         <a class="landlord-btn" href="/landlords/dashboard/<%= propietario.id %>">Menu</a>
         <a class="landlord-btn" href="/properties/create">Nueva propiedad</a>
-      </div>
+      </section>
       <section class="properties-cards-group">
         <% propiedades.forEach(propiedad => { %> 
           <div class="property-card">

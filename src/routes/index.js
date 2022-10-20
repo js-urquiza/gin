@@ -5,6 +5,7 @@ const authRouter = require('./auth');
 const landlordsRouter = require('./landlords');
 const contractsRouter = require('./contracts');
 const propertiesRouter = require('./properties');
+const tenantsRouter = require('./tenants');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -15,5 +16,6 @@ router.use(authRouter);
 router.use('/landlords', landlordsRouter);
 router.use('/contracts',contractsRouter);
 router.use('/properties', propertiesRouter);
+router.use('/tenants', tenantsRouter);
 
 module.exports = router;
