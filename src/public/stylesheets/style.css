@@ -1,5 +1,6 @@
 :root {
   --main-bg-color: #fff2da;
+  --main-bg-color-light: #fff9ee;
   --bg-color-light: #F3F3F3;
   --btn1-bg-color: #c5dbbb;
   --btn1-border-color: #a3ac9f;
@@ -21,12 +22,12 @@
 }
 
 body {
-  background-color: var(--main-bg-color);
+  background-color: var(--main-bg-color-light);
   min-height: 100vh;
 }
 
 main {
-  padding: 6px 24px;
+  padding: 12px 24px;
 }
 
 a {
@@ -106,6 +107,7 @@ nav {
 }
 
 .hero-p {
+  font-size: 16px;
   margin: 16px 64px;
   text-align: center;
 }
@@ -240,7 +242,7 @@ nav {
   border-radius: 3px;
   color: black;
   border: 1px solid var(--btn1-border-color);
-  background-color: var(--btn1-bg-color);
+  background-color: var(--main-bg-color);
   text-align: center;
 }
 
@@ -273,7 +275,7 @@ nav {
   align-items: center;
   background-color: bisque;
   border-radius: 10px;
-  padding: 10px;
+  padding: 16px;
   margin-bottom: 10px;
 }
 
@@ -344,6 +346,11 @@ nav {
   flex-direction: column;
 }
 
+.enter-icon {
+  font-size: 36px;
+  margin-right: 6px;
+}
+
 .round-create-btn {
   text-decoration: none;
   font-size: 36px;
@@ -362,7 +369,7 @@ nav {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 24px 0px 24px;
+  padding: 10px 24px 10px 24px;
 }
 
 .back-and-ll {
@@ -386,6 +393,7 @@ nav {
   align-items: center;
   justify-self: center;
   margin: 6px;
+  margin-left: 12px;
 }
 
 .pll-name {
