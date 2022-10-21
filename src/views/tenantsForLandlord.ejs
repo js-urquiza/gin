@@ -4,19 +4,20 @@
     <%- include('./partials/head') %>
   </head>
   <body>
-    <%- include('./partials/navbar') %>
+    <nav class="simply-nav">
+      <div class="back-and-ll">
+        <a class="nav-icon" href="/landlords/dashboard/<%= propietario.id %>"><i class="fa-solid fa-arrow-left"></i></a>
+        <div class="pll-info">
+          <figure class="pll-photo">
+            <img src="/images/landlordsProfile/<%= propietario.profilePhoto %>" alt="Foto">
+          </figure>
+          <h1 class="pll-name"> <%= propietario.name + ' ' + propietario.lastName %> </h1>
+          <p class="pll-section">/ Inquilinos</p>
+        </div>
+      </div>
+      <a class="nav-icon lupa" href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+    </nav>
     <main>
-      <section class="pll-info">
-        <figure class="pll-photo">
-          <img src="/images/landlordsProfile/<%= propietario.profilePhoto %>" alt="Foto">
-        </figure>
-        <h1 class="pll-name"> <%= propietario.name + ' ' + propietario.lastName %> </h1>
-        <p class="pll-section">/ Inquilinos</p>
-      </section>
-      <section class="landlord-btn-group">
-        <a class="landlord-btn" href="/landlords/dashboard/<%= propietario.id %>">Menu</a>
-        <a class="landlord-btn" href="/inquilino/create">Nuevo inquilino</a>
-      </section>
       <section>
         Lista de inquilinos aquí
       </section>

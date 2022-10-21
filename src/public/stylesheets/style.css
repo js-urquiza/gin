@@ -22,6 +22,7 @@
 
 body {
   background-color: var(--main-bg-color);
+  min-height: 100vh;
 }
 
 main {
@@ -343,7 +344,38 @@ nav {
   flex-direction: column;
 }
 
+.round-create-btn {
+  text-decoration: none;
+  font-size: 36px;
+  position: absolute;
+  bottom: 0;
+  right: 47%;
+}
+
 /* Fin de Landlords */
+
+/* Fin de Simply Nav */
+
+.simply-nav {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 24px 0px 24px;
+}
+
+.back-and-ll {
+  display: flex;
+  align-items: center;
+}
+
+.nav-icon {
+  font-size: 18px;
+  color: black;
+}
+
+/* Fin de Simply nav */
 
 /* Properties */
 
@@ -352,6 +384,7 @@ nav {
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
+  justify-self: center;
   margin: 6px;
 }
 

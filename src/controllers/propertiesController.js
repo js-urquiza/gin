@@ -18,8 +18,14 @@ module.exports = {
         res.render('propertiesForLandlord', {title: 'Propiedades', propietario, propiedades});
     },
 
-    showCreate: function(req, res) {
-        res.render('propertiesCreate', {title: 'Nueva propiedad'});
+    showCreate: async function(req, res) {
+        let propietario = await db.Landlords.findOne({
+            where: {
+                id: req.session.landlordIdInUse
+            }
+        });
+        
+        res.render('propertiesCreate', {title: 'Nueva propiedad', propietario});
     },
 
     create: async function(req, res) {
