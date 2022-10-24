@@ -13,7 +13,6 @@ module.exports = function (sequelize, dataTypes) {
     },
     category: {
       type: dataTypes.STRING,
-      allowNull: false,
     },
     name: {
       type: dataTypes.STRING,

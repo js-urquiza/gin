@@ -27,7 +27,7 @@ body {
 }
 
 main {
-  padding: 12px 24px;
+  padding: 24px;
 }
 
 a {
@@ -52,6 +52,7 @@ p {
 
 nav {
   background-color: var(--main-bg-color);
+  border-bottom: 1px solid var(--btn1-bg-color);
 }
 
 /* ---Alerts--- */
@@ -169,6 +170,7 @@ nav {
   width: 300px;
   background-color: white;
   border-radius: 7px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
   padding: 0 24px;
   padding-bottom: 32px;
   padding-top: 24px;
@@ -362,7 +364,6 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 6px 12px;
-  border-bottom: 1px solid var(--btn1-bg-color);
   position: sticky;
   top: 0%;
 }
@@ -389,7 +390,6 @@ nav {
   flex-direction: row;
   align-items: center;
   justify-self: center;
-  margin-left: 12px;
 }
 
 .pll-name {
@@ -431,13 +431,20 @@ nav {
   padding: 10px;
 }
 
+.p-card-description {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+}
+
 .p-card-item {
   margin: 0px;
 }
 
 .property-photo {
   max-width: 30px;
-  margin: 6px;
+  margin: 6px 12px 6px 6px;
 }
 
 .property-photo img {
@@ -460,3 +467,49 @@ nav {
 }
 
 /* Fin de Properties */
+
+/* Tenants */
+
+.tenant-card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-6);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  margin: 10px 0px;
+  padding: 10px;
+}
+
+.t-card-description {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tenant-photo {
+  max-width: 30px;
+  margin: 6px 12px 6px 6px;
+}
+
+.tenant-photo img {
+  width: 100%;
+}
+
+.t-card-name {
+  margin: 0px;
+  font-weight: bold;
+}
+
+.t-card-phone {
+  margin 0px
+}
+
+.t-card-email {
+  margin: 0px;
+}
+
+/* Fin de Tenants */

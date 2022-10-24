@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %> 
+</head>
+<body>
+    <nav class="simply-nav">
+      <div class="back-and-ll">
+        <a class="nav-icon" href="/landlords/dashboard/<%= propietario.id %>"><i class="fa-solid fa-arrow-left"></i></a>
+        <div class="pll-info">
+          <figure class="pll-photo">
+            <img src="/images/landlordsProfile/<%= propietario.profilePhoto %>" alt="Foto">
+          </figure>
+          <h1 class="pll-name"> <%= propietario.name + ' ' + propietario.lastName %> </h1>
+          <p class="pll-section">/ Propiedades</p>
+        </div>
+      </div>
+    </nav>
+    <main class="form-group">
+        <form class="window" action="/tenants/create" method="POST" enctype="multipart/form-data">
+            <h1 class="">Nuevo inquilino</h1>
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </symbol>
+            </svg>
+            <% if (locals && locals.errors) { %>
+                <div class="alert alert-danger" role="alert">
+                    <% for ( let error in errors ) { %>
+                        <div>
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
+                                <use xlink:href="#exclamation-triangle-fill" />
+                            </svg>
+                            <%= errors[error].msg %>
+                        </div>
+                    <% } %>
+                </div>
+            <% } %>
+            <input class="w-element" type="text" name="name" id="name" placeholder="Nombre" value='<%= locals.oldData && oldData.name ? oldData.name : null %>'>
+            <input class="w-element" type="text" name="lastName" id="lastName" placeholder="Apellido" value='<%= locals.oldData && oldData.lastName ? oldData.lastName : null %>'>
+            <label for="birthDate">
+                <input class="w-element" type="date" name="birthDate" id="birthDate" placeholder="Fecha de nacimiento:" value='<%= locals.oldData && oldData.birthDate ? oldData.birthDate : null %>'>
+            </label>
+            <input class="w-element" type="text" name="email" id="email" placeholder="Email" value='<%= locals.oldData && oldData.email ? oldData.email : null %>'>
+            <input class="w-element" type="text" name="phone" id="phone" placeholder="Teléfono" value='<%= locals.oldData && oldData.phone ? oldData.phone : null %>'>
+            <input class="w-element" type="text" name="whatsapp" id="whatsapp" placeholder="WhatsApp" value='<%= locals.oldData && oldData.whatsapp ? oldData.whatsapp : null %>'>
+            <input class="w-element" type="text" name="adress" id="adress" placeholder="Dirección" value='<%= locals.oldData && oldData.adress ? oldData.adress : null %>'>
+            <input class="w-element" type="text" name="city" id="city" placeholder="Ciudad" value='<%= locals.oldData && oldData.city ? oldData.city : null %>'>
+            <input class="w-element" type="text" name="province" id="province" placeholder="Provincia" value='<%= locals.oldData && oldData.province ? oldData.province : null %>'>
+            <input class="w-element" type="text" name="postalCode" id="postalCode" placeholder="Código postal" value='<%= locals.oldData && oldData.postalCode ? oldData.postalCode : null %>'>
+            <select name="type" id="type">
+                <option value="">Vivienda familiar</option>
+                <option value="">Local comercial</option>
+            </select>
+            <label class="upload-photo" for="profilePhoto">
+                <span class="material-symbols-outlined upload-photo-icon">
+                    add_a_photo
+                </span>
+                Subir foto
+                <input class="input-file" type="file" name="profilePhoto" id="profilePhoto">
+            </label>
+            <button class="continue-btn" type="submit">Crear</button>
+        </form>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+</body>
+</html>

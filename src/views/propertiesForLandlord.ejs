@@ -24,16 +24,18 @@
       <section class="properties-cards-group">
         <% propiedades.forEach(propiedad => { %> 
           <div class="property-card">
-            <figure class="property-photo">
-              <img src="/images/propertiesPhoto/<%= propiedad.propertyPhoto %>" alt="Foto">
-            </figure>
-            <div class="pc-description">
-              <p class="p-card-item property-adress"><%= propiedad.streetName + ' ' + propiedad.streetNumber %></p>
-              <% if(propiedad.postalCode) { %> 
-                <p class="p-card-item property-city"><%= propiedad.city + ', ' + propiedad.province + ' (' + propiedad.postalCode + ')' %></p>
-              <% } else { %> 
-                <p class="p-card-item property-city"><%= propiedad.city + ', ' + propiedad.province %></p>
-              <% } %>
+            <div class="p-card-description">
+              <figure class="property-photo">
+                <img src="/images/propertiesPhoto/<%= propiedad.propertyPhoto %>" alt="Foto">
+              </figure>
+              <div>
+                <p class="p-card-item property-adress"><%= propiedad.streetName + ' ' + propiedad.streetNumber %></p>
+                <% if(propiedad.postalCode) { %> 
+                  <p class="p-card-item property-city"><%= propiedad.city + ', ' + propiedad.province + ' (' + propiedad.postalCode + ')' %></p>
+                <% } else { %> 
+                  <p class="p-card-item property-city"><%= propiedad.city + ', ' + propiedad.province %></p>
+                <% } %>
+              </div>
             </div>
             <div class="property-card-actions">
               <a href="/properties/edit/<%= propiedad.id %>">Editar</a>
