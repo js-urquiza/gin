@@ -315,6 +315,13 @@ nav {
   background-color: var(--color-6);
 }
 
+.llc-description {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+}
+
 .llc-photo {
   max-width: 50px;
 }
@@ -380,6 +387,10 @@ nav {
   margin: 0px 5px;
 }
 
+.fa-arrow-left {
+  margin-right: 10px;
+}
+
 /* Fin de Simply nav */
 
 /* Properties */
@@ -401,11 +412,6 @@ nav {
   font-size: 14px;
   font-weight: bold;
   margin-left: 5px;
-}
-
-.pll-photo {
-  max-width: 36px;
-  margin: 0px 6px 0px 0px;
 }
 
 .pll-photo img {

@@ -4,7 +4,15 @@
     <%- include('./partials/head') %>
   </head>
   <body>
-    <%- include('./partials/navbar') %>
+    <nav class="simply-nav">
+      <div class="back-and-ll">
+        <a class="nav-icon" href="/landlords/"><i class="fa-solid fa-arrow-left"></i></a>
+        <div class="pll-info">
+          <h1 class="pll-name"> <%= propietario.name + ' ' + propietario.lastName %> </h1>
+          <p class="pll-section">/ Dashboard</p>
+        </div>
+      </div>
+    </nav>
     <main>
       <section class="ll-main-info">
         <figure class="ll-main-photo">

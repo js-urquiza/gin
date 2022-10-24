@@ -7,6 +7,10 @@
     <nav class="simply-nav">
       <div class="back-and-ll">
         <a class="nav-icon" href="/landlords/dashboard/<%= propietario.id %>"><i class="fa-solid fa-arrow-left"></i></a>
+        <div class="pll-info">
+          <h1 class="pll-name"> <%= propietario.name + ' ' + propietario.lastName %> </h1>
+          <p class="pll-section">/ Inquilinos</p>
+        </div>
       </div>
       <div>
         <a class="nav-icon" href="/tenants/create"><i class="fa-solid fa-plus"></i></a>
@@ -14,13 +18,6 @@
       </div>
     </nav>
     <main>
-      <section class="pll-info">
-          <figure class="pll-photo">
-            <img src="/images/landlordsProfile/<%= propietario.profilePhoto %>" alt="Foto">
-          </figure>
-          <h1 class="pll-name"> <%= propietario.name + ' ' + propietario.lastName %> </h1>
-          <p class="pll-section">/ Inquilinos</p>
-      </section>
       <section>
         <% inquilinos.forEach(inquilino => { %> 
           <div class="tenant-card">
