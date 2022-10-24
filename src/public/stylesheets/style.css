@@ -68,7 +68,7 @@ nav {
 /* ---Navbar--- */
 
 .navbar-group {
-  margin: 0 16px;
+  margin: 0 6px;
 }
 
 .nav-toggler-btn {
@@ -149,7 +149,7 @@ nav {
   font-family: 'Open Sans', sans-serif;
   font-weight: bold;
   color: var(--color-4);
-  font-size: 32px;
+  font-size: 28px;
   text-decoration: none;
 }
 
@@ -351,14 +351,6 @@ nav {
   margin-right: 6px;
 }
 
-.round-create-btn {
-  text-decoration: none;
-  font-size: 36px;
-  position: absolute;
-  bottom: 0;
-  right: 47%;
-}
-
 /* Fin de Landlords */
 
 /* Fin de Simply Nav */
@@ -369,7 +361,10 @@ nav {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 24px 10px 24px;
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--btn1-bg-color);
+  position: sticky;
+  top: 0%;
 }
 
 .back-and-ll {
@@ -378,8 +373,10 @@ nav {
 }
 
 .nav-icon {
+  text-decoration: none;
   font-size: 18px;
-  color: black;
+  color: var(--color-4);
+  margin: 0px 5px;
 }
 
 /* Fin de Simply nav */
@@ -392,7 +389,6 @@ nav {
   flex-direction: row;
   align-items: center;
   justify-self: center;
-  margin: 6px;
   margin-left: 12px;
 }
 
