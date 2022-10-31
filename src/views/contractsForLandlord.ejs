@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('./partials/head') %>
+  </head>
+  <body>
+    <nav class="simply-nav">
+      <div class="back-and-ll">
+        <a class="nav-icon" href="/landlords/dashboard/<%= propietario.id %>"><i class="fa-solid fa-arrow-left"></i></a>
+        <div class="pll-info">
+          <h1 class="pll-name"> <%= propietario.name + ' ' + propietario.lastName %> </h1>
+          <p class="pll-section">/ Contratos</p>
+        </div>
+      </div>
+      <div>
+        <a class="nav-icon" href="/contracts/create"><i class="fa-solid fa-plus"></i></a>
+        <a class="nav-icon lupa" href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+      </div>
+    </nav>
+    <main>
+      <section class="properties-cards-group">
+        <% contratos.forEach(contrato => { %> 
+          <div class="property-card">
+            <div class="p-card-description">
+              <div>
+                <p><%= contrato.tenantName %></p>
+              </div>
+            </div>
+            <div class="property-card-actions">
+              <a href="/properties/edit/<%= contrato.id %>">Editar</a>
+              <a href="/properties/delete/<%= contrato.id %>">Eliminar</a>
+            </div>
+          </div>
+        <% }) %> 
+      </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+<!--
+  --- Atribuciones---
+
+  Home button icons created by Kiranshastry - Flaticon
+-->

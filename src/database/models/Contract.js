@@ -20,6 +20,9 @@ module.exports = function (sequelize, dataTypes) {
     duration: {
       type: dataTypes.TINYINT,
     },
+    initialPrice: {
+      type: dataTypes.DECIMAL(10,2),
+    },
     paymentMethod: {
       type: dataTypes.STRING,
     },
