@@ -42,10 +42,17 @@ module.exports = function (sequelize, dataTypes) {
   const Property = sequelize.define(alias, cols, config);
 
   Property.associate = function (models) {
+    
     Property.belongsTo(models.Landlords, {
       foreignKey: "landlordId",
       as: "landlord",
     });
+
+    Property.hasMany(models.Contracts, {
+      foreignKey: 'propertyId',
+      as: 'contracts'
+    });
+
   };
 
   return Property;

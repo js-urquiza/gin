@@ -9,7 +9,6 @@ module.exports = function (sequelize, dataTypes) {
     },
     name: {
       type: dataTypes.STRING,
-      allowNull: false,
     },
     startDate: {
       type: dataTypes.DATE,
@@ -48,10 +47,22 @@ module.exports = function (sequelize, dataTypes) {
   const Contracts = sequelize.define(alias, cols, config);
 
   Contracts.associate = function (models) {
+    
     Contracts.belongsTo(models.Landlords, {
       foreignKey: "landlordId",
       as: "landlord",
     });
+
+    Contracts.belongsTo(models.Tenants, {
+      foreignKey: 'tenantId',
+      as: 'tenant'
+    });
+
+    Contracts.belongsTo(models.Properties, {
+      foreignKey: 'propertyId',
+      as: 'property'
+    })
+
   };
 
   return Contracts;

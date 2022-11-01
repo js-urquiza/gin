@@ -54,10 +54,17 @@ module.exports = function (sequelize, dataTypes) {
   const Tenant = sequelize.define(alias, cols, config);
 
   Tenant.associate = function (models) {
+    
     Tenant.belongsTo(models.Landlords, {
       foreignKey: "landlordId",
       as: "landlord",
     });
+
+    Tenant.hasMany(models.Contracts, {
+      foreignKey: 'tenantId',
+      as: 'contracts'
+    })
+
   };
 
   return Tenant;

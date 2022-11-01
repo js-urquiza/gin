@@ -14,6 +14,8 @@ module.exports = {
         landlordId: req.session.landlordIdInUse,
       },
     });
+
+    console.log(contratos);
     
     res.render('contractsForLandlord', {title: 'Contratos', propietario, contratos});
 
@@ -39,7 +41,20 @@ module.exports = {
       }
     });
 
+    console.log(inquilinos);
+
     res.render('contractsCreate', {title: 'Nuevo contrato', propietario, inquilinos, propiedades});
+
+  },
+
+  create: async function(req, res) {
+
+    await db.Contracts.create({
+      ...req.body,
+      landlordId: req.session.landlordIdInUse
+    });
+
+    res.redirect('/contracts');
 
   }
 };
