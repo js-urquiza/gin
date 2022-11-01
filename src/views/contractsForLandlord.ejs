@@ -23,7 +23,8 @@
           <div class="property-card">
             <div class="p-card-description">
               <div>
-                <p><%= contrato.tenantName %></p>
+                <p><%= contrato.property.streetName + ' ' + contrato.property.streetNumber + ' ' + contrato.property.apartment %></p>
+                <p><%= contrato.tenant.name + ' ' + contrato.tenant.lastName %></p>
               </div>
             </div>
             <div class="property-card-actions">

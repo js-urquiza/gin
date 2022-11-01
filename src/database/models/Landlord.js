@@ -69,7 +69,7 @@ module.exports = function (sequelize, dataTypes) {
     Landlord.hasMany(models.Properties, {
       foreignKey: 'landlordId',
       as: 'properties'
-    })
+    });
     
   }
 

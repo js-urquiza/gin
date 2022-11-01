@@ -13,6 +13,7 @@ module.exports = {
       where: {
         landlordId: req.session.landlordIdInUse,
       },
+      include: ["tenant", "property"],
     });
 
     console.log(contratos);
