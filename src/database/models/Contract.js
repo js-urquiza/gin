@@ -64,7 +64,12 @@ module.exports = function (sequelize, dataTypes) {
     Contracts.belongsTo(models.Properties, {
       foreignKey: 'propertyId',
       as: 'property'
-    })
+    });
+
+    Contracts.hasMany(models.Rents, {
+      foreignKey: 'contractId',
+      as: 'rent'
+    });
 
   };
 
