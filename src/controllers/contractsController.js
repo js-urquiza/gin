@@ -57,5 +57,24 @@ module.exports = {
 
     res.redirect('/contracts');
 
+  },
+
+  detail: async function(req, res) {
+
+    let propietario = await db.Landlords.findOne({
+      where: {
+        id: req.session.landlordIdInUse,
+      },
+    });
+    
+    contrato = await db.Contracts.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: ['landlord', 'tenant', 'property']
+    });
+
+    res.render('contractsDetail', {title: 'Contrato', propietario, contrato});
+
   }
 };

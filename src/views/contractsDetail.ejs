@@ -6,7 +6,7 @@
   <body>
     <nav class="simply-nav">
       <div class="back-and-ll">
-        <a class="nav-icon" href="/landlords/dashboard/<%= propietario.id %>"><i class="fa-solid fa-arrow-left"></i></a>
+        <a class="nav-icon" href="/contracts/"><i class="fa-solid fa-arrow-left"></i></a>
         <div class="pll-info">
           <h1 class="pll-name"> <%= propietario.name + ' ' + propietario.lastName %> </h1>
           <p class="pll-section">/ Contratos</p>
@@ -18,20 +18,12 @@
       </div>
     </nav>
     <main>
-      <section class="properties-cards-group">
-        <% contratos.forEach(contrato => { %> 
-          <div class="property-card">
-            <div class="p-card-description">
-              <div>
-                <p><%= contrato.property.streetName + ' ' + contrato.property.streetNumber + ' ' + contrato.property.apartment %></p>
-                <p><%= contrato.tenant.name + ' ' + contrato.tenant.lastName %></p>
-              </div>
-            </div>
-            <div class="property-card-actions">
-              <a href="/contracts/<%= contrato.id %>">Ver</a>
-            </div>
-          </div>
-        <% }) %> 
+      <section class="">
+        <p><%= contrato.startDate %> </p>
+        <p><%= contrato.endDate %> </p>
+        <p>$<%= contrato.initialPrice %> </p>
+        <p><%= contrato.tenant.name + ' ' + contrato.tenant.lastName %> </p>
+        <p><%= contrato.property.streetName + ' ' + contrato.property.streetNumber + ' ' + contrato.property.apartment %> </p>
       </section>
     </main>
     <footer>
