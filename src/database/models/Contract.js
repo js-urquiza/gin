@@ -16,11 +16,14 @@ module.exports = function (sequelize, dataTypes) {
     endDate: {
       type: dataTypes.DATE,
     },
+    paymentDueDay: {
+      type: dataTypes.TINYINT,
+    },
     duration: {
       type: dataTypes.TINYINT,
     },
     initialPrice: {
-      type: dataTypes.DECIMAL(10,2),
+      type: dataTypes.DECIMAL(10, 2),
     },
     paymentMethod: {
       type: dataTypes.STRING,
@@ -36,7 +39,7 @@ module.exports = function (sequelize, dataTypes) {
     },
     handled: {
       type: dataTypes.TINYINT,
-    }
+    },
   };
   let config = {
     tableName: "contracts",
