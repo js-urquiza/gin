@@ -77,7 +77,10 @@ module.exports = {
     let rentas = await db.Rents.findAll({
       where: {
         contractId: req.params.id
-      }
+      },
+      order: [
+        ['dueDate', 'ASC']
+      ]
     });
 
     req.session.contractIdInUse = req.params.id;
