@@ -74,7 +74,15 @@ module.exports = {
       include: ['landlord', 'tenant', 'property']
     });
 
-    res.render('contractsDetail', {title: 'Contrato', propietario, contrato});
+    let rentas = await db.Rents.findAll({
+      where: {
+        contractId: req.params.id
+      }
+    });
+
+    req.session.contractIdInUse = req.params.id;
+
+    res.render('contractsDetail', {title: 'Contrato', propietario, contrato, rentas});
 
   }
 };

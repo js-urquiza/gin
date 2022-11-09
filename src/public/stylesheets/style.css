@@ -519,3 +519,25 @@ nav {
 }
 
 /* Fin de Tenants */
+
+/* Contracts */
+
+.rent-section{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: var(--color-6);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  margin: 10px 0px;
+  padding: 10px;
+}
+
+.rent-card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Fin de Contracts */

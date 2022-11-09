@@ -25,6 +25,35 @@
         <p><%= contrato.tenant.name + ' ' + contrato.tenant.lastName %> </p>
         <p><%= contrato.property.streetName + ' ' + contrato.property.streetNumber + ' ' + contrato.property.apartment %> </p>
       </section>
+      <section>
+        <form action="/rents/create" method="POST">
+            <label for="initialDate">Fecha de inicio:
+                <input type="date" name="initialDate" id="initialDate">
+            </label>
+            <label for="duration">Duración:
+                <input type="number" name="duration" id="duration">
+            </label>
+            <label for="amount">Monto:
+                <input type="number" name="amount" id="amount">
+            </label>
+            <button type="submit">Crear</button>
+        </form>
+      </section>
+      <section class="rent-section">
+        <div>
+          <a href="">Ver todo</a>
+        </div>
+        <div>
+          <% rentas.forEach(renta => { %> 
+          
+              <div class="rent-card">
+                  <p><%= renta.dueDate %></p>
+                  <p>$<%= renta.amount %></p>
+              </div>
+  
+          <% }) %> 
+        </div>
+      </section>
     </main>
     <footer>
 

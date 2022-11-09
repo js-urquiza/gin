@@ -6,6 +6,7 @@ const landlordsRouter = require('./landlords');
 const contractsRouter = require('./contracts');
 const propertiesRouter = require('./properties');
 const tenantsRouter = require('./tenants');
+const rentsRouter = require('./rents');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -17,5 +18,6 @@ router.use('/landlords', landlordsRouter);
 router.use('/contracts',contractsRouter);
 router.use('/properties', propertiesRouter);
 router.use('/tenants', tenantsRouter);
+router.use('/rents', rentsRouter);
 
 module.exports = router;
