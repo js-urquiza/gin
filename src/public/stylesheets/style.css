@@ -541,3 +541,33 @@ nav {
 }
 
 /* Fin de Contracts */
+
+/* Modal */
+
+.display-none {
+  display: none;
+}
+
+.modal-form {
+  position: absolute;
+  top: 50%;
+  z-index: 100;
+  left: 50%;
+  border-radius: 15px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  transform: translate(-50%, -50%);
+}
+
+.blured-back {
+  position: fixed;
+  z-index: 30;
+  width: 100vw;
+  height: 100vh;
+  background-color: lightgrey;
+  opacity: .7;
+  backdrop-filter: blur(50px);
+}
+
+/* Fin de Modal */

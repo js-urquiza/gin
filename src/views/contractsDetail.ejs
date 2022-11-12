@@ -4,6 +4,7 @@
     <%- include('./partials/head') %>
   </head>
   <body>
+    <div class="blured-back display-none" id="blured-back"></div>
     <nav class="simply-nav">
       <div class="back-and-ll">
         <a class="nav-icon" href="/contracts/"><i class="fa-solid fa-arrow-left"></i></a>
@@ -18,15 +19,23 @@
       </div>
     </nav>
     <main>
-      <section class="">
+      <section class="ll-main-info">
         <p><%= contrato.startDate %> </p>
         <p><%= contrato.endDate %> </p>
         <p>$<%= contrato.initialPrice %> </p>
         <p><%= contrato.tenant.name + ' ' + contrato.tenant.lastName %> </p>
         <p><%= contrato.property.streetName + ' ' + contrato.property.streetNumber + ' ' + contrato.property.apartment %> </p>
       </section>
+      <section class="dash-menu">
+        <a href="" class="dash-menu-item" id="rentButton">
+          Rentas
+        </a>
+        <a class="dash-menu-item" id="">
+          Cargas
+        </a>
+      </section>
       <section>
-        <form action="/rents/create" method="POST">
+        <form class="window display-none" action="/rents/create" method="POST" id="createRentForm">
             <label for="initialDate">Fecha de inicio:
                 <input type="date" name="initialDate" id="initialDate">
             </label>
@@ -45,12 +54,13 @@
         </div>
         <div>
           <% rentas.forEach(renta => { %> 
-          
+            <% let fecha = new Date(renta.dueDate) %> 
+            <% let mes = fecha.getMonth() + 1 %> 
+            <% let año = fecha.getFullYear() %> 
               <div class="rent-card">
-                  <p><%= renta.dueDate %></p>
+                  <p><%= mes + " / " + año %></p>
                   <p>$<%= renta.amount %></p>
               </div>
-  
           <% }) %> 
         </div>
       </section>
@@ -60,6 +70,7 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+    <script src="/js/contractDashboard.js"></script>
   </body>
 </html>
 

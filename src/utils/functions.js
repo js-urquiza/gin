@@ -26,4 +26,59 @@ module.exports = {
       }
     }
   },
+
+  numberToMonth: function(number) {
+
+    switch (number) {
+      case 1: {
+        let mes = "enero";
+        return mes;
+      }
+      case 2: {
+        let mes = "febrero";
+        return mes;
+      }
+      case 2: {
+        let mes = "marzo";
+        return mes;
+      }
+      case 2: {
+        let mes = "abril";
+        return mes;
+      }
+      case 2: {
+        let mes = "mayo";
+        return mes;
+      }
+      case 2: {
+        let mes = "junio";
+        return mes;
+      }
+      case 2: {
+        let mes = "julio";
+        return mes;
+      }
+      case 2: {
+        let mes = "agosto";
+        return mes;
+      }
+      case 2: {
+        let mes = "septiembre";
+        return mes;
+      }
+      case 2: {
+        let mes = "octubre";
+        return mes;
+      }
+      case 2: {
+        let mes = "noviembre";
+        return mes;
+      }
+      case 2: {
+        let mes = "diciembre";
+        return mes;
+      }
+    }
+
+  }
 };
