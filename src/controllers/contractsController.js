@@ -71,7 +71,7 @@ module.exports = {
       where: {
         id: req.params.id
       },
-      include: ['landlord', 'tenant', 'property']
+      include: ['landlord', 'tenant', 'property', 'rents', 'expenses']
     });
 
     let rentas = await db.Rents.findAll({
@@ -83,9 +83,16 @@ module.exports = {
       ]
     });
 
+    let cargas = await db.Expenses.findAll({
+      where: {
+        contractId: req.params.id,
+      },
+      order: [["dueDate", "ASC"]],
+    });
+
     req.session.contractIdInUse = req.params.id;
 
-    res.render('contractsDetail', {title: 'Contrato', propietario, contrato, rentas});
+    res.render('contractsDetail', {title: 'Contrato', propietario, contrato, rentas, cargas});
 
   }
 };

@@ -30,7 +30,7 @@
         <a href="" class="dash-menu-item" id="rentButton">
           Rentas
         </a>
-        <a class="dash-menu-item" id="">
+        <a href="" class="dash-menu-item" id="expenseButton">
           Cargas
         </a>
       </section>
@@ -47,6 +47,24 @@
             </label>
             <button type="submit">Crear</button>
         </form>
+        <form class="window display-none" action="/expenses/create" method="POST" id="createExpenseForm">
+            <label for="initialDate">Fecha de inicio:
+                <input type="date" name="initialDate" id="initialDate">
+            </label>
+            <label for="duration">Duración:
+                <input type="number" name="duration" id="duration">
+            </label>
+            <label for="name">Nombre:
+              <input type="text" name="name" id="name">
+            </label>
+            <label for="amount">Monto:
+                <input type="number" name="amount" id="amount">
+            </label>
+            <label for="coeff">Coeficiente:
+                <input type="number" name="coeff" id="coeff">
+            </label>
+            <button type="submit">Crear</button>
+        </form>
       </section>
       <section class="rent-section">
         <div>
@@ -58,8 +76,18 @@
             <% let mes = fecha.getMonth() + 1 %> 
             <% let año = fecha.getFullYear() %> 
               <div class="rent-card">
-                  <p><%= mes + " / " + año %></p>
+                  <p class="rent-card-month"><%= mes + " / " + año %></p>
                   <p>$<%= renta.amount %></p>
+              </div>
+              <div class="rent-card-detail">
+                <div class="rent-card-detail-item">
+                  <p>Alquiler</p>
+                  <p>$<%= renta.amount %></p>
+                </div>
+                <div class="rent-card-detail-item">
+                    <p><%= cargas.name %></p>
+                    <p><%= cargas.amount %></p>
+                  </div>
               </div>
           <% }) %> 
         </div>

@@ -540,6 +540,21 @@ nav {
   justify-content: space-between;
 }
 
+.rent-card-detail-item {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.rent-card-month {
+  font-weight: bold;
+}
+
+.card-property-name {
+  font-weight: bold;
+}
+
 /* Fin de Contracts */
 
 /* Modal */

@@ -2,7 +2,6 @@ let db = require('../database/models');
 
 module.exports = {
   createPeriodicRent: function (fecha, duracion, precio, contrato) {
-    
     let fechaInicio = new Date(fecha);
     let mesInicio = fechaInicio.getMonth() + 2; // new Date le saca 1 y getMonth le saca otro.
     let anioInicio = fechaInicio.getFullYear();
@@ -15,7 +14,7 @@ module.exports = {
         db.Rents.create({
           contractId: contrato,
           dueDate: fechaVenc,
-          amount: precio
+          amount: precio,
         });
 
         mesInicio = mesInicio + 1;
@@ -27,8 +26,34 @@ module.exports = {
     }
   },
 
-  numberToMonth: function(number) {
+  createPeriodicExpense: function (fecha, duracion, nombre, precio, coeficiente, contrato) {
+    let fechaInicio = new Date(fecha);
+    let mesInicio = fechaInicio.getMonth() + 2; // new Date le saca 1 y getMonth le saca otro.
+    let anioInicio = fechaInicio.getFullYear();
 
+    for (i = 1; i <= duracion; i++) {
+      if (mesInicio <= 12) {
+        let fechaVencStr = anioInicio + "/" + mesInicio + "/" + 10;
+        let fechaVenc = new Date(fechaVencStr);
+
+        db.Expenses.create({
+          contractId: contrato,
+          dueDate: fechaVenc,
+          name: nombre,
+          amount: precio,
+          coeff: coeficiente
+        });
+
+        mesInicio = mesInicio + 1;
+      } else {
+        anioInicio = anioInicio + 1;
+        mesInicio = 1;
+        i--;
+      }
+    }
+  },
+
+  numberToMonth: function (number) {
     switch (number) {
       case 1: {
         let mes = "enero";
@@ -79,6 +104,5 @@ module.exports = {
         return mes;
       }
     }
-
-  }
+  },
 };
