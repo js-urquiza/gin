@@ -571,6 +571,10 @@ nav {
   color: var(--color-3);
 }
 
+.rc-mi-arrow {
+  color: grey;
+}
+
 .rent-card-detail {
   max-height: 0px;
   overflow: hidden;
@@ -586,6 +590,11 @@ nav {
   transition: all 0.5s;
 }
 
+.rca-rotate-again {
+  transform: rotate(180deg);
+  transition: all 0.5s;
+}
+
 .rent-card-detail-item {
   display: flex;
   flex-wrap: wrap;
@@ -593,8 +602,28 @@ nav {
   justify-content: space-between;
 }
 
+.rcd-total {
+  margin-right: 21px;
+}
+
 .card-property-name {
   font-weight: bold;
+}
+
+.t-options-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.t-options-group i {
+  font-size: small;
+  color: red;
+}
+
+.btn-transparent {
+  border: none;
+  background-color: transparent;
 }
 
 /* Fin de Contracts */

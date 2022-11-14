@@ -65,6 +65,7 @@
             </label>
             <button type="submit">Crear</button>
         </form>
+
       </section>
       <section class="rent-section">
         <div>
@@ -80,13 +81,13 @@
                   <div class="rc-mi-info" id="rc-mi-info">
                     <i class="fa-solid fa-sack-dollar"></i>
                     <div>
-                      <p class="bold"><%= mes + " - " + año %></p>
+                      <p class="bold"><%= aux.numberToMonth(mes) + " - " + año %></p>
                       <p>$<%= opDelMes.total %> </p>
                     </div>
                   </div>
                 </div>
                 <div>
-                  <i class="fa-solid fa-arrow-down" id="drop-down-arrow"></i>
+                  <i class="fa-solid fa-arrow-down rc-mi-arrow" id="drop-down-arrow"></i>
                 </div>
               </div>
               <div class="rent-card-detail" id="rent-card-detail">
@@ -96,10 +97,17 @@
                 <% total += parseFloat(concepto.amount) %> 
                   <div class="rent-card-detail-item">
                     <p><%= concepto.name %> </p>
-                    <p><%= concepto.amount %> </p>
+                    <div class="t-options-group">
+                      <p><%= concepto.amount %> </p>
+                      <form action="/transactions/<%= concepto.id %>/delete?_method=DELETE" method="POST">
+                        <button class="btn-transparent" type="submit">
+                          <i class="fa-solid fa-circle-minus"></i>
+                        </button>
+                      </form>
+                    </div>
                   </div>
                 <% }) %>
-                <p class="bold text-align-right">Total: $<%= parseFloat(total) %></p>
+                <p class="bold text-align-right rcd-total">Total: $<%= parseFloat(total) %></p>
               </div>
           <% }) %> 
         </div>

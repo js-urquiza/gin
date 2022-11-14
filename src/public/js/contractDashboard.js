@@ -45,6 +45,7 @@ window.onload = function () {
     dropDownArrow.addEventListener("click", (e) => {
       rentCardDetail.classList.toggle('rcd-show');
       dropDownArrow.classList.toggle('rca-rotate');
+      dropDownArrow.classList.toggle("rca-rotate-again");
     });
 
   })

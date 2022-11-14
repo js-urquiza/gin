@@ -8,6 +8,7 @@ const propertiesRouter = require('./properties');
 const tenantsRouter = require('./tenants');
 const rentsRouter = require('./rents');
 const expensesRouter = require('./expenses');
+const transactionsRouter = require('./transactions');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -21,5 +22,6 @@ router.use('/properties', propertiesRouter);
 router.use('/tenants', tenantsRouter);
 router.use('/rents', rentsRouter);
 router.use('/expenses', expensesRouter );
+router.use('/transactions', transactionsRouter);
 
 module.exports = router;

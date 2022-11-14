@@ -64,43 +64,43 @@ module.exports = {
         let mes = "febrero";
         return mes;
       }
-      case 2: {
+      case 3: {
         let mes = "marzo";
         return mes;
       }
-      case 2: {
+      case 4: {
         let mes = "abril";
         return mes;
       }
-      case 2: {
+      case 5: {
         let mes = "mayo";
         return mes;
       }
-      case 2: {
+      case 6: {
         let mes = "junio";
         return mes;
       }
-      case 2: {
+      case 7: {
         let mes = "julio";
         return mes;
       }
-      case 2: {
+      case 8: {
         let mes = "agosto";
         return mes;
       }
-      case 2: {
+      case 9: {
         let mes = "septiembre";
         return mes;
       }
-      case 2: {
+      case 10: {
         let mes = "octubre";
         return mes;
       }
-      case 2: {
+      case 11: {
         let mes = "noviembre";
         return mes;
       }
-      case 2: {
+      case 12: {
         let mes = "diciembre";
         return mes;
       }
@@ -120,5 +120,5 @@ module.exports = {
       return result;
     });
 
-  }
+  },
 };
