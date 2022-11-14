@@ -1,3 +1,4 @@
+const { sequelize } = require('../database/models');
 const db = require('../database/models');
 
 module.exports = {
@@ -60,39 +61,37 @@ module.exports = {
   },
 
   detail: async function(req, res) {
-
-    let propietario = await db.Landlords.findOne({
-      where: {
-        id: req.session.landlordIdInUse,
-      },
-    });
     
     contrato = await db.Contracts.findOne({
       where: {
         id: req.params.id
       },
-      include: ['landlord', 'tenant', 'property', 'rents', 'expenses']
-    });
-
-    let rentas = await db.Rents.findAll({
-      where: {
-        contractId: req.params.id
-      },
-      order: [
-        ['dueDate', 'ASC']
-      ]
-    });
-
-    let cargas = await db.Expenses.findAll({
-      where: {
-        contractId: req.params.id,
-      },
-      order: [["dueDate", "ASC"]],
+      include: ['landlord', 'tenant', 'property', 'transactions']
     });
 
     req.session.contractIdInUse = req.params.id;
 
-    res.render('contractsDetail', {title: 'Contrato', propietario, contrato, rentas, cargas});
+    let transacciones = await db.Transactions.findAll({
+      where: {
+        contractId: req.params.id
+      },
+      order: [['date', 'ASC']],
+    });
+
+    let transaccionesPorFecha = await db.Transactions.findAll({
+      where: {
+        contractId: req.params.id,
+      },
+      order: [["date", "ASC"]],
+      attributes: {
+        include: [
+          [sequelize.fn('SUM', sequelize.col('amount')), 'total']
+        ]
+      },
+      group: 'date'
+    });
+    
+    res.render('contractsDetail', {title: 'Contrato', contrato, transacciones, transaccionesPorFecha});
 
   }
 };

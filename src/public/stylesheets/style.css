@@ -55,6 +55,18 @@ nav {
   border-bottom: 1px solid var(--btn1-bg-color);
 }
 
+/* ---Generals--- */
+
+.bold {
+  font-weight: bold;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+/* ---Fin de generals--- */
+
 /* ---Alerts--- */
 
 .danger-alert {
@@ -545,10 +557,6 @@ nav {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.rent-card-month {
-  font-weight: bold;
 }
 
 .card-property-name {

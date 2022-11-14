@@ -11,9 +11,10 @@ module.exports = {
         let fechaVencStr = anioInicio + "/" + mesInicio + "/" + 10;
         let fechaVenc = new Date(fechaVencStr);
 
-        db.Rents.create({
+        db.Transactions.create({
           contractId: contrato,
-          dueDate: fechaVenc,
+          date: fechaVenc,
+          name: 'Alquiler',
           amount: precio,
         });
 
@@ -36,9 +37,9 @@ module.exports = {
         let fechaVencStr = anioInicio + "/" + mesInicio + "/" + 10;
         let fechaVenc = new Date(fechaVencStr);
 
-        db.Expenses.create({
+        db.Transactions.create({
           contractId: contrato,
-          dueDate: fechaVenc,
+          date: fechaVenc,
           name: nombre,
           amount: precio,
           coeff: coeficiente
@@ -105,4 +106,19 @@ module.exports = {
       }
     }
   },
+
+  prueba: function() {
+    
+    let transactionMonth = transacciones.map(function (transaccion) {
+      let result = {
+        id: product.id,
+        name: product.name,
+        description: product.description,
+        category: product.products_categories.name,
+        detail: `http://localhost:${Port}/api/products/${product.id}`,
+      };
+      return result;
+    });
+
+  }
 };

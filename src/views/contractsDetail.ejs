@@ -9,7 +9,7 @@
       <div class="back-and-ll">
         <a class="nav-icon" href="/contracts/"><i class="fa-solid fa-arrow-left"></i></a>
         <div class="pll-info">
-          <h1 class="pll-name"> <%= propietario.name + ' ' + propietario.lastName %> </h1>
+          <h1 class="pll-name"> <%= contrato.landlord.name + ' ' + contrato.landlord.lastName %> </h1>
           <p class="pll-section">/ Contratos</p>
         </div>
       </div>
@@ -71,23 +71,24 @@
           <a href="">Ver todo</a>
         </div>
         <div>
-          <% rentas.forEach(renta => { %> 
-            <% let fecha = new Date(renta.dueDate) %> 
+          <% transaccionesPorFecha.forEach(opDelMes => { %> 
+            <% let fecha = new Date(opDelMes.date) %> 
             <% let mes = fecha.getMonth() + 1 %> 
-            <% let año = fecha.getFullYear() %> 
+            <% let año = fecha.getFullYear() %>
               <div class="rent-card">
-                  <p class="rent-card-month"><%= mes + " / " + año %></p>
-                  <p>$<%= renta.amount %></p>
+                  <p class="bold"><%= mes + " - " + año %></p>
               </div>
-              <div class="rent-card-detail">
-                <div class="rent-card-detail-item">
-                  <p>Alquiler</p>
-                  <p>$<%= renta.amount %></p>
-                </div>
-                <div class="rent-card-detail-item">
-                    <p><%= cargas.name %></p>
-                    <p><%= cargas.amount %></p>
+              <div>
+                <% let detalle = transacciones.filter(t => t.date == opDelMes.date) %>
+                <% let total = 0 %> 
+                <% detalle.forEach(concepto => { %>
+                <% total += parseFloat(concepto.amount) %> 
+                  <div class="rent-card-detail-item">
+                    <p><%= concepto.name %> </p>
+                    <p><%= concepto.amount %> </p>
                   </div>
+                <% }) %>
+                <p class="bold text-align-right">Total: $<%= parseFloat(total) %></p>
               </div>
           <% }) %> 
         </div>

@@ -1,5 +1,5 @@
 module.exports = function (sequelize, dataTypes) {
-  let alias = "Expenses";
+  let alias = "Transactions";
   let cols = {
     id: {
       type: dataTypes.INTEGER,
@@ -10,7 +10,7 @@ module.exports = function (sequelize, dataTypes) {
     name: {
       type: dataTypes.STRING,
     },
-    dueDate: {
+    date: {
       type: dataTypes.DATE,
     },
     amount: {
@@ -18,24 +18,27 @@ module.exports = function (sequelize, dataTypes) {
     },
     coeff: {
       type: dataTypes.DECIMAL(10, 2),
+    },
+    details: {
+      type: dataTypes.STRING,
     }
   };
   let config = {
-    tableName: "expenses",
+    tableName: "transactions",
     timestamps: true,
     paranoid: true,
   };
 
-  const Expenses = sequelize.define(alias, cols, config);
+  const Transactions = sequelize.define(alias, cols, config);
 
-  Expenses.associate = function (models) {
+  Transactions.associate = function (models) {
     
-    Expenses.belongsTo(models.Contracts, {
+    Transactions.belongsTo(models.Contracts, {
       foreignKey: "contractId",
       as: "contract",
     });
 
   };
 
-  return Expenses;
+  return Transactions;
 };
