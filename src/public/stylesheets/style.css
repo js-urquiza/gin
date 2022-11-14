@@ -548,8 +548,42 @@ nav {
 .rent-card {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.rc-main-info-group {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.rc-mi-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.rc-mi-info i {
+  border: 1px solid var(--color-3);
+  border-radius: 3px;
+  padding: 5px;
+  margin: 6px 12px 6px 0px;
+  color: var(--color-3);
+}
+
+.rent-card-detail {
+  max-height: 0px;
+  overflow: hidden;
+  transition: all 0.7s;
+}
+
+.rcd-show {
+  max-height: 100px;
+}
+
+.rca-rotate {
+  transform: rotate(180deg);
+  transition: all 0.5s;
 }
 
 .rent-card-detail-item {

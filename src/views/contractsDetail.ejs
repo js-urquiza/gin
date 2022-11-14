@@ -70,15 +70,26 @@
         <div>
           <a href="">Ver todo</a>
         </div>
-        <div>
-          <% transaccionesPorFecha.forEach(opDelMes => { %> 
-            <% let fecha = new Date(opDelMes.date) %> 
-            <% let mes = fecha.getMonth() + 1 %> 
-            <% let año = fecha.getFullYear() %>
-              <div class="rent-card">
-                  <p class="bold"><%= mes + " - " + año %></p>
+        <% transaccionesPorFecha.forEach(opDelMes => { %> 
+          <% let fecha = new Date(opDelMes.date) %> 
+          <% let mes = fecha.getMonth() + 1 %> 
+          <% let año = fecha.getFullYear() %>
+            <div class="rent-card" id="rent-card">
+              <div class="rc-main-info-group" id="rc-main-info-group">
+                <div>
+                  <div class="rc-mi-info" id="rc-mi-info">
+                    <i class="fa-solid fa-sack-dollar"></i>
+                    <div>
+                      <p class="bold"><%= mes + " - " + año %></p>
+                      <p>$<%= opDelMes.total %> </p>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <i class="fa-solid fa-arrow-down" id="drop-down-arrow"></i>
+                </div>
               </div>
-              <div>
+              <div class="rent-card-detail" id="rent-card-detail">
                 <% let detalle = transacciones.filter(t => t.date == opDelMes.date) %>
                 <% let total = 0 %> 
                 <% detalle.forEach(concepto => { %>
