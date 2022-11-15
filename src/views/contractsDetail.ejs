@@ -81,13 +81,13 @@
                   <div class="rc-mi-info" id="rc-mi-info">
                     <i class="fa-solid fa-sack-dollar"></i>
                     <div>
-                      <p class="bold"><%= aux.numberToMonth(mes) + " - " + año %></p>
-                      <p>$<%= opDelMes.total %> </p>
+                      <p class="bold" id="rc-mi-date"><%= aux.numberToMonth(mes) + " - " + año %></p>
+                      <p id="rc-mi-total">$<%= opDelMes.total %> </p>
                     </div>
                   </div>
                 </div>
                 <div class="rc-mi-right-group">
-                  <p class="rc-mi-info-count"><%= opDelMes.cantidad %> </p>
+                  <p class="rc-mi-count" id="rc-mi-count"><%= opDelMes.cantidad %> </p>
                   <i class="fa-solid fa-angle-down rc-mi-arrow" id="drop-down-arrow"></i>
                 </div>
               </div>

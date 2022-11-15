@@ -41,11 +41,14 @@ window.onload = function () {
   rentCard.forEach(tarjeta => {
     const dropDownArrow = tarjeta.querySelector("#drop-down-arrow");
     const rentCardDetail = tarjeta.querySelector("#rent-card-detail");
+    const mainInfoTotal = tarjeta.querySelector('#rc-mi-total');
+    const mainInfoCount = tarjeta.querySelector('#rc-mi-count');
 
     dropDownArrow.addEventListener("click", (e) => {
       rentCardDetail.classList.toggle('rcd-show');
       dropDownArrow.classList.toggle('rca-rotate');
-      dropDownArrow.classList.toggle("rca-rotate-again");
+      mainInfoTotal.classList.toggle('display-none');
+      mainInfoCount.classList.toggle('display-none');
     });
 
   })
