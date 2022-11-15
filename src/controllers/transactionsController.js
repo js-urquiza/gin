@@ -3,7 +3,7 @@ const db = require("../database/models");
 const aux = require('../utils/functions');
 
 module.exports = {
-  create: async function(req, res) {
+  create: async function(req, res) { //No se está usando
     
     let fecha = req.body.initialDate;
     let duracion = req.body.duration;

@@ -86,28 +86,36 @@
                     </div>
                   </div>
                 </div>
-                <div>
+                <div class="rc-mi-right-group">
+                  <p class="rc-mi-info-count"><%= opDelMes.cantidad %> </p>
                   <i class="fa-solid fa-angle-down rc-mi-arrow" id="drop-down-arrow"></i>
                 </div>
               </div>
               <div class="rent-card-detail" id="rent-card-detail">
                 <% let detalle = transacciones.filter(t => t.date == opDelMes.date) %>
                 <% let total = 0 %> 
-                <% detalle.forEach(concepto => { %>
-                <% total += parseFloat(concepto.amount) %> 
-                  <div class="rent-card-detail-item">
-                    <p><%= concepto.name %> </p>
-                    <div class="t-options-group">
-                      <p><%= concepto.amount %> </p>
-                      <form action="/transactions/<%= concepto.id %>/delete?_method=DELETE" method="POST">
-                        <button class="btn-transparent" type="submit">
-                          <i class="fa-solid fa-circle-minus"></i>
-                        </button>
-                      </form>
-                    </div>
-                  </div>
-                <% }) %>
-                <p class="bold text-align-right rcd-total">Total: $<%= parseFloat(total) %></p>
+                <table>
+                  <% detalle.forEach(concepto => { %>
+                  <% total += parseFloat(concepto.amount) %> 
+                    <tr class="rent-card-detail-item">
+                      <td class="rcd-concept-column"><%= concepto.name %> </td>
+                      <div class="t-options-group">
+                        <td><%= concepto.amount %> </td>
+                        <form action="/transactions/<%= concepto.id %>/delete?_method=DELETE" method="POST">
+                          <td>
+                            <button class="btn-transparent" type="submit">
+                              <i class="fa-solid fa-circle-minus t-options-delete"></i>
+                            </button>
+                          </td>
+                        </form>
+                      </div>
+                    </tr>
+                  <% }) %>
+                  <tr>
+                    <td class="bold text-align-right">Total:</td>
+                    <td class="bold text-align-right rcd-total text-align-right">$<%= parseFloat(total) %></td>
+                  </tr>
+                </table>
               </div>
           <% }) %> 
         </div>

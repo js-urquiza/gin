@@ -32,7 +32,7 @@ main {
 
 a {
   color: var(--color-4);
-  font-size: 14px;
+  font-size: 12px;
 }
 
 h1 {
@@ -571,6 +571,22 @@ nav {
   color: var(--color-3);
 }
 
+.rc-mi-right-group{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.rc-mi-info-count {
+  margin-right: 12px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background: var(--btn1-border-color);
+  color: #fff;
+  text-align: center;
+}
+
 .rc-mi-arrow {
   color: grey;
 }
@@ -579,10 +595,20 @@ nav {
   max-height: 0px;
   overflow: hidden;
   transition: all 0.7s;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.rent-card-detail table {
+  font-size: 12px;
+}
+
+.text-align-right {
+  text-align: right;
 }
 
 .rcd-show {
-  max-height: 100px;
+  max-height: 300px;
 }
 
 .rca-rotate {
@@ -596,11 +622,11 @@ nav {
 }
 
 .rent-card-detail-item {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  text-align: right;
+}
+
+.rcd-concept-column {
+  padding-right: 6px;
 }
 
 .rcd-total {
@@ -617,7 +643,7 @@ nav {
   align-items: center;
 }
 
-.t-options-group i {
+.t-options-delete {
   font-size: small;
   color: red;
 }

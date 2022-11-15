@@ -83,9 +83,13 @@ module.exports = {
         contractId: req.params.id,
       },
       order: [["date", "ASC"]],
-      attributes: ['date', [sequelize.fn('SUM', sequelize.col('amount')), 'total']],
-      group: 'date',
-      raw: true
+      attributes: [
+        "date",
+        [sequelize.fn("SUM", sequelize.col("amount")), "total"],
+        [sequelize.fn("COUNT", sequelize.col("amount")), "cantidad"],
+      ],
+      group: "date",
+      raw: true,
     });
     
     res.render('contractsDetail', {title: 'Contrato', contrato, transacciones, transaccionesPorFecha});
