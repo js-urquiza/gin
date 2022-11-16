@@ -1,4 +1,4 @@
-let db = require('../database/models');
+let db = require("../database/models");
 
 module.exports = {
   createPeriodicRent: function (fecha, duracion, precio, contrato) {
@@ -14,7 +14,7 @@ module.exports = {
         db.Transactions.create({
           contractId: contrato,
           date: fechaVenc,
-          name: 'Alquiler',
+          name: "Alquiler",
           amount: precio,
         });
 
@@ -27,7 +27,14 @@ module.exports = {
     }
   },
 
-  createPeriodicExpense: function (fecha, duracion, nombre, precio, coeficiente, contrato) {
+  createPeriodicExpense: function (
+    fecha,
+    duracion,
+    nombre,
+    precio,
+    coeficiente,
+    contrato
+  ) {
     let fechaInicio = new Date(fecha);
     let mesInicio = fechaInicio.getMonth() + 2; // new Date le saca 1 y getMonth le saca otro.
     let anioInicio = fechaInicio.getFullYear();
@@ -42,7 +49,7 @@ module.exports = {
           date: fechaVenc,
           name: nombre,
           amount: precio,
-          coeff: coeficiente
+          coeff: coeficiente,
         });
 
         mesInicio = mesInicio + 1;
@@ -107,8 +114,12 @@ module.exports = {
     }
   },
 
-  prueba: function() {
-    
+  pesos: new Intl.NumberFormat("es-AR", {
+    style: "currency",
+    currency: "ARS",
+  }),
+
+  prueba: function () {
     let transactionMonth = transacciones.map(function (transaccion) {
       let result = {
         id: product.id,
@@ -119,6 +130,5 @@ module.exports = {
       };
       return result;
     });
-
   },
 };

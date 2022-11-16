@@ -82,7 +82,7 @@
                     <i class="fa-solid fa-sack-dollar"></i>
                     <div>
                       <p class="bold" id="rc-mi-date"><%= aux.numberToMonth(mes) + " - " + año %></p>
-                      <p id="rc-mi-total">$<%= opDelMes.total %> </p>
+                      <p id="rc-mi-total"><%= aux.pesos.format(opDelMes.total) %> </p>
                     </div>
                   </div>
                 </div>
@@ -98,9 +98,9 @@
                   <% detalle.forEach(concepto => { %>
                   <% total += parseFloat(concepto.amount) %> 
                     <tr class="rent-card-detail-item">
-                      <td class="rcd-concept-column"><%= concepto.name %> </td>
+                      <td class="rcd-concept-column"><%= concepto.name %>:</td>
                       <div class="t-options-group">
-                        <td><%= concepto.amount %> </td>
+                        <td><%= aux.pesos.format(concepto.amount) %></td>
                         <form action="/transactions/<%= concepto.id %>/delete?_method=DELETE" method="POST">
                           <td>
                             <button class="btn-transparent" type="submit">
@@ -112,8 +112,8 @@
                     </tr>
                   <% }) %>
                   <tr>
-                    <td class="bold text-align-right">Total:</td>
-                    <td class="bold text-align-right rcd-total text-align-right">$<%= parseFloat(total) %></td>
+                    <td class="bold text-align-right rcd-concept-column">Total:</td>
+                    <td class="bold text-align-right rcd-total"><%= aux.pesos.format(total) %></td>
                   </tr>
                 </table>
               </div>
