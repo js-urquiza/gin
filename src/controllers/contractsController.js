@@ -92,7 +92,7 @@ module.exports = {
       raw: true,
     });
     
-    res.render('contractsDetail', {title: 'Contrato', contrato, transacciones, transaccionesPorFecha});
+    res.render('contractsDetail', {title: 'Detalle', contrato, transacciones, transaccionesPorFecha});
 
   }
 };

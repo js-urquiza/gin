@@ -725,8 +725,6 @@ nav {
     max-height: 100%;
   }
   100% {
-    transform: translateX(132px);
     max-height: 0px;
-    text-align: right;
   }
 }
