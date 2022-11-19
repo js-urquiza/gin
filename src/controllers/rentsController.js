@@ -16,43 +16,4 @@ module.exports = {
 
     res.redirect("back");
   },
-
-  currentRent: async function (req, res) {
-    contrato = await db.Contracts.findOne({
-      where: {
-        id: req.params.id,
-      },
-      include: ["landlord", "tenant", "property", "transactions"],
-    });
-
-    req.session.contractIdInUse = req.params.id;
-
-    let transacciones = await db.Transactions.findAll({
-      where: {
-        contractId: req.params.id,
-      },
-      order: [["date", "ASC"]],
-    });
-
-    let transaccionesPorFecha = await db.Transactions.findAll({
-      where: {
-        contractId: req.params.id,
-      },
-      order: [["date", "ASC"]],
-      attributes: [
-        "date",
-        [sequelize.fn("SUM", sequelize.col("amount")), "total"],
-        [sequelize.fn("COUNT", sequelize.col("amount")), "cantidad"],
-      ],
-      group: "date",
-      raw: true,
-    });
-
-    res.render("rentOfCurrentMonth", {
-      title: "Detalle",
-      contrato,
-      transacciones,
-      transaccionesPorFecha,
-    });
-  },
 };
