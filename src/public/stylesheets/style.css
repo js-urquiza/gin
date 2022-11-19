@@ -727,9 +727,10 @@ nav {
 
 /* Fin de General */
 
-.search-box-form {
-  display: flex;
-  justify-content: center;
+.search-box {
+  width: 100%;
+  border: none;
+  border-radius: 3px;
 }
 
 .search-btn {
