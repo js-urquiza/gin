@@ -72,7 +72,9 @@ CREATE TABLE `contracts` (
   `name` VARCHAR(255) NULL,
   `startDate` DATE NULL,
   `endDate` DATE NULL,
+  `paymentDueDay` TINYINT NULL,
   `duration` TINYINT NULL,
+  `initialPrice` DECIMAL(10,2) NULL,
   `paymentMethod` VARCHAR(64) NULL,
   `gracePeriod` TINYINT NULL,
   `dailyLateFee` DECIMAL(10,2) NULL,
@@ -83,34 +85,13 @@ CREATE TABLE `contracts` (
   `deletedAt` DATETIME NULL,
   PRIMARY KEY (`id`));
 
-CREATE TABLE `rents` (
+CREATE TABLE `transactions` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `contractId` INT NOT NULL,
-  `dueDate` DATE NOT NULL,
-  `amount` DECIMAL(10,2) NULL,
-  `createdAt` DATETIME NULL,
-  `updatedAt` DATETIME NULL,
-  `deletedAt` DATETIME NULL,
-  PRIMARY KEY (`id`));
-
-CREATE TABLE `expenses` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `contractId` INT NOT NULL,
+  `date` DATE NULL,
   `name` VARCHAR(64) NULL,
-  `dueDate` DATE NULL,
   `amount` DECIMAL(10,2) NULL,
-  `coeff` DECIMAL(10,2) NULL,
-  `createdAt` DATETIME NULL,
-  `updatedAt` DATETIME NULL,
-  `deletedAt` DATETIME NULL,
-  PRIMARY KEY (`id`));
-
-CREATE TABLE `payments` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `contractId` INT NOT NULL,
-  `paymentDate` DATE NULL,
-  `paymentMethod` VARCHAR(64) NULL,
-  `amount` DECIMAL(10,2) NULL,
+  `coeff` DECIMAL(10,2) NULL DEFAULT 1,
   `details` VARCHAR(500) NULL,
   `createdAt` DATETIME NULL,
   `updatedAt` DATETIME NULL,
