@@ -461,6 +461,11 @@ nav {
   flex-direction: column;
 }
 
+.property-cards-list {
+  list-style-type: none;
+  padding: 0px;
+}
+
 .property-card {
   display: flex;
   flex-wrap: wrap;
@@ -468,21 +473,31 @@ nav {
   align-items: center;
   justify-content: space-between;
   background-color: var(--color-6);
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
   border-radius: 10px;
   margin: 10px 0px;
-  padding: 10px;
+  padding: 10px 16px;
 }
 
 .p-card-description {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 
 .p-card-item {
   margin: 0px;
+}
+
+.card-icon {
+  font-size: 24px;
+  margin-right: 12px;
+  color: var(--btn1-border-color);
+}
+
+.card-right-arrow {
+  font-size: 18px;
 }
 
 .property-photo {
@@ -662,10 +677,6 @@ nav {
   margin-right: 21px;
 }
 
-.card-property-name {
-  font-weight: bold;
-}
-
 .t-options-group {
   display: flex;
   flex-direction: row;
@@ -713,6 +724,20 @@ nav {
 }
 
 /* Fin de Modal */
+
+/* Fin de General */
+
+.search-box-form {
+  display: flex;
+  justify-content: center;
+}
+
+.search-btn {
+  background: transparent;
+  border: none;
+}
+
+/* Fin de General */
 
 /* Animaciones */
 
