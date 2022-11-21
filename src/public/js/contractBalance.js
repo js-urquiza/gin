@@ -4,6 +4,7 @@ window.onload = function () {
   const expenseButton = document.querySelector("#expenseButton");
   const createExpenseForm = document.querySelector("#createExpenseForm");
   const bluredBack = document.querySelector("#blured-back");
+  const mesInput = document.querySelector('#mes');
 
   //Rentas: abrir formulario modal
   rentButton.addEventListener("click", (e) => {
@@ -12,6 +13,7 @@ window.onload = function () {
     createRentForm.classList.add("modal-form");
     createRentForm.classList.remove("display-none");
     bluredBack.classList.remove("display-none");
+    mesInput.focus();
   });
 
   bluredBack.addEventListener("click", (e) => {

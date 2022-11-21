@@ -10,6 +10,27 @@ module.exports = {
     return b;
   },
 
+  currentDay: function() {
+    let a = new Date;
+    let b = dayjs(a).format('DD');
+
+    return b;
+  },
+
+  currentMonth: function() {
+    let a = new Date();
+    let b = dayjs(a).format('MM');
+
+    return b;
+  },
+
+  currentYear: function() {
+    let a = new Date();
+    let b = dayjs(a).format('YYYY');
+
+    return b;
+  },
+
   createPeriodicRent: function (fecha, duracion, precio, contrato) {
     let fechaInicio = new Date(fecha);
     let mesInicio = fechaInicio.getMonth() + 2; // new Date le saca 1 y getMonth le saca otro.

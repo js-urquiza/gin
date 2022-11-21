@@ -32,8 +32,11 @@
       </section>
       <section>
         <form class="window display-none" action="/payments/create" method="POST" id="createRentForm">
-            <label for="date">Fecha:
-                <input type="date" name="date" id="date">
+            <label for="date">Mes:
+                <input type="number" name="mes" id="mes">
+            </label>
+            <label for="date">Año:
+                <input type="number" name="anio" id="anio" value="<%= aux.currentYear() %>">
             </label>
             <label for="amount">Monto:
                 <input type="number" name="amount" id="amount">
