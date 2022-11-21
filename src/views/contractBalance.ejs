@@ -14,7 +14,6 @@
         </div>
       </div>
       <div>
-        <a class="nav-icon" href="/contracts/create"><i class="fa-solid fa-plus"></i></a>
         <a class="nav-icon lupa" href=""><i class="fa-solid fa-magnifying-glass"></i></a>
       </div>
     </nav>
@@ -28,44 +27,22 @@
       </section>
       <section class="dash-menu">
         <a href="" class="dash-menu-item" id="rentButton">
-          Rentas
-        </a>
-        <a href="" class="dash-menu-item" id="expenseButton">
-          Cargas
+          Pago
         </a>
       </section>
       <section>
-        <form class="window display-none" action="/rents/create" method="POST" id="createRentForm">
-            <label for="initialDate">Fecha de inicio:
-                <input type="date" name="initialDate" id="initialDate">
-            </label>
-            <label for="duration">Duración:
-                <input type="number" name="duration" id="duration">
+        <form class="window display-none" action="/payments/create" method="POST" id="createRentForm">
+            <label for="date">Fecha:
+                <input type="date" name="date" id="date">
             </label>
             <label for="amount">Monto:
                 <input type="number" name="amount" id="amount">
             </label>
-            <button type="submit">Crear</button>
-        </form>
-        <form class="window display-none" action="/expenses/create" method="POST" id="createExpenseForm">
-            <label for="initialDate">Fecha de inicio:
-                <input type="date" name="initialDate" id="initialDate">
-            </label>
-            <label for="duration">Duración:
-                <input type="number" name="duration" id="duration">
-            </label>
-            <label for="name">Nombre:
-              <input type="text" name="name" id="name">
-            </label>
-            <label for="amount">Monto:
-                <input type="number" name="amount" id="amount">
-            </label>
-            <label for="coeff">Coeficiente:
-                <input type="number" name="coeff" id="coeff">
+            <label for="details">Detalles:
+              <input type="text" name="details" id="details">
             </label>
             <button type="submit">Crear</button>
         </form>
-
       </section>
       <section class="rent-section">
         <div>
@@ -126,7 +103,7 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
-    <script src="/js/contractDashboard.js"></script>
+    <script src="/js/contractBalance.js"></script>
   </body>
 </html>
 

@@ -1,6 +1,15 @@
+const dayjs = require("dayjs");
 let db = require("../database/models");
 
 module.exports = {
+
+  currentDate: function() {
+    let a = new Date();
+    let b = dayjs(a).format("YYYY-MM-DD");
+    
+    return b;
+  },
+
   createPeriodicRent: function (fecha, duracion, precio, contrato) {
     let fechaInicio = new Date(fecha);
     let mesInicio = fechaInicio.getMonth() + 2; // new Date le saca 1 y getMonth le saca otro.

@@ -1,5 +1,7 @@
 const { sequelize } = require('../database/models');
+const { Op } = require("sequelize");
 const db = require('../database/models');
+const aux = require('../utils/functions');
 
 module.exports = {
   list: async function (req, res) {
@@ -142,9 +144,10 @@ module.exports = {
       order: [["date", "ASC"]],
     });
 
-    let transaccionesPorFecha = await db.Transactions.findAll({
+    let tpf = await db.Transactions.findAll({
       where: {
         contractId: req.params.id,
+        date: {[Op.lte]: new Date(aux.currentDate())}
       },
       order: [["date", "ASC"]],
       attributes: [
@@ -155,6 +158,10 @@ module.exports = {
       group: "date",
       raw: true,
     });
+
+    let transaccionesPorFecha = tpf.filter(t => t.total > 0);
+
+    //res.send(transaccionesPorFecha);
 
     res.render("contractBalance", {
       title: "Situación del mes",
