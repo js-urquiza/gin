@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 /* Routers */
 router.use(authRouter);
 router.use('/landlords', landlordsRouter);
-router.use('/contracts',contractsRouter);
+router.use('/contracts', contractsRouter);
 router.use('/properties', propertiesRouter);
 router.use('/tenants', tenantsRouter);
 router.use('/rents', rentsRouter);

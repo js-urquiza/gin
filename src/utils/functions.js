@@ -43,7 +43,7 @@ module.exports = {
 
         db.Transactions.create({
           contractId: contrato,
-          date: fechaVenc,
+          period: fechaVenc,
           name: "Alquiler",
           amount: precio,
         });
@@ -76,7 +76,7 @@ module.exports = {
 
         db.Transactions.create({
           contractId: contrato,
-          date: fechaVenc,
+          period: fechaVenc,
           name: nombre,
           amount: precio,
           coeff: coeficiente,

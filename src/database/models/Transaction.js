@@ -13,6 +13,9 @@ module.exports = function (sequelize, dataTypes) {
     date: {
       type: dataTypes.DATE,
     },
+    period: {
+      type: dataTypes.DATE,
+    },
     amount: {
       type: dataTypes.DECIMAL(10, 2),
     },
@@ -21,7 +24,7 @@ module.exports = function (sequelize, dataTypes) {
     },
     details: {
       type: dataTypes.STRING,
-    }
+    },
   };
   let config = {
     tableName: "transactions",

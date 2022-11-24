@@ -32,10 +32,10 @@
       </section>
       <section>
         <form class="window display-none" action="/payments/create" method="POST" id="createRentForm">
-            <label for="date">Mes:
+            <label for="mes">Mes:
                 <input type="number" name="mes" id="mes">
             </label>
-            <label for="date">Año:
+            <label for="anio">Año:
                 <input type="number" name="anio" id="anio" value="<%= aux.currentYear() %>">
             </label>
             <label for="amount">Monto:
@@ -52,7 +52,7 @@
           <a href="">Ver todo</a>
         </div>
         <% transaccionesPorFecha.forEach(opDelMes => { %> 
-          <% let fecha = new Date(opDelMes.date) %> 
+          <% let fecha = new Date(opDelMes.period) %> 
           <% let mes = fecha.getMonth() + 1 %> 
           <% let año = fecha.getFullYear() %>
             <div class="rent-card" id="rent-card">
@@ -72,7 +72,7 @@
                 </div>
               </div>
               <div class="rent-card-detail" id="rent-card-detail">
-                <% let detalle = transacciones.filter(t => t.date == opDelMes.date) %>
+                <% let detalle = transacciones.filter(t => t.period == opDelMes.period) %>
                 <% let total = 0 %> 
                 <table>
                   <% detalle.forEach(concepto => { %>

@@ -7,11 +7,11 @@ const contractsController = require("../controllers/contractsController");
 router.get("/", contractsController.list);
 router.get('/search', contractsController.listForSearch);
 
-router.get('/:id', contractsController.detail);
-
 router.get('/create', contractsController.showCreate);
 router.post('/create', contractsController.create);
 
 router.get('/balance/:id', contractsController.balance);
+
+router.get('/:id', contractsController.detail);
 
 module.exports = router;

@@ -12,7 +12,8 @@ module.exports = {
 
       db.Transactions.create({
         contractId: req.session.contractIdInUse,
-        date: new Date(fecha),
+        date: new Date(aux.currentDate()),
+        period: new Date(fecha),
         name: 'Pago',
         amount: -req.body.amount,
         coeff: 1,

@@ -102,20 +102,20 @@ module.exports = {
       where: {
         contractId: req.params.id,
       },
-      order: [["date", "ASC"]],
+      order: [["period", "ASC"]],
     });
 
     let transaccionesPorFecha = await db.Transactions.findAll({
       where: {
         contractId: req.params.id,
       },
-      order: [["date", "ASC"]],
+      order: [["period", "ASC"]],
       attributes: [
-        "date",
+        "period",
         [sequelize.fn("SUM", sequelize.col("amount")), "total"],
         [sequelize.fn("COUNT", sequelize.col("amount")), "cantidad"],
       ],
-      group: "date",
+      group: "period",
       raw: true,
     });
 
@@ -141,21 +141,21 @@ module.exports = {
       where: {
         contractId: req.params.id,
       },
-      order: [["date", "ASC"]],
+      order: [["period", "ASC"]],
     });
 
     let tpf = await db.Transactions.findAll({
       where: {
         contractId: req.params.id,
-        date: {[Op.lte]: new Date(aux.currentDate())}
+        period: {[Op.lte]: new Date(aux.currentDate())}
       },
-      order: [["date", "ASC"]],
+      order: [["period", "ASC"]],
       attributes: [
-        "date",
+        "period",
         [sequelize.fn("SUM", sequelize.col("amount")), "total"],
         [sequelize.fn("COUNT", sequelize.col("amount")), "cantidad"],
       ],
-      group: "date",
+      group: "period",
       raw: true,
     });
 
