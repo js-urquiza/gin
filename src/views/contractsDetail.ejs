@@ -101,9 +101,12 @@
                       <div class="t-options-group">
                         <td><%= aux.pesos.format(concepto.amount) %></td>
                         <td class="window display-none" id="transEditForm">
-                          <form action="" method="post">
-                            <label for="editAmount">Nuevo monto:
-                              <input type="text" name="editAmount" id="editAmount">
+                          <form action="/transactions/<%= concepto.id %>/update?_method=PUT" method="post">
+                            <label for="editName">Nombre:
+                              <input type="text" name="editName" id="editName" value="<%= concepto.name %>">
+                            </label>
+                            <label for="editAmount">Monto:
+                              <input type="text" name="editAmount" id="editAmount" value="<%= concepto.amount %>">
                             </label>
                             <button type="submit">Guardar</button>
                           </form>

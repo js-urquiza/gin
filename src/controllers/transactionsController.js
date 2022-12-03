@@ -44,6 +44,22 @@ module.exports = {
     res.redirect("back");
   },
 
+  update: async function(req, res) {
+    await db.Transactions.update(
+      {
+        name: req.body.editName,
+        amount: req.body.editAmount
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    );
+
+    res.redirect('back');
+  },
+
   destroy: async function (req, res) {
     await db.Transactions.destroy({
       where: {
