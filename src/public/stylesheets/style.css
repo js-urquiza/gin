@@ -64,6 +64,17 @@ nav {
   text-align: right;
 }
 
+.search-box {
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+}
+
+.search-btn {
+  background: transparent;
+  border: none;
+}
+
 /* ---Fin de generals--- */
 
 /* ---Alerts--- */
@@ -683,6 +694,11 @@ nav {
   align-items: center;
 }
 
+.t-options-edit {
+  font-size: small;
+  color: var(--color-3);
+}
+
 .t-options-delete {
   font-size: small;
   color: red;
@@ -691,6 +707,11 @@ nav {
 .btn-transparent {
   border: none;
   background-color: transparent;
+}
+
+.input-disable {
+  border: none;
+  text-align: right;
 }
 
 /* Fin de Contracts */
@@ -724,21 +745,6 @@ nav {
 }
 
 /* Fin de Modal */
-
-/* Fin de General */
-
-.search-box {
-  width: 100%;
-  border: none;
-  border-radius: 3px;
-}
-
-.search-btn {
-  background: transparent;
-  border: none;
-}
-
-/* Fin de General */
 
 /* Animaciones */
 

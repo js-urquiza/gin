@@ -35,6 +35,26 @@ window.onload = function () {
     bluredBack.classList.add("display-none");
   });
 
+  //Transacciones: abrir formulario modal para editar transacción
+  const transactions = document.querySelectorAll('#transaction');
+
+  transactions.forEach(transaction => {
+    let editBtn = transaction.querySelector("#editButton");
+    let transEditForm = transaction.querySelector("#transEditForm");
+
+    editBtn.addEventListener('click', e => {
+      transEditForm.classList.add('modal-form');
+      transEditForm.classList.remove('display-none');
+      bluredBack.classList.remove('display-none');
+    });
+
+    bluredBack.addEventListener("click", (e) => {
+      transEditForm.classList.remove("modal-form");
+      transEditForm.classList.add("display-none");
+      bluredBack.classList.add("display-none");
+    });
+  });
+
   //Drop-down arrow
   const rentCard = document.querySelectorAll('#rent-card');
   
