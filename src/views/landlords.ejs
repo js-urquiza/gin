@@ -4,14 +4,25 @@
     <%- include('./partials/head') %>
   </head>
   <body>
-    <%- include('./partials/navbar') %>
+    <nav class="simply-nav">
+      <div class="back-and-ll">
+        <a class="nav-icon" href="/dashboard"><i class="fa-solid fa-arrow-left"></i></a>
+        <div class="pll-info">
+          <h1 class="pll-name"> <%= locals.loggedUser.name + ' ' + locals.loggedUser.lastName %> </h1>
+          <p class="pll-section">/ Propiedades</p>
+        </div>
+      </div>
+      <div>
+        <a class="nav-icon" href="/landlords/create"><i class="fa-solid fa-plus"></i></a>
+        <a class="nav-icon lupa" href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+      </div>
+    </nav>
     <main>
       <h1>Propietarios</h1>
       <div class="landlord-btn-group">
         <% if (propietarios == '') {%> 
           <a class="landlord-btn" href="/landlords/createSelf">Soy propietario</a>
         <% } %> 
-        <a class="landlord-btn" href="/landlords/create">Crear nuevo propietario</a>
       </div>
       <% propietarios.forEach(propietario => { %> 
         <div class="landlord-card">

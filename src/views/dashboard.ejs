@@ -7,12 +7,18 @@
     <%- include('./partials/navbar') %>
     <main>
       <h1>Hola, <%= locals.loggedUser.name %>!</h1>
-      <div class="dash-menu">
-        <a class="dash-menu-item" href="/landlords">
-          <i class="fa-solid fa-users"></i>
-          Propietarios
+      <section>
+        <h2>Propietarios</h2>
+        <a class="dash-card" href="/landlords">
+          <div>
+            <i class="fa-solid fa-users dc-icon"></i>
+          </div>
+          <div>
+            <p class="dc-title">Listado</p>
+            <p class="dc-subtitle">Seleccione el propietario a administrar</p>
+          </div>
         </a>
-      </div>
+      </section>
     </main>
     <footer>
 
