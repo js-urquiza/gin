@@ -617,10 +617,19 @@ nav {
   padding: 5px;
   margin: 6px 12px 6px 0px;
   color: var(--color-3);
+  font-size: large;
 }
 
 .rc-mi-date {
-  width: 110px;
+  font-weight: bold;
+}
+
+.rc-mi-paid {
+  width: 45px;
+  color: var(--btn1-border-color);
+  border: 1px solid var(--btn1-border-color);
+  border-radius: 9px;
+  text-align: center;
 }
 
 .rc-mi-right-group{
