@@ -78,7 +78,7 @@
                     <div>
                       <p class="rc-mi-date" id="rc-mi-date"><%= aux.numberToMonth(mes) + " " + año %></p>
                       <% if(opDelMes.total == 0) { %> 
-                        <p class="rc-mi-paid">pago</p>
+                        <p class="rc-mi-paid" id="rc-mi-paid">pago</p>
                       <% } else { %> 
                         <p id="rc-mi-total"><%= aux.pesos.format(opDelMes.total) %></p>
                       <% } %> 
@@ -91,46 +91,53 @@
                 </div>
               </div>
               <div class="rent-card-detail" id="rent-card-detail">
-                <% let detalle = transacciones.filter(t => t.period == opDelMes.period) %>
-                <% let total = 0 %> 
-                <table>
-                  <% detalle.forEach(concepto => { %>
-                  <% total += parseFloat(concepto.amount) %> 
-                    <tr class="rent-card-detail-item" id="transaction">
-                      <td class="rcd-concept-column"><%= concepto.name %>:</td>
-                      <div class="t-options-group">
-                        <td><%= aux.pesos.format(concepto.amount) %></td>
-                        <td class="window display-none" id="transEditForm">
-                          <form action="/transactions/<%= concepto.id %>/update?_method=PUT" method="post">
-                            <label for="editName">Nombre:
-                              <input type="text" name="editName" id="editName" value="<%= concepto.name %>">
-                            </label>
-                            <label for="editAmount">Monto:
-                              <input type="text" name="editAmount" id="editAmount" value="<%= concepto.amount %>">
-                            </label>
-                            <button type="submit">Guardar</button>
-                          </form>
-                        </td>
-                        <td>
-                          <button class="btn-transparent" id="editButton">
-                            <i class="fa-solid fa-pen t-options-edit"></i>
-                          </button>
-                        </td>
-                        <td>
-                          <form action="/transactions/<%= concepto.id %>/delete?_method=DELETE" method="POST">
-                            <button class="btn-transparent" type="submit">
-                              <i class="fa-solid fa-circle-minus t-options-delete"></i>
+                <div class="rcd-concepts">
+                  <% let detalle = transacciones.filter(t => t.period == opDelMes.period) %>
+                  <% let total = 0 %> 
+                  <table>
+                    <% detalle.forEach(concepto => { %>
+                    <% total += parseFloat(concepto.amount) %> 
+                      <tr class="rent-card-detail-item" id="transaction">
+                        <td class="rcd-concept-column"><%= concepto.name %>:</td>
+                        <div class="t-options-group">
+                          <td><%= aux.pesos.format(concepto.amount) %></td>
+                          <td class="window display-none" id="transEditForm">
+                            <form action="/transactions/<%= concepto.id %>/update?_method=PUT" method="post">
+                              <label for="editName">Nombre:
+                                <input type="text" name="editName" id="editName" value="<%= concepto.name %>">
+                              </label>
+                              <label for="editAmount">Monto:
+                                <input type="text" name="editAmount" id="editAmount" value="<%= concepto.amount %>">
+                              </label>
+                              <button type="submit">Guardar</button>
+                            </form>
+                          </td>
+                          <td>
+                            <button class="btn-transparent" id="editButton">
+                              <i class="fa-solid fa-pen t-options-edit"></i>
                             </button>
-                          </form>
-                        </td>
-                      </div>
+                          </td>
+                          <td>
+                            <form action="/transactions/<%= concepto.id %>/delete?_method=DELETE" method="POST">
+                              <button class="btn-transparent" type="submit">
+                                <i class="fa-solid fa-circle-minus t-options-delete"></i>
+                              </button>
+                            </form>
+                          </td>
+                        </div>
+                      </tr>
+                    <% }) %>
+                    <tr>
+                      <td class="bold text-align-right rcd-concept-column">Total:</td>
+                      <td class="bold text-align-right rcd-total"><%= aux.pesos.format(total) %></td>
                     </tr>
-                  <% }) %>
-                  <tr>
-                    <td class="bold text-align-right rcd-concept-column">Total:</td>
-                    <td class="bold text-align-right rcd-total"><%= aux.pesos.format(total) %></td>
-                  </tr>
-                </table>
+                  </table>
+                </div>
+                <div id="rcd-actions">
+                  <% if(opDelMes.total > 0) { %> 
+                    <button class="rcd-btn">Pagar</button>
+                  <% } %> 
+                </div>
               </div>
           <% }) %> 
         </div>

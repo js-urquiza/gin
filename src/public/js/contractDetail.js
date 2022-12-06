@@ -64,6 +64,7 @@ window.onload = function () {
     const mainInfoTotal = tarjeta.querySelector('#rc-mi-total');
     const mainInfoCount = tarjeta.querySelector('#rc-mi-count');
     const mainInfoDate = tarjeta.querySelector('#rc-mi-date');
+    const mainInfoPaid = tarjeta.querySelector('#rc-mi-paid');
 
     dropDownArrow.addEventListener("click", (e) => {
       rentCardDetail.classList.toggle('rcd-show');
@@ -71,6 +72,7 @@ window.onload = function () {
       mainInfoTotal.classList.toggle('display-none');
       mainInfoCount.classList.toggle('display-none');
       mainInfoDate.classList.toggle('slide-right');
+      mainInfoPaid.classList.toggle('display-none');
     });
 
   })
