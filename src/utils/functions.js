@@ -2,33 +2,49 @@ const dayjs = require("dayjs");
 let db = require("../database/models");
 
 module.exports = {
+  
+  currentPeriod: function () {
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
 
-  currentDate: function() {
+    let period = year + "-" + month + "-" + "10";
+    let formatedPeriod = dayjs(period).format("YYYY-MM-DD");
+
+    return formatedPeriod;
+  },
+
+  currentDate: function () {
     let a = new Date();
     let b = dayjs(a).format("YYYY-MM-DD");
-    
-    return b;
-  },
-
-  currentDay: function() {
-    let a = new Date;
-    let b = dayjs(a).format('DD');
 
     return b;
   },
 
-  currentMonth: function() {
+  currentDay: function () {
     let a = new Date();
-    let b = dayjs(a).format('MM');
+    let b = dayjs(a).format("DD");
 
     return b;
   },
 
-  currentYear: function() {
+  currentMonth: function () {
     let a = new Date();
-    let b = dayjs(a).format('YYYY');
+    let b = dayjs(a).format("MM");
 
     return b;
+  },
+
+  currentYear: function () {
+    let a = new Date();
+    let b = dayjs(a).format("YYYY");
+
+    return b;
+  },
+
+  dateFormating: function (date) {
+    let fecha = dayjs(date).format("DD/MM/YYYY");
+    return fecha;
   },
 
   createPeriodicRent: function (fecha, duracion, precio, contrato) {

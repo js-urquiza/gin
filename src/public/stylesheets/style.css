@@ -665,6 +665,10 @@ nav {
   justify-content: flex-end;
 }
 
+.rcd-actions {
+  margin-top: 3px;
+}
+
 .rcd-btn {
   color: var(--color-4);
   font-size: 12px;

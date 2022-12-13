@@ -147,7 +147,7 @@ module.exports = {
     let tpf = await db.Transactions.findAll({
       where: {
         contractId: req.params.id,
-        period: {[Op.lte]: new Date(aux.currentDate())}
+        period: {[Op.lte]: new Date(aux.currentPeriod())}
       },
       order: [["period", "ASC"]],
       attributes: [
@@ -161,7 +161,7 @@ module.exports = {
 
     let transaccionesPorFecha = tpf.filter(t => t.total > 0);
 
-    //res.send(transaccionesPorFecha);
+    //res.send(tpf);
 
     res.render("contractBalance", {
       title: "Situación del mes",
