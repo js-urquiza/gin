@@ -48,7 +48,7 @@
             <label for="propertyId">Seleccione una propiedad:
                 <select class="w-element" name="propertyId" id="propertyId">
                     <% propiedades.forEach(propiedad => { %> 
-                        <option value="<%= propiedad.id %>"><%= propiedad.streetName + ' Nº' + propiedad.streetNumber %></option>
+                        <option value="<%= propiedad.id %>"><%= propiedad.streetName + ' Nº' + propiedad.streetNumber + ' ' + propiedad.apartment %></option>
                     <% }) %>
                 </select>
             </label>
