@@ -6,12 +6,15 @@ window.onload = function () {
   const bluredBack = document.querySelector("#blured-back");
 
   //Rentas: abrir formulario modal
+  const rentMonthInput = document.querySelector('#rentMonth');
+
   rentButton.addEventListener("click", (e) => {
     e.preventDefault();
 
     createRentForm.classList.add("modal-form");
     createRentForm.classList.remove("display-none");
     bluredBack.classList.remove("display-none");
+    rentMonthInput.focus();
   });
 
   bluredBack.addEventListener("click", (e) => {
@@ -21,12 +24,15 @@ window.onload = function () {
   });
 
   //Cargas: abrir formulario modal
+  const expenseMonthInput = document.querySelector('#expenseMonth');
+
   expenseButton.addEventListener("click", (e) => {
     e.preventDefault();
 
     createExpenseForm.classList.add("modal-form");
     createExpenseForm.classList.remove("display-none");
     bluredBack.classList.remove("display-none");
+    expenseMonthInput.focus();
   });
 
   bluredBack.addEventListener("click", (e) => {

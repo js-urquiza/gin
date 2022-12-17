@@ -51,39 +51,29 @@
       </section>
       <section>
         <form class="createRentForm window display-none" action="/rents/create" method="POST" id="createRentForm">
-            <label for="mes">Mes:
-                <input type="number" name="mes" id="mes">
-            </label>
-            <label for="anio">Año:
-                <input type="number" name="anio" id="anio" value="<%= aux.currentYear() %>">
-            </label>
-            <label for="duration">Duración:
-                <input type="number" name="duration" id="duration">
-            </label>
-            <label for="amount">Monto:
-                <input type="number" name="amount" id="amount">
-            </label>
+            <label for="mes">Mes</label>
+            <input type="number" name="mes" id="rentMonth">
+            <label for="anio">Año</label>
+            <input type="number" name="anio" id="rentYear" value="<%= aux.currentYear() %>">
+            <label for="duration">Duración</label>
+            <input type="number" name="duration" id="rentDuration">
+            <label for="amount">Monto</label>
+            <input type="number" name="amount" id="rentAmount">
             <button type="submit">Crear</button>
         </form>
-        <form class="window display-none" action="/expenses/create" method="POST" id="createExpenseForm">
-            <label for="mes">Mes:
-                <input type="number" name="mes" id="mes">
-            </label>
-            <label for="anio">Año:
-                <input type="number" name="anio" id="anio" value="<%= aux.currentYear() %>">
-            </label>
-            <label for="duration">Duración:
-                <input type="number" name="duration" id="duration">
-            </label>
-            <label for="name">Nombre:
-              <input type="text" name="name" id="name">
-            </label>
-            <label for="amount">Monto:
-                <input type="number" name="amount" id="amount">
-            </label>
-            <label for="coeff">Coeficiente:
-                <input type="number" name="coeff" id="coeff">
-            </label>
+        <form class="createExpenseForm window display-none" action="/expenses/create" method="POST" id="createExpenseForm">
+            <label for="mes">Mes</label>
+            <input type="number" name="mes" id="expenseMonth">
+            <label for="anio">Año</label>
+            <input type="number" name="anio" id="expenseYear" value="<%= aux.currentYear() %>">
+            <label for="duration">Duración</label>
+            <input type="number" name="duration" id="expenseDuration">
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="expensename">
+            <label for="amount">Monto</label>
+            <input type="number" name="amount" id="expenseAmount">
+            <label for="coeff">Coeficiente</label>
+            <input type="number" name="coeff" id="exprenseCoeff">
             <button type="submit">Crear</button>
         </form>
       </section>
