@@ -322,10 +322,15 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: bisque;
+  background-color: var(--color-white);
   border-radius: 10px;
+  border: 1px solid lightgray;
   padding: 16px;
   margin-bottom: 10px;
+}
+
+.ll-main-info p {
+  color: var(--color-black);
 }
 
 .ll-main-photo {
@@ -739,6 +744,57 @@ nav {
 
 /* Fin de Contracts */
 
+/* Contract details */
+
+.contract-main-info {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-white);
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  padding: 16px;
+  margin-bottom: 10px;
+}
+
+.contract-main-info p {
+  color: var(--color-black);
+}
+
+.contract-details-menu {
+  display: flex;
+  justify-content: center;
+}
+
+.contract-details-menu a {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 18px;
+  text-align: center;
+  color: var(--color-black);
+}
+
+.contract-details-item {
+  width: 60px;
+  margin: 3px 6px;
+  padding: 10px;
+  border-radius: 3px;
+  color: var(--color-black);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
+  background-color: #fff;
+  text-align: center;
+}
+
+.createRentForm{
+  
+}
+
+/* Fin de Contract details */
+
 /* Modal */
 
 .display-none {
@@ -762,7 +818,6 @@ nav {
   z-index: 30;
   width: 100vw;
   height: 100vh;
-  background-color: lightgrey;
   opacity: .7;
   backdrop-filter: blur(50px);
 }

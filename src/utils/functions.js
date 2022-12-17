@@ -49,7 +49,7 @@ module.exports = {
 
   createPeriodicRent: function (fecha, duracion, precio, contrato) {
     let fechaInicio = new Date(fecha);
-    let mesInicio = fechaInicio.getMonth() + 2; // new Date le saca 1 y getMonth le saca otro.
+    let mesInicio = fechaInicio.getMonth() + 1;
     let anioInicio = fechaInicio.getFullYear();
 
     for (i = 1; i <= duracion; i++) {
@@ -82,7 +82,7 @@ module.exports = {
     contrato
   ) {
     let fechaInicio = new Date(fecha);
-    let mesInicio = fechaInicio.getMonth() + 2; // new Date le saca 1 y getMonth le saca otro.
+    let mesInicio = fechaInicio.getMonth() + 1;
     let anioInicio = fechaInicio.getFullYear();
 
     for (i = 1; i <= duracion; i++) {

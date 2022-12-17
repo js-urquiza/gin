@@ -15,24 +15,47 @@
       </div>
     </nav>
     <main>
-      <section class="ll-main-info">
-        <p>Del <%= aux.dateFormating(contrato.startDate) %> al <%= aux.dateFormating(contrato.endDate) %></p>
-        <p>$<%= contrato.initialPrice %></p>
-        <p><%= contrato.tenant.name + ' ' + contrato.tenant.lastName %> </p>
-        <p><%= contrato.property.streetName + ' ' + contrato.property.streetNumber + ' ' + contrato.property.apartment %> </p>
+      <section class="contract-main-info">
+        <div>
+          <div>
+            <p class="bold">Inquilino</p>  
+            <p><%= contrato.tenant.name + ' ' + contrato.tenant.lastName %></p>
+          </div>
+          <div>
+            <p class="bold">Inmueble</p>
+            <p><%= contrato.property.apartment ? contrato.property.streetName + ' ' + contrato.property.streetNumber + ' (' + contrato.property.apartment + ')' : contrato.property.streetName + ' ' + contrato.property.streetNumber %></p>
+            <p><%= contrato.property.city + ', ' + contrato.property.province %></p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p class="bold">Precio inicial</p>
+            <p>$<%= contrato.initialPrice %></p>
+          </div>
+          <div>
+            <p class="bold">Período</p>
+            <p><%= aux.dateFormating(contrato.startDate) %></p>
+            <p><%= aux.dateFormating(contrato.endDate) %></p>
+          </div>
+        </div>
       </section>
-      <section class="dash-menu">
-        <a href="" class="dash-menu-item" id="rentButton">
-          Rentas
+      <section class="contract-details-menu">
+        <a href="" id="rentButton">
+          <i class="contract-details-item fa-solid fa-sack-dollar"></i>
+          <p>Rentas</p>
         </a>
-        <a href="" class="dash-menu-item" id="expenseButton">
-          Cargas
+        <a href="" id="expenseButton">
+          <i class="contract-details-item fa-solid fa-receipt"></i>
+          <p>Cargas</p>
         </a>
       </section>
       <section>
-        <form class="window display-none" action="/rents/create" method="POST" id="createRentForm">
-            <label for="initialDate">Fecha de inicio:
-                <input type="date" name="initialDate" id="initialDate">
+        <form class="createRentForm window display-none" action="/rents/create" method="POST" id="createRentForm">
+            <label for="mes">Mes:
+                <input type="number" name="mes" id="mes">
+            </label>
+            <label for="anio">Año:
+                <input type="number" name="anio" id="anio" value="<%= aux.currentYear() %>">
             </label>
             <label for="duration">Duración:
                 <input type="number" name="duration" id="duration">
@@ -43,8 +66,11 @@
             <button type="submit">Crear</button>
         </form>
         <form class="window display-none" action="/expenses/create" method="POST" id="createExpenseForm">
-            <label for="initialDate">Fecha de inicio:
-                <input type="date" name="initialDate" id="initialDate">
+            <label for="mes">Mes:
+                <input type="number" name="mes" id="mes">
+            </label>
+            <label for="anio">Año:
+                <input type="number" name="anio" id="anio" value="<%= aux.currentYear() %>">
             </label>
             <label for="duration">Duración:
                 <input type="number" name="duration" id="duration">

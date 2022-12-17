@@ -3,7 +3,11 @@ const aux = require("../utils/functions");
 
 module.exports = {
   create: async function (req, res) {
-    let fecha = req.body.initialDate;
+    
+    let mes = req.body.mes;
+    let anio = req.body.anio;
+    let fecha = anio + "-" + mes + "-" + 10;
+
     let duracion = req.body.duration;
     let precio = req.body.amount;
     let contrato = req.session.contractIdInUse;
