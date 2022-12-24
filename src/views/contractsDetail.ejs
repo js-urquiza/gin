@@ -16,26 +16,29 @@
     </nav>
     <main>
       <section class="contract-main-info">
-        <div>
+        <h2>Resumen</h2>
+        <div class="contract-main-info-detail">
           <div>
-            <p class="bold">Inquilino</p>  
-            <p><%= contrato.tenant.name + ' ' + contrato.tenant.lastName %></p>
+            <div>
+              <h3>Inquilino</h3> 
+              <p><%= contrato.tenant.name + ' ' + contrato.tenant.lastName %></p>
+            </div>
+            <div>
+              <h3>Inmueble</h3>
+              <p><%= contrato.property.apartment ? contrato.property.streetName + ' ' + contrato.property.streetNumber + ' (' + contrato.property.apartment + ')' : contrato.property.streetName + ' ' + contrato.property.streetNumber %></p>
+              <p><%= contrato.property.city + ', ' + contrato.property.province %></p>
+            </div>
           </div>
           <div>
-            <p class="bold">Inmueble</p>
-            <p><%= contrato.property.apartment ? contrato.property.streetName + ' ' + contrato.property.streetNumber + ' (' + contrato.property.apartment + ')' : contrato.property.streetName + ' ' + contrato.property.streetNumber %></p>
-            <p><%= contrato.property.city + ', ' + contrato.property.province %></p>
-          </div>
-        </div>
-        <div>
-          <div>
-            <p class="bold">Precio inicial</p>
-            <p>$<%= contrato.initialPrice %></p>
-          </div>
-          <div>
-            <p class="bold">Período</p>
-            <p><%= aux.dateFormating(contrato.startDate) %></p>
-            <p><%= aux.dateFormating(contrato.endDate) %></p>
+            <div>
+              <h3>Precio inicial</h3>
+              <p>$<%= contrato.initialPrice %></p>
+            </div>
+            <div>
+              <h3>Período</h3>
+              <p><%= aux.dateFormating(contrato.startDate) %></p>
+              <p><%= aux.dateFormating(contrato.endDate) %></p>
+            </div>
           </div>
         </div>
       </section>
@@ -45,7 +48,7 @@
           <p>Rentas</p>
         </a>
         <a href="" id="expenseButton">
-          <i class="contract-details-item fa-solid fa-receipt"></i>
+          <i class="contract-details-item fa-solid fa-file-invoice-dollar"></i>
           <p>Cargas</p>
         </a>
       </section>
@@ -116,14 +119,12 @@
                         <td class="rcd-concept-column"><%= concepto.name %>:</td>
                         <div class="t-options-group">
                           <td><%= aux.pesos.format(concepto.amount) %></td>
-                          <td class="window display-none" id="transEditForm">
+                          <td class="window display-none transEditForm" id="transEditForm">
                             <form action="/transactions/<%= concepto.id %>/update?_method=PUT" method="post">
-                              <label for="editName">Nombre:
-                                <input type="text" name="editName" id="editName" value="<%= concepto.name %>">
-                              </label>
-                              <label for="editAmount">Monto:
-                                <input type="text" name="editAmount" id="editAmount" value="<%= concepto.amount %>">
-                              </label>
+                              <label for="editName">Nombre</label>
+                              <input type="text" name="editName" id="editName" value="<%= concepto.name %>">
+                              <label for="editAmount">Monto</label>
+                              <input type="text" name="editAmount" id="editAmount" value="<%= concepto.amount %>">
                               <button type="submit">Guardar</button>
                             </form>
                           </td>

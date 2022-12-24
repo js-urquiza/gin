@@ -15,6 +15,10 @@
   --light-beige: #E9DAC4;
   --aquamarine: #749EB2;
   --cognac: #BD8E83;
+  --gray-1: #EEEEEE;
+  --gray-2: #BBBBBB;
+  --gray-3: #888888;
+  --gray-4: #333333;
 }
 
 * {
@@ -36,12 +40,12 @@ a {
 }
 
 h1 {
-  font-size: 21px;
+  font-size: 18px;
   text-align: center;
 }
 
 h2 {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 p {
@@ -91,6 +95,10 @@ nav {
 
 /* ---Navbar--- */
 
+.nav-item {
+  text-align: center;
+}
+
 .navbar-group {
   margin: 0 6px;
 }
@@ -101,22 +109,22 @@ nav {
 }
 
 .nav-login-btn {
-  color: var(--color-black);
   border: 1px solid var(--color-4);
   border-radius: 3px;
+  margin: 3px 0px;
+  color: var(--color-black);
   font-weight: bold;
   text-align: center;
-  margin: 3px 0;
 }
 
 .nav-register-btn {
-  background-color: var(--color-2);
-  color: var(--color-black);
   border: none;
   border-radius: 3px;
+  margin: 3px 0px;
+  background-color: var(--color-2);
+  color: var(--color-black);
   font-weight: bold;
   text-align: center;
-  margin: 3px 0;
 }
 
 /* Fin de Navbar */
@@ -747,20 +755,38 @@ nav {
 /* Contract details */
 
 .contract-main-info {
+  
+  background-color: var(--color-white);
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.contract-main-info h3 {
+  margin: 03px 0px 0px 0px;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--gray-3);
+}
+
+.contract-main-info h2 {
+  color: var(--gray-4);
+  margin-bottom: 6px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--gray-3);
+}
+
+.contract-main-info p {
+  color: var(--color-black);
+}
+
+.contract-main-info-detail {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--color-white);
-  border-radius: 10px;
-  border: 1px solid lightgray;
-  padding: 16px;
-  margin-bottom: 10px;
-}
-
-.contract-main-info p {
-  color: var(--color-black);
 }
 
 .contract-details-menu {
@@ -783,7 +809,7 @@ nav {
   margin: 3px 6px;
   padding: 10px;
   border-radius: 3px;
-  color: var(--color-black);
+  color: var(--gray-4);
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
   background-color: #fff;
   text-align: center;
@@ -801,11 +827,10 @@ nav {
 
 .createRentForm button {
   margin-top: 6px;
-  font-weight: 600;
   border: none;
+  border: 1px solid var(--color-2);
   border-radius: 3px;
-  color: var(--color-white);
-  background-color: #26769E;
+  background-color: var(--color-1);
 }
 
 .createExpenseForm label {
@@ -820,11 +845,35 @@ nav {
 
 .createExpenseForm button {
   margin-top: 6px;
-  font-weight: 600;
   border: none;
+  border: 1px solid var(--color-2);
   border-radius: 3px;
-  color: var(--color-white);
-  background-color: #26769E;
+  background-color: var(--color-1);
+}
+
+.transEditForm form {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.transEditForm label {
+  font-weight: 600;
+  text-align: left;
+}
+
+.transEditForm input {
+  margin-bottom: 6px;
+  border: none;
+  background-color: #f5f5f5;
+}
+
+.transEditForm button {
+  margin-top: 6px;
+  border: none;
+  border: 1px solid var(--color-2);
+  border-radius: 3px;
+  background-color: var(--color-1);
 }
 
 /* Fin de Contract details */
