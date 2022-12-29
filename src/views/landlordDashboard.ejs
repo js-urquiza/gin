@@ -18,23 +18,26 @@
         <figure class="ll-main-photo">
           <img src="/images/landlordsProfile/<%= propietario.profilePhoto %>" alt="Foto">
         </figure>
-        <h1 class="ll-name"> <%= propietario.name + ' ' + propietario.lastName %>  </h1>
+        <h2 class="ll-name"> <%= propietario.name + ' ' + propietario.lastName %>  </h2>
         <p class="ll-phone"><%= propietario.phone %></p>
       </section>
-      <div class="dash-menu">
-          <a class="" href="/properties">
-            <i class="dash-menu-item fa-solid fa-building"></i>
-            <p>Propiedades</p>
-          </a>
-          <a class="" href="/tenants">
-            <i class="dash-menu-item fa-solid fa-users-between-lines"></i>
-            <p>Inquilinos</p>
-          </a>
-          <a class="" href="/contracts">
-            <i class="dash-menu-item fa-regular fa-file-lines"></i>
-            <p>Contratos</p>
-          </a>
-      </div>
+      <section>
+        <h2>Menu</h2>
+        <div class="dash-menu">
+            <a class="" href="/properties">
+              <i class="dash-menu-item fa-solid fa-building"></i>
+              <p>Propiedades</p>
+            </a>
+            <a class="" href="/tenants">
+              <i class="dash-menu-item fa-solid fa-users-between-lines"></i>
+              <p>Inquilinos</p>
+            </a>
+            <a class="" href="/contracts">
+              <i class="dash-menu-item fa-regular fa-file-lines"></i>
+              <p>Contratos</p>
+            </a>
+        </div>
+      </section>
       <section class="dash-section">
         <h2>Rentas</h2>
         <a href="/contracts/search" class="dash-card" id="dash-card">

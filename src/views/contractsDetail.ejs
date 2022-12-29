@@ -42,15 +42,18 @@
           </div>
         </div>
       </section>
-      <section class="contract-details-menu">
-        <a href="" id="rentButton">
-          <i class="contract-details-item fa-solid fa-sack-dollar"></i>
-          <p>Rentas</p>
-        </a>
-        <a href="" id="expenseButton">
-          <i class="contract-details-item fa-solid fa-file-invoice-dollar"></i>
-          <p>Cargas</p>
-        </a>
+      <section>
+        <h2>Acciones</h2>
+        <div class="contract-details-menu">
+          <a href="" id="rentButton">
+            <i class="contract-details-item fa-solid fa-sack-dollar"></i>
+            <p>Nueva<br>Renta</p>
+          </a>
+          <a href="" id="expenseButton">
+            <i class="contract-details-item fa-solid fa-file-invoice-dollar"></i>
+            <p>Nueva<br>Carga</p>
+          </a>
+        </div>
       </section>
       <section>
         <form class="createRentForm window display-none" action="/rents/create" method="POST" id="createRentForm">
@@ -128,6 +131,15 @@
                               <button type="submit">Guardar</button>
                             </form>
                           </td>
+                          <td class="window display-none transEditForm" id="transEditForm">
+                            <form action="/transactions/<%= concepto.id %>/update?_method=PUT" method="post">
+                              <label for="editName">Nombre</label>
+                              <input type="text" name="editName" id="editName" value="<%= concepto.name %>">
+                              <label for="editAmount">Monto</label>
+                              <input type="text" name="editAmount" id="editAmount" value="<%= concepto.amount %>">
+                              <button type="submit">Guardar</button>
+                            </form>
+                          </td>
                           <td>
                             <button class="btn-transparent" id="editButton">
                               <i class="fa-solid fa-pen t-options-edit"></i>
@@ -143,16 +155,30 @@
                         </div>
                       </tr>
                     <% }) %>
-                    <tr>
+                    <tr id="rcd-total-row">
                       <td class="bold text-align-right rcd-concept-column">Total:</td>
                       <td class="bold text-align-right rcd-total"><%= aux.pesos.format(total) %></td>
+                      <td></td>
+                      <% if(opDelMes.total > 0) { %> 
+                            <td>
+                              <button class="rcd-btn" id="payRentBtn">Pagar</button>
+                            </td>
+                      <% } %>
+                      <td class="window display-none payRentForm" id="payRentForm">
+                        <form action="/payments/create" method="POST">
+                          <label for="mes">Mes</label>
+                            <input type="number" name="mes" id="mes" value="<%= mes %>">
+                          <label for="anio">Año</label>
+                            <input type="number" name="anio" id="anio" value="<%= año %>">
+                          <label for="amount">Monto</label>
+                            <input type="number" name="amount" id="amount" value="<%= total%>">
+                          <label for="details">Detalles</label>
+                            <input type="text" name="details" id="details">
+                          <button type="submit">Pagar</button>
+                        </form>
+                      </td>
                     </tr>
                   </table>
-                </div>
-                <div id="rcd-actions">
-                  <% if(opDelMes.total > 0) { %> 
-                    <button class="rcd-btn">Pagar</button>
-                  <% } %> 
                 </div>
               </div>
           <% }) %> 

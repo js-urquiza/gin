@@ -1,6 +1,7 @@
 :root {
   --main-bg-color: #fff2da;
   --main-bg-color-light: #fff9ee;
+  --menu-btn-bg: #d6ebcc;
   --bg-color-light: #F3F3F3;
   --btn1-bg-color: #c5dbbb;
   --btn1-border-color: #a3ac9f;
@@ -678,10 +679,6 @@ nav {
   justify-content: flex-end;
 }
 
-.rcd-actions {
-  margin-top: 3px;
-}
-
 .rcd-btn {
   color: var(--color-4);
   font-size: 12px;
@@ -806,11 +803,11 @@ nav {
 
 .contract-details-item {
   width: 60px;
-  margin: 3px 6px;
-  padding: 10px;
+  margin: 6px;
+  padding: 12px;
   border-radius: 3px;
   color: var(--dark-beige);
-  background-color: var(--btn1-bg-color);
+  background-color: var(--menu-btn-bg);
   text-align: center;
 }
 
@@ -868,6 +865,31 @@ nav {
 }
 
 .transEditForm button {
+  margin-top: 6px;
+  border: none;
+  border: 1px solid var(--color-2);
+  border-radius: 3px;
+  background-color: var(--color-1);
+}
+
+.payRentForm form {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.payRentForm label {
+  font-weight: 600;
+  text-align: left;
+}
+
+.payRentForm input {
+  margin-bottom: 6px;
+  border: none;
+  background-color: #f5f5f5;
+}
+
+.payRentForm button {
   margin-top: 6px;
   border: none;
   border: 1px solid var(--color-2);
