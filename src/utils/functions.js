@@ -1,4 +1,5 @@
 const dayjs = require("dayjs");
+const es = require('dayjs/locale/es');
 let db = require("../database/models");
 
 module.exports = {
@@ -45,6 +46,16 @@ module.exports = {
   dateFormating: function (date) {
     let fecha = dayjs(date).format("DD/MM/YYYY");
     return fecha;
+  },
+
+  dateToFullString: function(date) {
+    let dateDay = dayjs(date).locale("es").format("D");
+    let dateFullDay = dayjs(date).locale('es').format('dddd');
+    let dateMonth = dayjs(date).locale("es").format("MMMM");
+    let dateYear = dayjs(date).locale("es").format("YYYY");
+    let dateString = dateFullDay + ', ' + dateDay + ' de ' + dateMonth + ' de ' + dateYear + '.';
+
+    return dateString;
   },
 
   createPeriodicRent: function (fecha, duracion, precio, contrato) {

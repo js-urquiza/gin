@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('./partials/head') %>
+  </head>
+  <body class="paymentReceipt">
+    <main>
+      <h1>Recibo</h1>
+      <section>
+        <h3>Fecha de pago</h3><p><%= receipt.paymentDateString %> </p>
+        <h3>Recibimos de</h3><p><%= receipt.tenantName %> </p>
+        <h3>la suma de pesos</h3><p><%= receipt.amount %> </p>
+        <h3>en concepto de alquiler por</h3><p><%= receipt.propertyType %> </p>
+        <h3>ubicado en</h3><p><%= receipt.propertyAdress %> </p><p><%= receipt.propertyLocation %> </p>
+        <h3>correspondiente al mes de</h3><p><%= receipt.periodMonth %> de <%= receipt.periodYear %> </p>
+      </section>
+      <section>
+        <h2>Conceptos</h2>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+  </body>
+</html>
