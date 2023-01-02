@@ -117,11 +117,12 @@
                   <% let total = 0 %> 
                   <table>
                     <% detalle.forEach(concepto => { %>
-                    <% total += parseFloat(concepto.amount) %> 
+                    <% let conceptoSubtotal = concepto.amount / concepto.coeff %> 
+                    <% total += parseFloat(conceptoSubtotal) %> 
                       <tr class="rent-card-detail-item" id="transaction">
                         <td class="rcd-concept-column"><%= concepto.name %>:</td>
                         <div class="t-options-group">
-                          <td><%= aux.pesos.format(concepto.amount) %></td>
+                          <td><%= aux.pesos.format(conceptoSubtotal) %></td>
                           <td class="window display-none transEditForm" id="transEditForm">
                             <form action="/transactions/<%= concepto.id %>/update?_method=PUT" method="post">
                               <label for="editName">Nombre</label>

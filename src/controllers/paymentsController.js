@@ -55,6 +55,8 @@ module.exports = {
       let paymentDate = new Date(ultimoPago.date);
       let paymentFullStringDate = aux.dateToFullString(paymentDate);
 
+      let contractId = contract.id;
+
       let receipt = {
         paymentDate: ultimoPago.date,
         paymentDateString: paymentFullStringDate,
@@ -70,6 +72,7 @@ module.exports = {
 
       res.render('paymentReceipt' ,{
         title: 'Recibo',
+        contractId,
         receipt
       });
 

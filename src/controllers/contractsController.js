@@ -112,7 +112,7 @@ module.exports = {
       order: [["period", "ASC"]],
       attributes: [
         "period",
-        [sequelize.fn("SUM", sequelize.col("amount")), "total"],
+        [sequelize.literal("SUM(`amount`/`coeff`)"), "total"], // Dentro de literal ejecuta una consulta escrita en SQL.
         [sequelize.fn("COUNT", sequelize.col("amount")), "cantidad"],
       ],
       group: "period",
