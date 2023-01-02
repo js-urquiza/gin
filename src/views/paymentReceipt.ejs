@@ -7,12 +7,12 @@
     <main>
       <h1>Recibo</h1>
       <section>
-        <h3>Fecha de pago</h3><p><%= receipt.paymentDateString %> </p>
-        <h3>Recibimos de</h3><p><%= receipt.tenantName %> </p>
-        <h3>la suma de pesos</h3><p><%= receipt.amount %> </p>
-        <h3>en concepto de alquiler por</h3><p><%= receipt.propertyType %> </p>
-        <h3>ubicado en</h3><p><%= receipt.propertyAdress %> </p><p><%= receipt.propertyLocation %> </p>
-        <h3>correspondiente al mes de</h3><p><%= receipt.periodMonth %> de <%= receipt.periodYear %> </p>
+        <p>Fecha de pago</p><h3><%= receipt.paymentDateString %> </h3>
+        <p>Recibimos de</p><h3><%= receipt.tenantName %> </h3>
+        <p>la suma de pesos</p><h3><%= aux.pesos.format(receipt.amount) %> </h3>
+        <p>en concepto de alquiler por</p><h3><%= receipt.propertyType %> </h3>
+        <p>ubicado en</p><h3><%= receipt.propertyAdress %> </h3><h3><%= receipt.propertyLocation %> </h3>
+        <p>correspondiente al mes de </p><h3><%= aux.numberToMonth(receipt.periodMonth) %> de <%= receipt.periodYear %> </h3>
       </section>
       <section>
         <h2>Conceptos</h2>
