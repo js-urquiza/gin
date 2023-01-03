@@ -165,6 +165,11 @@
                               <button class="rcd-btn" id="payRentBtn">Pagar</button>
                             </td>
                       <% } %>
+                      <td>
+                        <a class="rcd-whatsappLink" href="/payments/<%= opDelMes.period %>/whatsappNotification" target="_blank">
+                          Enviar <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                      </td>
                       <td class="window display-none payRentForm" id="payRentForm">
                         <form action="/payments/create" method="POST">
                           <label for="mes">Mes</label>

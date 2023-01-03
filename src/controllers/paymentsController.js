@@ -80,6 +80,81 @@ module.exports = {
       console.log(error.message);
     }
 
+  },
+
+  whatsappNotification: async function(req, res) {
+    
+    try {
+      
+      let contract = await db.Contracts.findOne({
+        where: {
+          id: req.session.contractIdInUse,
+        },
+        include: ["landlord", "tenant", "property", "transactions"],
+      });
+
+      let transactions = contract.transactions;
+      let concepts = transactions.filter(transaction => transaction.period == req.params.period);
+      
+      let periodo = new Date(req.params.period);
+      let mes = periodo.getMonth() + 1;
+      let anio = periodo.getFullYear();
+
+      let montos = concepts.map((concept) => {
+        return concept.amount / concept.coeff;
+      });
+
+      let total = montos.reduce(function (aux, monto) {
+        return aux + monto;
+      });
+
+      function getDetail(concepts) {
+        let acum = "";
+        for (let i = 0; i < concepts.length; i++) {
+          acum = acum + concepts[i].name + " " + aux.pesos.format(concepts[i].amount);
+          if (concepts.length != i + 1) {
+            acum = acum + ", ";
+          } else {
+            acum = acum + ".";
+          }
+        }
+        return acum;
+      };
+
+      let data = {
+        tenantName: contract.tenant.name + ' ' + contract.tenant.lastName,
+        propertyType: contract.property.type,
+        propertyAdress: contract.property.streetName + ' ' + contract.property.streetNumber + ' ' + contract.property.apartment,
+        propertyLocation: contract.property.city + ', ' + contract.property.province,
+        periodMonth: mes,
+        periodYear: anio,
+        total: total,
+        detail: getDetail(concepts)
+      };
+
+      let message =
+      "ALQUILER - _Recordatorio._ Estimada/o " +
+      data.tenantName +
+      ", este es el resumen correspondiente al mes " +
+      data.periodMonth +
+      " del año " +
+      data.periodYear +
+      ". El monto total a pagar es de " +
+      aux.pesos.format(data.total) +
+      ". (" +
+      data.detail +
+      ") . La presente liquidación vence el día 10 del corriente mes. La mora se computará de manera automática. _Mensaje generado automáticamente._";
+
+      let whatsappNumber = contract.tenant.whatsapp;
+
+      let whatsappLink = "https://wa.me/" + whatsappNumber + "?text=" + message;
+      
+      res.redirect(whatsappLink);
+
+    } catch (error) {
+      console.log(error.message);
+    }
+
   }
 
 };

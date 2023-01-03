@@ -5,5 +5,6 @@ const paymentsController = require("../controllers/paymentsController");
 
 router.post("/create", paymentsController.create);
 router.get('/checkout', paymentsController.checkout);
+router.get('/:period/whatsappNotification', paymentsController.whatsappNotification);
 
 module.exports = router;

@@ -171,6 +171,8 @@ module.exports = {
     }
   },
 
+  // Forma de uso: aux.pesos.format(nombreDeLaVariable);
+  
   pesos: new Intl.NumberFormat("es-AR", {
     style: "currency",
     currency: "ARS",
