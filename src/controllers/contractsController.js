@@ -105,7 +105,7 @@ module.exports = {
       order: [["period", "ASC"]],
     });
 
-    let transaccionesPorFecha = await db.Transactions.findAll({
+    let transaccionesPorPeriodo = await db.Transactions.findAll({
       where: {
         contractId: req.params.id,
       },
@@ -123,7 +123,7 @@ module.exports = {
       title: "Detalle",
       contrato,
       transacciones,
-      transaccionesPorFecha,
+      transaccionesPorPeriodo,
     });
   },
 

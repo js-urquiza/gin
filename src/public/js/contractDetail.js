@@ -100,10 +100,14 @@ window.onload = function () {
     dropDownArrow.addEventListener("click", (e) => {
       rentCardDetail.classList.toggle("rcd-show");
       dropDownArrow.classList.toggle("rca-rotate");
-      mainInfoTotal.classList.toggle("display-none");
       mainInfoCount.classList.toggle("display-none");
       mainInfoDate.classList.toggle("slide-right");
-      mainInfoPaid.classList.toggle("display-none");
+      if(mainInfoTotal) {
+        mainInfoTotal.classList.toggle("display-none");
+      };
+      if(mainInfoPaid) {
+        mainInfoPaid.classList.toggle("display-none");
+      };
     });
   });
 };
