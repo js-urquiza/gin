@@ -121,8 +121,8 @@
                     <% total += parseFloat(conceptoSubtotal) %> 
                       <tr class="rent-card-detail-item" id="transaction">
                         <td class="rcd-concept-column"><%= concepto.name %>:</td>
+                        <td><%= aux.pesos.format(conceptoSubtotal) %></td>
                         <div class="t-options-group">
-                          <td><%= aux.pesos.format(conceptoSubtotal) %></td>
                           <td class="window display-none transEditForm" id="transEditForm">
                             <form action="/transactions/<%= concepto.id %>/update?_method=PUT" method="post">
                               <label for="editName">Nombre</label>
@@ -156,35 +156,32 @@
                         </div>
                       </tr>
                     <% }) %>
-                    <tr id="rcd-total-row">
+                    <tr>
                       <td class="bold text-align-right rcd-concept-column">Total:</td>
                       <td class="bold text-align-right rcd-total"><%= aux.pesos.format(total) %></td>
-                      <td></td>
-                      <% if(opDelMes.total > 0) { %> 
-                            <td>
-                              <button class="rcd-btn" id="payRentBtn">Pagar</button>
-                            </td>
-                      <% } %>
-                      <td>
-                        <a class="rcd-whatsappLink" href="/payments/<%= opDelMes.period %>/whatsappNotification" target="_blank">
-                          Enviar <i class="fa-brands fa-whatsapp"></i>
-                        </a>
-                      </td>
-                      <td class="window display-none payRentForm" id="payRentForm">
-                        <form action="/payments/create" method="POST">
-                          <label for="mes">Mes</label>
-                            <input type="number" name="mes" id="mes" value="<%= mes %>">
-                          <label for="anio">Año</label>
-                            <input type="number" name="anio" id="anio" value="<%= año %>">
-                          <label for="amount">Monto</label>
-                            <input type="number" name="amount" id="amount" value="<%= total%>">
-                          <label for="details">Detalles</label>
-                            <input type="text" name="details" id="details">
-                          <button type="submit">Pagar</button>
-                        </form>
-                      </td>
                     </tr>
                   </table>
+                  <div class="rcd-actions-group" id="rcd-actions-group">
+                    <% if(opDelMes.total > 0) { %> 
+                      <button class="rcd-btn" id="payRentBtn">Pagar</button>
+                    <% } %>
+                    <a class="rcd-whatsappLink" href="/payments/<%= opDelMes.period %>/whatsappNotification" target="_blank">
+                      Enviar <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <div class="window display-none payRentForm" id="payRentForm">
+                      <form action="/payments/create" method="POST">
+                        <label for="mes">Mes</label>
+                          <input type="number" name="mes" id="mes" value="<%= mes %>">
+                        <label for="anio">Año</label>
+                          <input type="number" name="anio" id="anio" value="<%= año %>">
+                        <label for="amount">Monto</label>
+                          <input type="number" name="amount" id="amount" value="<%= total%>">
+                        <label for="details">Detalles</label>
+                          <input type="text" name="details" id="details">
+                        <button type="submit">Pagar</button>
+                      </form>
+                    </div>
+                  </div>
                 </div>
               </div>
           <% }) %> 

@@ -93,9 +93,10 @@ module.exports = {
         include: ["landlord", "tenant", "property", "transactions"],
       });
 
-      let transactions = contract.transactions;
-      let concepts = transactions.filter(transaction => transaction.period == req.params.period);
+      let transactions = contract.transactions; // Trae todas las transacciones del contrato
+      let concepts = transactions.filter(transaction => transaction.period == req.params.period); // Filtra solo las transacciones del período que se busca.
       
+      //Obtiene el mes y año del periodo
       let periodo = new Date(req.params.period);
       let mes = periodo.getMonth() + 1;
       let anio = periodo.getFullYear();
@@ -146,7 +147,6 @@ module.exports = {
       ") . La presente liquidación vence el día 10 del corriente mes. La mora se computará de manera automática. _Mensaje generado automáticamente._";
 
       let whatsappNumber = contract.tenant.whatsapp;
-
       let whatsappLink = "https://wa.me/" + whatsappNumber + "?text=" + message;
       
       res.redirect(whatsappLink);

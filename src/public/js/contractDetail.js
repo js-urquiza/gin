@@ -62,7 +62,7 @@ window.onload = function () {
   });
 
   //Pago: abrir formulario modal para pagar renta
-  const totalRows = document.querySelectorAll("#rcd-total-row");
+  const totalRows = document.querySelectorAll("#rcd-actions-group");
 
   totalRows.forEach((totalRow) => {
 

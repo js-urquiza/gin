@@ -681,6 +681,14 @@ nav {
 .rcd-concepts {
   display: flex;
   justify-content: flex-end;
+  flex-direction: column;
+}
+
+.rcd-actions-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 6px;
 }
 
 .rcd-btn {
