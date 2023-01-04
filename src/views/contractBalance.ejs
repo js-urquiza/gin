@@ -7,43 +7,67 @@
     <div class="blured-back display-none" id="blured-back"></div>
     <nav class="simply-nav">
       <div class="back-and-ll">
-        <a class="nav-icon" href="javascript:history.back()"><i class="fa-solid fa-arrow-left"></i></a>
+        <a class="nav-icon" href="/contracts/"><i class="fa-solid fa-arrow-left"></i></a>
         <div class="pll-info">
           <h1 class="pll-name"> <%= contrato.landlord.name + ' ' + contrato.landlord.lastName %> </h1>
           <p class="pll-section">/ <%= title %> </p>
         </div>
       </div>
-      <div>
-        <a class="nav-icon lupa" href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-      </div>
     </nav>
     <main>
-      <section class="ll-main-info">
-        <p><%= contrato.startDate %> </p>
-        <p><%= contrato.endDate %> </p>
-        <p>$<%= contrato.initialPrice %> </p>
-        <p><%= contrato.tenant.name + ' ' + contrato.tenant.lastName %> </p>
-        <p><%= contrato.property.streetName + ' ' + contrato.property.streetNumber + ' ' + contrato.property.apartment %> </p>
-      </section>
-      <section class="dash-menu">
-        <a href="" class="dash-menu-item" id="rentButton">
-          Pago
-        </a>
+      <section class="contract-main-info">
+        <h2>Resumen</h2>
+        <div class="contract-main-info-detail">
+          <div>
+            <div>
+              <h3>Inquilino</h3> 
+              <p><%= contrato.tenant.name + ' ' + contrato.tenant.lastName %></p>
+            </div>
+            <div>
+              <h3>Inmueble</h3>
+              <p><%= contrato.property.apartment ? contrato.property.streetName + ' ' + contrato.property.streetNumber + ' (' + contrato.property.apartment + ')' : contrato.property.streetName + ' ' + contrato.property.streetNumber %></p>
+              <p><%= contrato.property.city + ', ' + contrato.property.province %></p>
+            </div>
+          </div>
+          <div>
+            <div>
+              <h3>Precio inicial</h3>
+              <p>$<%= contrato.initialPrice %></p>
+            </div>
+            <div>
+              <h3>Período</h3>
+              <p><%= aux.dateFormating(contrato.startDate) %></p>
+              <p><%= aux.dateFormating(contrato.endDate) %></p>
+            </div>
+          </div>
+        </div>
       </section>
       <section>
-        <form class="window display-none" action="/payments/create" method="POST" id="createRentForm">
-            <label for="mes">Mes:
-                <input type="number" name="mes" id="mes">
-            </label>
-            <label for="anio">Año:
-                <input type="number" name="anio" id="anio" value="<%= aux.currentYear() %>">
-            </label>
-            <label for="amount">Monto:
-                <input type="number" name="amount" id="amount">
-            </label>
-            <label for="details">Detalles:
-              <input type="text" name="details" id="details">
-            </label>
+        <h2>Situación a la fecha</h2>
+        <form class="createRentForm window display-none" action="/rents/create" method="POST" id="createRentForm">
+            <label for="mes">Mes</label>
+            <input type="number" name="mes" id="rentMonth">
+            <label for="anio">Año</label>
+            <input type="number" name="anio" id="rentYear" value="<%= aux.currentYear() %>">
+            <label for="duration">Duración</label>
+            <input type="number" name="duration" id="rentDuration">
+            <label for="amount">Monto</label>
+            <input type="number" name="amount" id="rentAmount">
+            <button type="submit">Crear</button>
+        </form>
+        <form class="createExpenseForm window display-none" action="/expenses/create" method="POST" id="createExpenseForm">
+            <label for="mes">Mes</label>
+            <input type="number" name="mes" id="expenseMonth">
+            <label for="anio">Año</label>
+            <input type="number" name="anio" id="expenseYear" value="<%= aux.currentYear() %>">
+            <label for="duration">Duración</label>
+            <input type="number" name="duration" id="expenseDuration">
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="expensename">
+            <label for="amount">Monto</label>
+            <input type="number" name="amount" id="expenseAmount">
+            <label for="coeff">Coeficiente</label>
+            <input type="number" name="coeff" id="exprenseCoeff">
             <button type="submit">Crear</button>
         </form>
       </section>
@@ -51,7 +75,7 @@
         <div>
           <a href="">Ver todo</a>
         </div>
-        <% transaccionesPorFecha.forEach(opDelMes => { %> 
+        <% transaccionesPorPeriodo.forEach(opDelMes => { %> 
           <% let fecha = new Date(opDelMes.period) %> 
           <% let mes = fecha.getMonth() + 1 %> 
           <% let año = fecha.getFullYear() %>
@@ -61,8 +85,12 @@
                   <div class="rc-mi-info" id="rc-mi-info">
                     <i class="fa-solid fa-sack-dollar"></i>
                     <div>
-                      <p class="bold rc-mi-date" id="rc-mi-date"><%= aux.numberToMonth(mes) + " " + año %></p>
-                      <p id="rc-mi-total"><%= aux.pesos.format(opDelMes.total) %> </p>
+                      <p class="rc-mi-date" id="rc-mi-date"><%= aux.numberToMonth(mes) + " " + año %></p>
+                      <% if(opDelMes.total == 0) { %> 
+                        <p class="rc-mi-paid" id="rc-mi-paid">pago</p>
+                      <% } else { %> 
+                        <p id="rc-mi-total"><%= aux.pesos.format(opDelMes.total) %></p>
+                      <% } %> 
                     </div>
                   </div>
                 </div>
@@ -72,23 +100,47 @@
                 </div>
               </div>
               <div class="rent-card-detail" id="rent-card-detail">
-                <div class="rcd-concepts" id="rcd-concepts">
+                <div class="rcd-concepts">
                   <% let detalle = transacciones.filter(t => t.period == opDelMes.period) %>
                   <% let total = 0 %> 
                   <table>
                     <% detalle.forEach(concepto => { %>
-                    <% total += parseFloat(concepto.amount) %> 
-                      <tr class="rent-card-detail-item">
+                    <% let conceptoSubtotal = concepto.amount / concepto.coeff %> 
+                    <% total += parseFloat(conceptoSubtotal) %> 
+                      <tr class="rent-card-detail-item" id="transaction">
                         <td class="rcd-concept-column"><%= concepto.name %>:</td>
+                        <td><%= aux.pesos.format(conceptoSubtotal) %></td>
                         <div class="t-options-group">
-                          <td><%= aux.pesos.format(concepto.amount) %></td>
-                          <form action="/transactions/<%= concepto.id %>/delete?_method=DELETE" method="POST">
-                            <td>
+                          <td class="window display-none transEditForm" id="transEditForm">
+                            <form action="/transactions/<%= concepto.id %>/update?_method=PUT" method="post">
+                              <label for="editName">Nombre</label>
+                              <input type="text" name="editName" id="editName" value="<%= concepto.name %>">
+                              <label for="editAmount">Monto</label>
+                              <input type="text" name="editAmount" id="editAmount" value="<%= concepto.amount %>">
+                              <button type="submit">Guardar</button>
+                            </form>
+                          </td>
+                          <td class="window display-none transEditForm" id="transEditForm">
+                            <form action="/transactions/<%= concepto.id %>/update?_method=PUT" method="post">
+                              <label for="editName">Nombre</label>
+                              <input type="text" name="editName" id="editName" value="<%= concepto.name %>">
+                              <label for="editAmount">Monto</label>
+                              <input type="text" name="editAmount" id="editAmount" value="<%= concepto.amount %>">
+                              <button type="submit">Guardar</button>
+                            </form>
+                          </td>
+                          <td>
+                            <button class="btn-transparent" id="editButton">
+                              <i class="fa-solid fa-pen t-options-edit"></i>
+                            </button>
+                          </td>
+                          <td>
+                            <form action="/transactions/<%= concepto.id %>/delete?_method=DELETE" method="POST">
                               <button class="btn-transparent" type="submit">
                                 <i class="fa-solid fa-circle-minus t-options-delete"></i>
                               </button>
-                            </td>
-                          </form>
+                            </form>
+                          </td>
                         </div>
                       </tr>
                     <% }) %>
@@ -97,12 +149,30 @@
                       <td class="bold text-align-right rcd-total"><%= aux.pesos.format(total) %></td>
                     </tr>
                   </table>
-                </div>
-                <div class="rcd-actions" id="rcd-actions">
-                  <button class="rcd-btn">Pagar</button>
+                  <div class="rcd-actions-group" id="rcd-actions-group">
+                    <% if(opDelMes.total > 0) { %> 
+                      <button class="rcd-btn" id="payRentBtn">Pagar</button>
+                    <% } %>
+                    <a class="rcd-whatsappLink" href="/payments/<%= opDelMes.period %>/whatsappNotification" target="_blank">
+                      Enviar <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <div class="window display-none payRentForm" id="payRentForm">
+                      <form action="/payments/create" method="POST">
+                        <label for="mes">Mes</label>
+                          <input type="number" name="mes" id="mes" value="<%= mes %>">
+                        <label for="anio">Año</label>
+                          <input type="number" name="anio" id="anio" value="<%= año %>">
+                        <label for="amount">Monto</label>
+                          <input type="number" name="amount" id="amount" value="<%= total%>">
+                        <label for="details">Detalles</label>
+                          <input type="text" name="details" id="details">
+                        <button type="submit">Pagar</button>
+                      </form>
+                    </div>
+                  </div>
                 </div>
               </div>
-        <% }) %> 
+          <% }) %> 
         </div>
       </section>
     </main>
@@ -111,7 +181,7 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
-    <script src="/js/contractBalance.js"></script>
+    <script src="/js/contractDetail.js"></script>
   </body>
 </html>
 

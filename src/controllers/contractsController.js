@@ -144,22 +144,22 @@ module.exports = {
       order: [["period", "ASC"]],
     });
 
-    let tpf = await db.Transactions.findAll({
+    let transaccionesPorPeriodo = await db.Transactions.findAll({
       where: {
         contractId: req.params.id,
-        period: {[Op.lte]: new Date(aux.currentPeriod())}
+        period: { [Op.lte]: new Date(aux.currentPeriod()) }, // Busca las transacciones hasta la fecha actual.
       },
-      order: [["period", "ASC"]],
+      order: [["period", "DESC"]],
       attributes: [
         "period",
-        [sequelize.fn("SUM", sequelize.col("amount")), "total"],
+        [sequelize.literal("SUM(`amount`/`coeff`)"), "total"], // Dentro de literal ejecuta una consulta escrita en SQL.
         [sequelize.fn("COUNT", sequelize.col("amount")), "cantidad"],
       ],
       group: "period",
       raw: true,
     });
 
-    let transaccionesPorFecha = tpf.filter(t => t.total > 0);
+    // let transaccionesPorFecha = transaccionesPorPeriodo.filter(t => t.total > 0); // Busca solo los periodos con deuda.
 
     //res.send(tpf);
 
@@ -167,7 +167,7 @@ module.exports = {
       title: "Situación del mes",
       contrato,
       transacciones,
-      transaccionesPorFecha,
+      transaccionesPorPeriodo,
     });
   }
 };
