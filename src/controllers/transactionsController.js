@@ -48,7 +48,9 @@ module.exports = {
     await db.Transactions.update(
       {
         name: req.body.editName,
-        amount: req.body.editAmount
+        amount: req.body.editAmount,
+        coeff: req.body.editCoeff,
+        date: req.body.editDate
       },
       {
         where: {

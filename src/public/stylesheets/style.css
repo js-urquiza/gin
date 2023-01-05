@@ -904,12 +904,20 @@ nav {
   background-color: #f5f5f5;
 }
 
-.transEditForm button {
+.transEditForm .primaryBtn {
   margin-top: 6px;
   border: none;
   border: 1px solid var(--color-2);
   border-radius: 3px;
   background-color: var(--color-1);
+}
+
+.transEditForm .secondaryBtn {
+  margin-top: 6px;
+  border: none;
+  border: 1px solid var(--color-2);
+  border-radius: 3px;
+  background: none;
 }
 
 .payRentForm form {

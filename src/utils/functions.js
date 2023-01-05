@@ -106,7 +106,7 @@ module.exports = {
           period: fechaVenc,
           name: nombre,
           amount: precio,
-          coeff: coeficiente,
+          coeff: coeficiente ? coeficiente : 1,
         });
 
         mesInicio = mesInicio + 1;
