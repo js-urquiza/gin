@@ -611,6 +611,19 @@ nav {
   padding: 10px;
 }
 
+.rent-menu {
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 1px solid var(--gray-1);
+}
+
+.rentSectionBtn {
+  background: none;
+  color: var(--color-4);
+  border: none;
+  font-size: 12px;
+}
+
 .rent-card {
   display: flex;
   flex-direction: column;
@@ -798,7 +811,7 @@ nav {
   color: var(--gray-4);
   margin-bottom: 6px;
   padding-bottom: 3px;
-  border-bottom: 1px solid var(--gray-3);
+  border-bottom: 1px solid var(--gray-2);
 }
 
 .contract-main-info p {

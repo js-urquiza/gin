@@ -84,8 +84,9 @@
         </form>
       </section>
       <section class="rent-section">
-        <div>
-          <a href="">Ver todo</a>
+        <div class="rent-menu">
+          <button class="rentSectionBtn" id="expandAllBtn">expandir</button><p class="rentSectionBtn">/</p>
+          <button class="rentSectionBtn" id="collapseAllBtn">contraer</button>
         </div>
         <% transaccionesPorPeriodo.forEach(opDelMes => { %> 
           <% let fecha = new Date(opDelMes.period) %> 

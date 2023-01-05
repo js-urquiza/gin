@@ -102,12 +102,47 @@ window.onload = function () {
       dropDownArrow.classList.toggle("rca-rotate");
       mainInfoCount.classList.toggle("display-none");
       mainInfoDate.classList.toggle("slide-right");
-      if(mainInfoTotal) {
+      if (mainInfoTotal) {
         mainInfoTotal.classList.toggle("display-none");
-      };
-      if(mainInfoPaid) {
+      }
+      if (mainInfoPaid) {
         mainInfoPaid.classList.toggle("display-none");
-      };
+      }
+    });
+
+    //ExpandAll
+    const expandAllBtn = document.querySelector("#expandAllBtn");
+
+    expandAllBtn.addEventListener("click", (e) => {
+      rentCardDetail.classList.add("rcd-show");
+      dropDownArrow.classList.add("rca-rotate");
+      mainInfoCount.classList.add("display-none");
+      mainInfoDate.classList.add("slide-right");
+      if (mainInfoTotal) {
+        mainInfoTotal.classList.add("display-none");
+      }
+      if (mainInfoPaid) {
+        mainInfoPaid.classList.add("display-none");
+      }
+    });
+
+    //CollapseAll
+    const collapseAllBtn = document.querySelector("#collapseAllBtn");
+
+    collapseAllBtn.addEventListener("click", (e) => {
+      rentCardDetail.classList.remove("rcd-show");
+      dropDownArrow.classList.remove("rca-rotate");
+      mainInfoCount.classList.remove("display-none");
+      mainInfoDate.classList.remove("slide-right");
+      if (mainInfoTotal) {
+        mainInfoTotal.classList.remove("display-none");
+      }
+      if (mainInfoPaid) {
+        mainInfoPaid.classList.remove("display-none");
+      }
     });
   });
+
+
+  
 };
