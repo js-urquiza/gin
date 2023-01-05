@@ -43,7 +43,19 @@
         </div>
       </section>
       <section>
-        <h2>Situación a la fecha</h2>
+        <h2>Acciones</h2>
+        <div class="contract-details-menu">
+          <a href="" id="rentButton">
+            <i class="contract-details-item fa-solid fa-sack-dollar"></i>
+            <p>Nueva<br>Renta</p>
+          </a>
+          <a href="" id="expenseButton">
+            <i class="contract-details-item fa-solid fa-file-invoice-dollar"></i>
+            <p>Nueva<br>Carga</p>
+          </a>
+        </div>
+      </section>
+      <section>
         <form class="createRentForm window display-none" action="/rents/create" method="POST" id="createRentForm">
             <label for="mes">Mes</label>
             <input type="number" name="mes" id="rentMonth">
@@ -72,8 +84,9 @@
         </form>
       </section>
       <section class="rent-section">
-        <div>
-          <a href="">Ver todo</a>
+        <div class="rent-menu">
+          <button class="rentSectionBtn" id="expandAllBtn">expandir</button><p class="rentSectionBtn">/</p>
+          <button class="rentSectionBtn" id="collapseAllBtn">contraer</button>
         </div>
         <% transaccionesPorPeriodo.forEach(opDelMes => { %> 
           <% let fecha = new Date(opDelMes.period) %> 
