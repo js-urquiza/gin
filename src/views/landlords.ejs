@@ -4,19 +4,7 @@
     <%- include('./partials/head') %>
   </head>
   <body>
-    <nav class="simply-nav">
-      <div class="back-and-ll">
-        <a class="nav-icon" href="/dashboard"><i class="fa-solid fa-arrow-left"></i></a>
-        <div class="pll-info">
-          <h1 class="pll-name"> <%= locals.loggedUser.name + ' ' + locals.loggedUser.lastName %> </h1>
-          <p class="pll-section">/ Propiedades</p>
-        </div>
-      </div>
-      <div>
-        <a class="nav-icon" href="/landlords/create"><i class="fa-solid fa-plus"></i></a>
-        <a class="nav-icon lupa" href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-      </div>
-    </nav>
+    <%- include('./partials/smallNav') %> 
     <main>
       <h1>Propietarios</h1>
       <div class="landlord-btn-group">

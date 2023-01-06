@@ -18,10 +18,16 @@ module.exports = {
       include: ["tenant", "property"],
     });
 
-    console.log(contratos);
+    let smallNavConfig = {
+      backBtn: "/landlords/dashboard/" + propietario.id,
+      h1: req.session.loggedUser.name + " " + req.session.loggedUser.lastName,
+      newBtn: "/contracts/create",
+      searchBtn: "yes",
+    };
 
     res.render("contractsForLandlord", {
       title: "Contratos",
+      smallNavConfig,
       propietario,
       contratos,
     });
@@ -69,10 +75,16 @@ module.exports = {
       },
     });
 
-    console.log(inquilinos);
+    let smallNavConfig = {
+      backBtn: "/landlords/dashboard/" + propietario.id,
+      h1: req.session.loggedUser.name + " " + req.session.loggedUser.lastName,
+      newBtn: "",
+      searchBtn: "",
+    };
 
     res.render("contractsCreate", {
       title: "Nuevo contrato",
+      smallNavConfig,
       propietario,
       inquilinos,
       propiedades,
@@ -89,6 +101,13 @@ module.exports = {
   },
 
   detail: async function (req, res) {
+    
+    let propietario = await db.Landlords.findOne({
+      where: {
+        id: req.session.landlordIdInUse,
+      },
+    });
+    
     contrato = await db.Contracts.findOne({
       where: {
         id: req.params.id,
@@ -119,12 +138,21 @@ module.exports = {
       raw: true,
     });
 
+    let smallNavConfig = {
+      backBtn: "/landlords/dashboard/" + propietario.id,
+      h1: req.session.loggedUser.name + " " + req.session.loggedUser.lastName,
+      newBtn: "",
+      searchBtn: "",
+    };
+
     res.render("contractsDetail", {
       title: "Detalle",
+      smallNavConfig,
       contrato,
       transacciones,
       transaccionesPorPeriodo,
     });
+    
   },
 
   balance: async function(req, res) {

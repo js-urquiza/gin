@@ -1,0 +1,25 @@
+<nav class="simply-nav">
+  <div class="back-and-ll">
+    <a class="nav-icon" href="<%= smallNavConfig.backBtn %> ">
+      <i class="fa-solid fa-arrow-left"></i>
+    </a>
+    <div class="pll-info">
+      <h1 class="pll-name">
+        <%= smallNavConfig.h1 %>
+      </h1>
+      <p class="pll-section">/ <%= title %> </p>
+    </div>
+  </div>
+  <div>
+    <% if (smallNavConfig.newBtn) { %>
+      <a class="nav-icon" href="<%= smallNavConfig.newBtn %>">
+        <i class="fa-solid fa-plus"></i>
+      </a>
+    <% } %>
+    <% if (smallNavConfig.searchBtn == 'yes') { %>
+      <button class="nav-icon search-btn" id="search-btn">
+        <i class="fa-solid fa-magnifying-glass" ></i>
+      </button>
+    <% } %>
+  </div>
+</nav>

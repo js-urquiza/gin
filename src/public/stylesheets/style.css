@@ -545,12 +545,6 @@ nav {
   font-size: 10px;
 }
 
-.property-card-actions {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-
 /* Fin de Properties */
 
 /* Tenants */

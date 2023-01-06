@@ -2,13 +2,25 @@ const db = require("../database/models");
 
 module.exports = {
   list: async function(req, res) {
+
     let propietarios = await db.Landlords.findAll({
-        where: {
-            userId: req.session.loggedUser.id
-        }
-    })
+      where: {
+        userId: req.session.loggedUser.id
+      }
+    });
+
+    let smallNavConfig = {
+      backBtn: "/dashboard",
+      h1: req.session.loggedUser.name + " " + req.session.loggedUser.lastName,
+      newBtn: "/landlords/create",
+      searchBtn: "",
+    };
     
-    res.render("landlords", { title: "Propietarios", propietarios });
+    res.render("landlords", {
+      title: "Propietarios",
+      smallNavConfig,
+      propietarios,
+    });
   },
   
   showCreate: function(req, res) {
@@ -44,11 +56,22 @@ module.exports = {
       where: {
         id: req.params.landlordId
       }
-    })
+    });
 
     req.session.landlordIdInUse = propietario.id;
+
+    let smallNavConfig = {
+      backBtn: "/landlords",
+      h1: req.session.loggedUser.name + " " + req.session.loggedUser.lastName,
+      newBtn: "",
+      searchBtn: "",
+    };
     
-    res.render('landlordDashboard', {title: 'Dashboard', propietario});
+    res.render('landlordDashboard', {
+      title: 'Dashboard',
+      smallNavConfig,
+      propietario
+    });
 
   }
 };

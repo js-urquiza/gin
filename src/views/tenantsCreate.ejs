@@ -4,15 +4,7 @@
     <%- include('./partials/head') %> 
 </head>
 <body>
-    <nav class="simply-nav">
-      <div class="back-and-ll">
-        <a class="nav-icon" href="/landlords/dashboard/<%= propietario.id %>"><i class="fa-solid fa-arrow-left"></i></a>
-        <div class="pll-info">
-          <h1 class="pll-name"> <%= propietario.name + ' ' + propietario.lastName %> </h1>
-          <p class="pll-section">/ <%= title %></p>
-        </div>
-      </div>
-    </nav>
+    <%- include('./partials/smallNav')  %> 
     <main class="form-group">
         <form class="window" action="/tenants/create" method="POST" enctype="multipart/form-data">
             <h1 class="">Nuevo inquilino</h1>

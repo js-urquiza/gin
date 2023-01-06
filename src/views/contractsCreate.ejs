@@ -4,19 +4,7 @@
     <%- include('./partials/head') %>
   </head>
   <body>
-    <nav class="simply-nav">
-      <div class="back-and-ll">
-        <a class="nav-icon" href="/landlords/dashboard/<%= propietario.id %>"><i class="fa-solid fa-arrow-left"></i></a>
-        <div class="pll-info">
-          <h1 class="pll-name"> <%= propietario.name + ' ' + propietario.lastName %> </h1>
-          <p class="pll-section">/ Nuevo contrato</p>
-        </div>
-      </div>
-      <div>
-        <a class="nav-icon" href="/contracts/create"><i class="fa-solid fa-plus"></i></a>
-        <a class="nav-icon lupa" href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-      </div>
-    </nav>
+    <%- include('./partials/smallNav') %> 
     <main class="form-group">
       <form class="window" action="/contracts/create" method="POST"">
             <h1 class="">Nueva contrato</h1>

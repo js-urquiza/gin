@@ -13,9 +13,22 @@ module.exports = {
             where: {
                 landlordId: req.session.landlordIdInUse
             }
-        })
+        });
+
+        let smallNavConfig = {
+          backBtn: "/landlords/dashboard/" + propietario.id,
+          h1:
+            req.session.loggedUser.name + " " + req.session.loggedUser.lastName,
+          newBtn: "/properties/create",
+          searchBtn: "",
+        };
         
-        res.render('propertiesForLandlord', {title: 'Propiedades', propietario, propiedades});
+        res.render("propertiesForLandlord", {
+          title: "Propiedades",
+          smallNavConfig,
+          propietario,
+          propiedades,
+        });
     },
 
     showCreate: async function(req, res) {
