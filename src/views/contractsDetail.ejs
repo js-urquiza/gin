@@ -122,107 +122,107 @@
                   <% detallePositivo.forEach(concepto => { %> 
                     <% resultadoPositivo += parseFloat(concepto.amount / concepto.coeff) %> 
                   <% }) %>
-                  <table>
-                    <% detallePositivo.forEach(concepto => { %>
-                    <% let conceptoSubtotal = concepto.amount / concepto.coeff %> 
-                    <% total += parseFloat(conceptoSubtotal) %> 
-                      <tr class="rent-card-detail-item" id="transaction">
-                        <td class="rcd-concept-column"><%= concepto.name %>:</td>
-                        <td><%= aux.pesos.format(conceptoSubtotal) %></td>
-                        <div class="t-options-group">
-                          <td class="window display-none transEditForm" id="transEditForm">
-                            <form action="/transactions/<%= concepto.id %>/update?_method=PUT" method="post">
-                              <% if(concepto.name == 'Pago') { %> 
-                                <label for="editDate">Fecha de pago</label>
-                                <input type="date" name="editDate" id="editDate" value="<%= concepto.date %>">
-                              <% } %> 
-                              <label for="editName">Nombre</label>
-                              <input type="text" name="editName" id="editName" value="<%= concepto.name %>">
-                              <label for="editAmount">Monto</label>
-                              <input type="text" name="editAmount" id="editAmount" value="<%= concepto.amount %>">
-                              <% if(concepto.name != 'Alquiler' && concepto.name != 'Pago') { %> 
-                                <label for="editCoeff">Coeficiente</label>
-                                <input type="number" name="editCoeff" id="editCoeff" value="<%= Math.round(concepto.coeff) %>">
-                              <% } %> 
-                              <button class="primaryBtn" type="submit">Guardar</button>
-                            </form>
-                            <form action="/transactions/<%= concepto.id %>/delete?_method=DELETE" method="POST">
-                              <button class="secondaryBtn" type="submit">Borrar</button>
-                            </form>
-                          </td>
-                          <td class="window display-none transEditForm" id="transEditForm">
-                            <form action="/transactions/<%= concepto.id %>/update?_method=PUT" method="post">
-                              <label for="editName">Nombre</label>
-                              <input type="text" name="editName" id="editName" value="<%= concepto.name %>">
-                              <label for="editAmount">Monto</label>
-                              <input type="text" name="editAmount" id="editAmount" value="<%= concepto.amount %>">
-                              <button type="submit">Guardar</button>
-                            </form>
-                          </td>
-                          <td>
-                            <button class="btn-transparent" id="editButton">
-                              <i class="fa-solid fa-pen t-options-edit"></i>
-                            </button>
-                          </td>
-                        </div>
+                    <table>
+                      <% detallePositivo.forEach(concepto => { %>
+                      <% let conceptoSubtotal = concepto.amount / concepto.coeff %> 
+                      <% total += parseFloat(conceptoSubtotal) %> 
+                        <tr class="rent-card-detail-item" id="transaction">
+                          <td class="rcd-concept-column"><%= concepto.name %>:</td>
+                          <td><%= aux.pesos.format(conceptoSubtotal) %></td>
+                          <div class="t-options-group">
+                            <td class="window display-none transEditForm" id="transEditForm">
+                              <form action="/transactions/<%= concepto.id %>/update?_method=PUT" method="post">
+                                <% if(concepto.name == 'Pago') { %> 
+                                  <label for="editDate">Fecha de pago</label>
+                                  <input type="date" name="editDate" id="editDate" value="<%= concepto.date %>">
+                                <% } %> 
+                                <label for="editName">Nombre</label>
+                                <input type="text" name="editName" id="editName" value="<%= concepto.name %>">
+                                <label for="editAmount">Monto</label>
+                                <input type="text" name="editAmount" id="editAmount" value="<%= concepto.amount %>">
+                                <% if(concepto.name != 'Alquiler' && concepto.name != 'Pago') { %> 
+                                  <label for="editCoeff">Coeficiente</label>
+                                  <input type="number" name="editCoeff" id="editCoeff" value="<%= Math.round(concepto.coeff) %>">
+                                <% } %> 
+                                <button class="primaryBtn" type="submit">Guardar</button>
+                              </form>
+                              <form action="/transactions/<%= concepto.id %>/delete?_method=DELETE" method="POST">
+                                <button class="secondaryBtn" type="submit">Borrar</button>
+                              </form>
+                            </td>
+                            <td class="window display-none transEditForm" id="transEditForm">
+                              <form action="/transactions/<%= concepto.id %>/update?_method=PUT" method="post">
+                                <label for="editName">Nombre</label>
+                                <input type="text" name="editName" id="editName" value="<%= concepto.name %>">
+                                <label for="editAmount">Monto</label>
+                                <input type="text" name="editAmount" id="editAmount" value="<%= concepto.amount %>">
+                                <button type="submit">Guardar</button>
+                              </form>
+                            </td>
+                            <td>
+                              <button class="btn-transparent" id="editButton">
+                                <i class="fa-solid fa-pen t-options-edit"></i>
+                              </button>
+                            </td>
+                          </div>
+                        </tr>
+                      <% }) %>
+                      <!-- Fin de canon locativo -->
+                      <tr>
+                        <td class="bold text-align-right rcd-concept-column">Subtotal:</td>
+                        <td class="bold text-align-right rcd-total"><%= aux.pesos.format(resultadoPositivo) %></td>
                       </tr>
-                    <% }) %>
-                    <!-- Fin de canon locativo -->
-                    <tr>
-                      <td class="bold text-align-right rcd-concept-column">Subtotal:</td>
-                      <td class="bold text-align-right rcd-total"><%= aux.pesos.format(resultadoPositivo) %></td>
-                    </tr>
-                    <!-- Pagos (conceptos negativos) -->
-                    <% detalleNegativo.forEach(concepto => { %>
-                    <% let conceptoSubtotal = concepto.amount / concepto.coeff %> 
-                    <% total += parseFloat(conceptoSubtotal) %> 
-                      <tr class="rent-card-detail-item" id="transaction">
-                        <td class="rcd-concept-column"><%= concepto.name %>:</td>
-                        <td><%= aux.pesos.format(conceptoSubtotal) %></td>
-                        <div class="t-options-group">
-                          <td class="window display-none transEditForm" id="transEditForm">
-                            <form action="/transactions/<%= concepto.id %>/update?_method=PUT" method="post">
-                              <% if(concepto.name == 'Pago') { %> 
-                                <label for="editDate">Fecha de pago</label>
-                                <input type="date" name="editDate" id="editDate" value="<%= concepto.date %>">
-                              <% } %> 
-                              <label for="editName">Nombre</label>
-                              <input type="text" name="editName" id="editName" value="<%= concepto.name %>">
-                              <label for="editAmount">Monto</label>
-                              <input type="text" name="editAmount" id="editAmount" value="<%= concepto.amount %>">
-                              <% if(concepto.name != 'Alquiler' && concepto.name != 'Pago') { %> 
-                                <label for="editCoeff">Coeficiente</label>
-                                <input type="number" name="editCoeff" id="editCoeff" value="<%= Math.round(concepto.coeff) %>">
-                              <% } %> 
-                              <button class="primaryBtn" type="submit">Guardar</button>
-                            </form>
-                            <form action="/transactions/<%= concepto.id %>/delete?_method=DELETE" method="POST">
-                              <button class="secondaryBtn" type="submit">Borrar</button>
-                            </form>
-                          </td>
-                          <td class="window display-none transEditForm" id="transEditForm">
-                            <form action="/transactions/<%= concepto.id %>/update?_method=PUT" method="post">
-                              <label for="editName">Nombre</label>
-                              <input type="text" name="editName" id="editName" value="<%= concepto.name %>">
-                              <label for="editAmount">Monto</label>
-                              <input type="text" name="editAmount" id="editAmount" value="<%= concepto.amount %>">
-                              <button type="submit">Guardar</button>
-                            </form>
-                          </td>
-                          <td>
-                            <button class="btn-transparent" id="editButton">
-                              <i class="fa-solid fa-pen t-options-edit"></i>
-                            </button>
-                          </td>
-                        </div>
+                      <!-- Pagos (conceptos negativos) -->
+                      <% detalleNegativo.forEach(concepto => { %>
+                      <% let conceptoSubtotal = concepto.amount / concepto.coeff %> 
+                      <% total += parseFloat(conceptoSubtotal) %> 
+                        <tr class="rent-card-detail-item" id="transaction">
+                          <td class="rcd-concept-column"><%= concepto.name %>:</td>
+                          <td><%= aux.pesos.format(conceptoSubtotal) %></td>
+                          <div class="t-options-group">
+                            <td class="window display-none transEditForm" id="transEditForm">
+                              <form action="/transactions/<%= concepto.id %>/update?_method=PUT" method="post">
+                                <% if(concepto.name == 'Pago') { %> 
+                                  <label for="editDate">Fecha de pago</label>
+                                  <input type="date" name="editDate" id="editDate" value="<%= concepto.date %>">
+                                <% } %> 
+                                <label for="editName">Nombre</label>
+                                <input type="text" name="editName" id="editName" value="<%= concepto.name %>">
+                                <label for="editAmount">Monto</label>
+                                <input type="text" name="editAmount" id="editAmount" value="<%= concepto.amount %>">
+                                <% if(concepto.name != 'Alquiler' && concepto.name != 'Pago') { %> 
+                                  <label for="editCoeff">Coeficiente</label>
+                                  <input type="number" name="editCoeff" id="editCoeff" value="<%= Math.round(concepto.coeff) %>">
+                                <% } %> 
+                                <button class="primaryBtn" type="submit">Guardar</button>
+                              </form>
+                              <form action="/transactions/<%= concepto.id %>/delete?_method=DELETE" method="POST">
+                                <button class="secondaryBtn" type="submit">Borrar</button>
+                              </form>
+                            </td>
+                            <td class="window display-none transEditForm" id="transEditForm">
+                              <form action="/transactions/<%= concepto.id %>/update?_method=PUT" method="post">
+                                <label for="editName">Nombre</label>
+                                <input type="text" name="editName" id="editName" value="<%= concepto.name %>">
+                                <label for="editAmount">Monto</label>
+                                <input type="text" name="editAmount" id="editAmount" value="<%= concepto.amount %>">
+                                <button type="submit">Guardar</button>
+                              </form>
+                            </td>
+                            <td>
+                              <button class="btn-transparent" id="editButton">
+                                <i class="fa-solid fa-pen t-options-edit"></i>
+                              </button>
+                            </td>
+                          </div>
+                        </tr>
+                      <% }) %>
+                      <!-- Fin de pagos (conceptos negativos) -->
+                      <tr>
+                        <td class="bold text-align-right rcd-concept-column">Total:</td>
+                        <td class="bold text-align-right rcd-total"><%= aux.pesos.format(total) %></td>
                       </tr>
-                    <% }) %>
-                    <!-- Fin de pagos (conceptos negativos) -->
-                    <tr>
-                      <td class="bold text-align-right rcd-concept-column">Total:</td>
-                      <td class="bold text-align-right rcd-total"><%= aux.pesos.format(total) %></td>
-                    </tr>
-                  </table>
+                    </table>
                   <!-- Grupo de acciones -->
                   <div class="rcd-actions-group" id="rcd-actions-group">
                     <% if(opDelMes.total > 0) { %> 
@@ -248,7 +248,8 @@
                   <!-- Fin de grupo de acciones -->
                 </div>
               </div>
-          <% }) %>
+            </div>
+        <% }) %>
       </section>
     </main>
     <footer>
