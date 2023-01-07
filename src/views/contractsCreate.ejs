@@ -26,38 +26,30 @@
                     <% } %>
                 </div>
             <% } %>
-            <label for="tenantId">Seleccione un inquilino:
-                <select name="tenantId" id="tenantId">
-                    <% inquilinos.forEach(inquilino => { %> 
-                        <option value="<%= inquilino.id %>"><%= inquilino.lastName + ' ' + inquilino.name %></option>
-                    <% }) %>
-                </select>
-            </label>
-            <label for="propertyId">Seleccione una propiedad:
-                <select class="w-element" name="propertyId" id="propertyId">
-                    <% propiedades.forEach(propiedad => { %> 
-                        <option value="<%= propiedad.id %>"><%= propiedad.streetName + ' Nº' + propiedad.streetNumber + ' ' + propiedad.apartment %></option>
-                    <% }) %>
-                </select>
-            </label>
-            <label for="startDate">Inicio del contrato:
-                <input class="w-element" type="date" name="startDate" id="startDate" value='<%= locals.oldData && oldData.startDate ? oldData.startDate : null %>'>
-            </label>
-            <label for="endDate">Fin del contrato:
-                <input class="w-element" type="date" name="endDate" id="endDate" value='<%= locals.oldData && oldData.endDate ? oldData.endDate : null %>'>
-            </label>
-            <label for="duration">Duración:
-                <input class="w-element" type="number" name="duration" id="duration" value='<%= locals.oldData && oldData.duration ? oldData.duration : null %>'>
-            </label>
-            <label for="initialPrice">Precio inicial:
-                <input class="w-element" type="number" name="initialPrice" id="initialPrice" value='<%= locals.oldData && oldData.initialPrice ? oldData.initialPrice : null %>'>
-            </label>
-            <label for="dailyLateFee">Interés por mora:
-                <input class="w-element" type="number" name="dailyLateFee" id="dailyLateFee" value='<%= locals.oldData && oldData.dailyLateFee ? oldData.dailyLateFee : null %>'>
-            </label>
-            <label for="gracePeriod">Días de gracias:
-                <input class="w-element" type="number" name="gracePeriod" id="gracePeriod" value='<%= locals.oldData && oldData.gracePeriod ? oldData.gracePeriod : null %>'>
-            </label>
+            <label for="tenantId">Seleccione un inquilino:</label>
+            <select name="tenantId" id="tenantId">
+                <% inquilinos.forEach(inquilino => { %> 
+                    <option value="<%= inquilino.id %>"><%= inquilino.lastName + ' ' + inquilino.name %></option>
+                <% }) %>
+            </select>
+            <label for="propertyId">Seleccione una propiedad:</label>
+            <select class="w-element" name="propertyId" id="propertyId">
+                <% propiedades.forEach(propiedad => { %> 
+                    <option value="<%= propiedad.id %>"><%= propiedad.streetName + ' Nº' + propiedad.streetNumber + ' ' + propiedad.apartment %></option>
+                <% }) %>
+            </select>
+            <label for="startDate">Inicio del contrato:</label>
+            <input class="w-element" type="date" name="startDate" id="startDate" value='<%= locals.oldData && oldData.startDate ? oldData.startDate : null %>'>
+            <label for="endDate">Fin del contrato:</label>
+            <input class="w-element" type="date" name="endDate" id="endDate" value='<%= locals.oldData && oldData.endDate ? oldData.endDate : null %>'>
+            <label for="duration">Duración:</label>
+            <input class="w-element" type="number" name="duration" id="duration" value='<%= locals.oldData && oldData.duration ? oldData.duration : null %>'>
+            <label for="initialPrice">Precio inicial:</label>
+            <input class="w-element" type="number" name="initialPrice" id="initialPrice" value='<%= locals.oldData && oldData.initialPrice ? oldData.initialPrice : null %>'>
+            <label for="dailyLateFee">Interés por mora:</label>
+            <input class="w-element" type="number" name="dailyLateFee" id="dailyLateFee" value='<%= locals.oldData && oldData.dailyLateFee ? oldData.dailyLateFee : null %>'>
+            <label for="gracePeriod">Días de gracias:</label>
+            <input class="w-element" type="number" name="gracePeriod" id="gracePeriod" value='<%= locals.oldData && oldData.gracePeriod ? oldData.gracePeriod : null %>'>
             <button class="continue-btn" type="submit">Crear</button>
         </form>
     </main>
