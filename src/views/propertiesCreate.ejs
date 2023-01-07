@@ -4,18 +4,11 @@
     <%- include('./partials/head') %> 
 </head>
 <body>
-    <nav class="simply-nav">
-      <div class="back-and-ll">
-        <a class="nav-icon" href="/landlords/dashboard/<%= propietario.id %>"><i class="fa-solid fa-arrow-left"></i></a>
-        <div class="pll-info">
-          <h1 class="pll-name"> <%= propietario.name + ' ' + propietario.lastName %> </h1>
-          <p class="pll-section">/ <%= title %></p>
-        </div>
-      </div>
-    </nav>
+    <%- include('./partials/smallNav') %> 
     <main class="form-group">
         <form class="window" action="/properties/create" method="POST" enctype="multipart/form-data">
             <h1 class="">Nueva propiedad</h1>
+            <!--Validaciones-->
             <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                 <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
                     <path
@@ -34,6 +27,7 @@
                     <% } %>
                 </div>
             <% } %>
+            <!--Fin de validaciones-->
             <input class="w-element" type="text" name="streetName" id="streetName" placeholder="Calle" value='<%= locals.oldData && oldData.streetName ? oldData.streetName : null %>'>
             <input class="w-element" type="text" name="streetNumber" id="streetNumber" placeholder="Altura" value='<%= locals.oldData && oldData.streetNumber ? oldData.streetNumber : null %>'>
             <input class="w-element" type="text" name="apartment" id="apartment" placeholder="Apartamento o descripción" value='<%= locals.oldData && oldData.apartment ? oldData.apartment : null %>'>

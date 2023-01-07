@@ -37,8 +37,20 @@ module.exports = {
                 id: req.session.landlordIdInUse
             }
         });
+
+        let smallNavConfig = {
+          backBtn: "/landlords/dashboard/" + propietario.id,
+          h1:
+            req.session.loggedUser.name + " " + req.session.loggedUser.lastName,
+          newBtn: "",
+          searchBtn: "",
+        };
         
-        res.render('propertiesCreate', {title: 'Nueva propiedad', propietario});
+        res.render("propertiesCreate", {
+          title: "Nueva propiedad",
+          smallNavConfig,
+          propietario,
+        });
     },
 
     create: async function(req, res) {
