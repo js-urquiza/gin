@@ -203,6 +203,7 @@ nav {
 }
 
 .window {
+  min-width: 300px;
   max-width: 600px;
   background-color: var(--color-white);
   border-radius: 7px;
