@@ -10,9 +10,7 @@
         <% propiedades.forEach(propiedad => { %> 
           <div class="property-card">
             <div class="p-card-description">
-              <figure class="property-photo">
-                <img src="/images/propertiesPhoto/<%= propiedad.propertyPhoto %>" alt="Foto">
-              </figure>
+              <i class="property-icon fa-solid fa-house"></i>
               <div>
                 <p class="p-card-item property-adress"><%= propiedad.streetName + ' ' + propiedad.streetNumber + ' ' + propiedad.apartment %></p>
                 <% if(propiedad.postalCode) { %> 

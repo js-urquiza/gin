@@ -528,12 +528,19 @@ nav {
 }
 
 .property-photo {
-  max-width: 30px;
-  margin: 6px 12px 6px 6px;
+  max-width: 48px;
+  margin: 6px 12px 6px 0px;
 }
 
 .property-photo img {
   width: 100%;
+  border-radius: 3px;
+}
+
+.property-icon {
+  margin: 6px 12px 6px 0px;
+  font-size: 24px;
+  color: var(--btn1-border-color);
 }
 
 .property-adress {
