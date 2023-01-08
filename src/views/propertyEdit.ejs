@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+  </head>
+  <body>
+    <%- include('./partials/smallNav') %>
+    <main class="form-group">
+      <form
+        class="window"
+        action="/properties/<%= propiedad.id %>/update?_method=PUT"
+        method="post"
+        enctype="multipart/form-data">
+        <h1 class="">Editar propiedad</h1>
+        <!--Validaciones-->
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+          <symbol
+            id="exclamation-triangle-fill"
+            fill="currentColor"
+            viewBox="0 0 16 16">
+            <path
+              d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+          </symbol>
+        </svg>
+        <% if (locals && locals.errors) { %>
+        <div class="alert alert-danger" role="alert">
+          <% for ( let error in errors ) { %>
+          <div>
+            <svg
+              class="bi flex-shrink-0 me-2"
+              width="24"
+              height="24"
+              role="img"
+              aria-label="Danger:">
+              <use xlink:href="#exclamation-triangle-fill" />
+            </svg>
+            <%= errors[error].msg %>
+          </div>
+          <% } %>
+        </div>
+        <% } %>
+        <!--Fin de validaciones-->
+        <h2>Dirección</h2>
+        <label for="streetName">Calle</label>
+        <input
+          class="w-element"
+          type="text"
+          name="streetName"
+          id="streetName"
+          placeholder="Ejemplo: 'Av. San Martín'"
+          value="<%= propiedad.streetName %>" />
+        <label for="streetNumber">Número</label>
+        <input
+          class="w-element"
+          type="text"
+          name="streetNumber"
+          id="streetNumber"
+          placeholder="Ejemplo: '500'"
+          value="<%= propiedad.streetNumber %>" />
+        <label for="apartment">Apartamento o descripción</label>
+        <input
+          class="w-element"
+          type="text"
+          name="apartment"
+          id="apartment"
+          placeholder="Ejemplo: 'Oficina A'"
+          value="<%= propiedad.apartment %>" />
+        <label for="city">Ciudad</label>
+        <input
+          class="w-element"
+          type="text"
+          name="city"
+          id="city"
+          placeholder="Ejemplo: 'Luján'"
+          value="<%= propiedad.city %>" />
+        <label for="province">Provincia</label>
+        <input
+          class="w-element"
+          type="text"
+          name="province"
+          id="province"
+          placeholder="Ejemplo: 'Buenos Aires'"
+          value="<%= propiedad.province %>" />
+        <label for="postalCode">Código postal</label>
+        <input
+          class="w-element"
+          type="text"
+          name="postalCode"
+          id="postalCode"
+          placeholder="Ejemplo: '6700'"
+          value="<%= propiedad.postalCode %>" />
+        <h2>Descripción</h2>
+        <label for="type">Tipo de propiedad</label>
+        <br />
+        <select name="type" id="type">
+          <option value="Vivienda familiar" <%=propiedad.type==='Vivienda familiar' ? 'selected' : '' ; %>>Vivienda familiar</option>
+          <option value="Local comercial" <%=propiedad.type==='Local comercial' ? 'selected' : '' ; %>>Local comercial</option>
+          <option value="Oficina" <%=propiedad.type==='Oficina' ? 'selected' : '' ; %>>Oficina</option>
+          <option value="Consultorio" <%=propiedad.type==='Consultorio' ? 'selected' : '' ; %>>Consultorio</option>
+        </select>
+        <label class="upload-photo" for="propertyPhoto">
+          <span class="material-symbols-outlined upload-photo-icon">
+            add_a_photo
+          </span>
+          Subir foto
+          <input
+            class="input-file"
+            type="file"
+            name="propertyPhoto"
+            id="propertyPhoto" />
+        </label>
+        <button class="continue-btn" type="submit">Guardar</button>
+      </form>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"></script>
+  </body>
+</html>

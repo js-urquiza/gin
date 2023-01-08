@@ -28,15 +28,27 @@
                 </div>
             <% } %>
             <!--Fin de validaciones-->
-            <input class="w-element" type="text" name="streetName" id="streetName" placeholder="Calle" value='<%= locals.oldData && oldData.streetName ? oldData.streetName : null %>'>
-            <input class="w-element" type="text" name="streetNumber" id="streetNumber" placeholder="Altura" value='<%= locals.oldData && oldData.streetNumber ? oldData.streetNumber : null %>'>
-            <input class="w-element" type="text" name="apartment" id="apartment" placeholder="Apartamento o descripción" value='<%= locals.oldData && oldData.apartment ? oldData.apartment : null %>'>
-            <input class="w-element" type="text" name="city" id="city" placeholder="Ciudad" value='<%= locals.oldData && oldData.city ? oldData.city : null %>'>
-            <input class="w-element" type="text" name="province" id="province" placeholder="Provincia" value='<%= locals.oldData && oldData.province ? oldData.province : null %>'>
-            <input class="w-element" type="text" name="postalCode" id="postalCode" placeholder="Código postal" value='<%= locals.oldData && oldData.postalCode ? oldData.postalCode : null %>'>
+            <h2>Dirección</h2>
+            <label for="streetName">Calle</label>
+            <input class="w-element" type="text" name="streetName" id="streetName" placeholder="Ejemplo: 'Av. San Martín'" value='<%= locals.oldData && oldData.streetName ? oldData.streetName : null %>'>
+            <label for="streetNumber">Número</label>
+            <input class="w-element" type="text" name="streetNumber" id="streetNumber" placeholder="Ejemplo: '500'" value='<%= locals.oldData && oldData.streetNumber ? oldData.streetNumber : null %>'>
+            <label for="apartment">Apartamento o descripción</label>
+            <input class="w-element" type="text" name="apartment" id="apartment" placeholder="Ejemplo: 'Oficina A'" value='<%= locals.oldData && oldData.apartment ? oldData.apartment : null %>'>
+            <label for="city">Ciudad</label>
+            <input class="w-element" type="text" name="city" id="city" placeholder="Ejemplo: 'Luján'" value='<%= locals.oldData && oldData.city ? oldData.city : null %>'>
+            <label for="province">Provincia</label>
+            <input class="w-element" type="text" name="province" id="province" placeholder="Ejemplo: 'Buenos Aires'" value='<%= locals.oldData && oldData.province ? oldData.province : null %>'>
+            <label for="postalCode">Código postal</label>
+            <input class="w-element" type="text" name="postalCode" id="postalCode" placeholder="Ejemplo: '6700'" value='<%= locals.oldData && oldData.postalCode ? oldData.postalCode : null %>'>
+            <h2>Descripción</h2>
+            <label for="type">Tipo de propiedad</label>
+            <br>
             <select name="type" id="type">
-                <option value="Vivienda familiar">Vivienda familiar</option>
-                <option value="Local comercial">Local comercial</option>
+                <option value="Vivienda familiar" <%=locals.oldData && oldData.type === 'Vivienda familiar' ? 'selected' : '' ; %>>Vivienda familiar</option>
+                <option value="Local comercial" <%=locals.oldData && oldData.type ==='Local comercial' ? 'selected' : '' ; %>>Local comercial</option>
+                <option value="Oficina" <%=locals.oldData && oldData.type==='Oficina' ? 'selected' : '' ; %>>Oficina</option>
+                <option value="Consultorio" <%=locals.oldData && oldData.type==='Consultorio' ? 'selected' : '' ; %>>Consultorio</option>
             </select>
             <label class="upload-photo" for="propertyPhoto">
                 <span class="material-symbols-outlined upload-photo-icon">
