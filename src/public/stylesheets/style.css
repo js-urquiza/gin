@@ -35,27 +35,27 @@ main {
   padding: 24px;
 }
 
-a {
-  color: var(--color-4);
-  font-size: 12px;
-}
-
 h1 {
-  font-size: 18px;
+  font-size: 21px;
   text-align: center;
 }
 
 h2 {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 h3 {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 p {
-  font-size: 12px;
+  font-size: 14px;
   margin: 0px;
+}
+
+a {
+  color: var(--color-4);
+  font-size: 14px;
 }
 
 nav {
@@ -588,11 +588,11 @@ nav {
 
 .property-adress {
   font-weight: bold;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .property-city {
-  font-size: 10px;
+  font-size: 14px;
 }
 
 /* Fin de Properties */
