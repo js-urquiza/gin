@@ -36,26 +36,26 @@ main {
 }
 
 h1 {
-  font-size: 21px;
+  font-size: 23px;
   text-align: center;
 }
 
 h2 {
-  font-size: 18px;
+  font-size: 21px;
 }
 
 h3 {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 p {
-  font-size: 14px;
+  font-size: 16px;
   margin: 0px;
 }
 
 a {
   color: var(--color-4);
-  font-size: 14px;
+  font-size: 16px;
 }
 
 nav {
@@ -260,6 +260,7 @@ nav {
   border: 1px solid var(--gray-3);
   border-radius: 3px;
   margin: 3px 3px 6px 3px;
+  font-size: 16px;
 }
 
 .window .w-element {
@@ -490,7 +491,7 @@ nav {
 
 .nav-icon {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 24px;
   color: var(--color-4);
   margin: 0px 5px;
 }
@@ -665,7 +666,6 @@ nav {
   background: none;
   color: var(--color-4);
   border: none;
-  font-size: 12px;
 }
 
 .rent-card {
@@ -691,7 +691,7 @@ nav {
   padding: 5px;
   margin: 6px 12px 6px 0px;
   color: var(--color-3);
-  font-size: large;
+  font-size: 24px;
 }
 
 .rc-mi-date {
@@ -715,11 +715,12 @@ nav {
 .rc-mi-count {
   margin-right: 12px;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   background: var(--btn1-border-color);
   color: #fff;
   text-align: center;
+  font-family: Roboto;
 }
 
 .rc-mi-arrow {
@@ -771,7 +772,7 @@ nav {
 }
 
 .rent-card-detail table {
-  font-size: 12px;
+  font-size: 16px;
   margin: 3px;
 }
 
@@ -880,7 +881,7 @@ nav {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  font-size: 18px;
+  font-size: 24px;
   text-align: center;
   color: var(--color-black);
 }
