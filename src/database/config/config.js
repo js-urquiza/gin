@@ -1,3 +1,5 @@
+import {DB_USER, DB_PASSWORD, DB_NAME, DB_HOST, DB_DIALECT} from '../../config'
+
 module.exports = 
 {
   "development": {
@@ -15,10 +17,10 @@ module.exports =
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": DB_USER,
+    "password": DB_PASSWORD,
+    "database": DB_NAME,
+    "host": DB_HOST,
+    "dialect": DB_DIALECT
   }
 }
