@@ -8,6 +8,7 @@
     <main class="form-group">
         <form class="window" action="/tenants/create" method="POST" enctype="multipart/form-data">
             <h1 class="">Nuevo inquilino</h1>
+            <!--Validaciones-->
             <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                 <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
                     <path
@@ -26,6 +27,8 @@
                     <% } %>
                 </div>
             <% } %>
+            <!--Fin de validaciones-->
+            <label for="name">Nombre</label>
             <input class="w-element" type="text" name="name" id="name" placeholder="Nombre" value='<%= locals.oldData && oldData.name ? oldData.name : null %>'>
             <input class="w-element" type="text" name="lastName" id="lastName" placeholder="Apellido" value='<%= locals.oldData && oldData.lastName ? oldData.lastName : null %>'>
             <label for="birthDate">
