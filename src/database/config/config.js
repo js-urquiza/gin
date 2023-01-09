@@ -1,4 +1,4 @@
-import {DB_USER, DB_PASSWORD, DB_NAME, DB_HOST, DB_DIALECT} from '../../config'
+const config = require('../../config');
 
 module.exports = 
 {
@@ -17,10 +17,10 @@ module.exports =
     "dialect": "mysql"
   },
   "production": {
-    "username": DB_USER,
-    "password": DB_PASSWORD,
-    "database": DB_NAME,
-    "host": DB_HOST,
-    "dialect": DB_DIALECT
+    "username": config.DB_USER,
+    "password": config.DB_PASSWORD,
+    "database": config.DB_NAME,
+    "host": config.DB_HOST,
+    "dialect": config.DB_DIALECT
   }
 }
