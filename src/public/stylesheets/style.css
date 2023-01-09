@@ -36,26 +36,30 @@ main {
 }
 
 h1 {
-  font-size: 23px;
+  font-size: 2.1rem;
   text-align: center;
 }
 
 h2 {
-  font-size: 21px;
+  font-size: 1.5rem;
 }
 
 h3 {
-  font-size: 18px;
+  font-size: 1.2rem;
 }
 
 p {
-  font-size: 16px;
+  font-size: 1.1rem;
   margin: 0px;
 }
 
 a {
   color: var(--color-4);
   font-size: 16px;
+}
+
+i {
+  font-size: 1.6rem;
 }
 
 nav {
@@ -303,6 +307,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 }
 
 .dash-menu a {
@@ -310,15 +315,14 @@ nav {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  font-size: 18px;
   text-align: center;
   color: var(--color-black);
 }
 
 .dash-menu-item {
-  width: 100px;
+  width: 96px;
   margin: 3px;
-  padding: 10px;
+  padding: 16px 0px;
   border-radius: 3px;
   color: var(--color-black);
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
@@ -343,7 +347,6 @@ nav {
 }
 
 .dc-icon {
-  font-size: 18px;
   margin-right: 12px;
   padding: 3px;
 }
@@ -402,7 +405,6 @@ nav {
 }
 
 .ll-name {
-  font-size: 16px;
   font-weight: bold;
   margin: 0px;
 }
