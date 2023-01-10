@@ -36,8 +36,8 @@ main {
 }
 
 h1 {
-  font-size: 2.1rem;
-  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
 h2 {
@@ -264,11 +264,26 @@ nav {
   border: 1px solid var(--gray-3);
   border-radius: 3px;
   margin: 3px 3px 6px 3px;
+  padding: 10px;
+  font-size: 1.1rem;
+}
+
+.window select {
+  width: 100%;
+  border: 1px solid var(--gray-3);
+  border-radius: 3px;
+  margin: 3px 3px 6px 3px;
+  padding: 10px;
   font-size: 1.1rem;
 }
 
 .window .w-element {
   margin: 3px 0px 12px 0px;
+}
+
+.window button {
+  padding: 10px;
+  font-size: 1.1rem;
 }
 
 .continue-btn {
@@ -305,12 +320,14 @@ nav {
 
 .dash-menu {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 10px;
+  width: 100%;
 }
 
 .dash-menu a {
+  width: 33%;
+  max-width: 150px;
   text-decoration: none;
   display: flex;
   justify-content: center;
@@ -320,7 +337,6 @@ nav {
 }
 
 .dash-menu-item {
-  width: 96px;
   margin: 3px;
   padding: 16px 0px;
   border-radius: 3px;
@@ -378,14 +394,7 @@ nav {
 
 .ll-main-info {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background-color: var(--color-white);
-  border-radius: 10px;
-  border: 1px solid lightgray;
-  padding: 16px;
   margin-bottom: 10px;
 }
 
@@ -394,9 +403,9 @@ nav {
 }
 
 .ll-main-photo {
-  width: 60px;
+  width: 48px;
   border-radius: 100%;
-  margin: 3px;
+  margin: 3px 3px 3px 0px;
 }
 
 .ll-main-photo img {
@@ -405,7 +414,6 @@ nav {
 }
 
 .ll-name {
-  font-weight: bold;
   margin: 0px;
 }
 
@@ -907,6 +915,7 @@ nav {
 }
 
 .createRentForm button {
+  width: 100%;
   margin-top: 6px;
   border: none;
   border: 1px solid var(--color-2);
@@ -925,6 +934,7 @@ nav {
 }
 
 .createExpenseForm button {
+  width: 100%;
   margin-top: 6px;
   border: none;
   border: 1px solid var(--color-2);
@@ -983,8 +993,8 @@ nav {
 
 .modal-form {
   position: absolute;
-  top: 50%;
   z-index: 100;
+  top: 50%;
   left: 50%;
   border-radius: 15px;
   transform: translate(-50%, -50%);
