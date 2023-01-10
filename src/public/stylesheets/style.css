@@ -994,10 +994,8 @@ nav {
 .modal-form {
   position: absolute;
   z-index: 100;
-  top: 50%;
-  left: 50%;
   border-radius: 15px;
-  transform: translate(-50%, -50%);
+  transform: translate(-95%, -100%);
 }
 
 .blured-back {
